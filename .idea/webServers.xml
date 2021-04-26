@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a42e8e14-557a-451c-9e6a-45acfcb5edac" name="4um" url="http://4um.polarlooptheory.pl">
+        <fileTransfer rootFolder="/var/www/4um" accessType="SFTP" host="polarlooptheory.pl" port="22" sshConfigId="af1f916d-2838-4194-883f-ff6846b0fffc" sshConfig="root@polarlooptheory.pl:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
