@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Authentication\Providers\AuthenticationServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(AuthenticationServiceProvider::class);
     }
 
     /**

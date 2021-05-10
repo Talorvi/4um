@@ -4,15 +4,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="Initial project setup">
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/ValidateRegisterUserInputJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Console/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/RegisterUserFeature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Middleware/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Operations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/AuthenticationServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/Features/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/Operations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/factories/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/migrations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/seeds/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/lang/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/views/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_10_065304_create_permission_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Authentication/LoginUserFeatureTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Authentication/RegisterUserFeatureTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/ValidateRegisterUserInputJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/4um.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/4um.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -137,9 +191,11 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rhNgVWTejocjP5cGojmoSET10Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -154,7 +210,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="sshConsole" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -172,10 +228,25 @@
       <option name="presentableId" value="Default" />
       <updated>1619424474862</updated>
       <workItem from="1619424477454" duration="1502000" />
+      <workItem from="1619465028022" duration="804000" />
+      <workItem from="1620303470559" duration="4330000" />
+      <workItem from="1620628589722" duration="11048000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

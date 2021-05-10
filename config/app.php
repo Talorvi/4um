@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\Authentication\Providers\AuthenticationServiceProvider;
+
 return [
 
     /*
@@ -174,6 +176,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Lucid Service Providers
+         */
+        AuthenticationServiceProvider::class,
 
     ],
 
