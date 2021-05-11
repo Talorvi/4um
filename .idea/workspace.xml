@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="fixed an error with logging in and registrating">
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added /.idea to the .gitignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +207,7 @@
       <workItem from="1620642728541" duration="72000" />
       <workItem from="1620642811929" duration="306000" />
       <workItem from="1620643130826" duration="2398000" />
-      <workItem from="1620724106699" duration="3280000" />
+      <workItem from="1620724106699" duration="3414000" />
     </task>
     <task id="LOCAL-00001" summary="added registration route">
       <created>1620642556257</created>
@@ -230,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620727318943</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added /.idea to the .gitignore">
+      <created>1620727432652</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727432652</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +259,8 @@
     <MESSAGE value="added registration route" />
     <MESSAGE value="finished login feature&#10;did some cleanup" />
     <MESSAGE value="fixed an error with logging in and registrating" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed an error with logging in and registrating" />
+    <MESSAGE value="added /.idea to the .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added /.idea to the .gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
