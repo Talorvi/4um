@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Lucid\Bus\UnitDispatcher;
 
-class Register extends FormRequest
+class Login extends FormRequest
 {
     use UnitDispatcher;
 
@@ -30,8 +30,7 @@ class Register extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required|unique:users,name|max:32',
-            'email'    => 'required|unique:users,email|email',
+            'email'    => 'required|email',
             'password' => 'required|min:6'
         ];
     }

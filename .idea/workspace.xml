@@ -4,57 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="Initial project setup">
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/ValidateRegisterUserInputJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Console/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/RegisterUserFeature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Middleware/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Operations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/AuthenticationServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/Features/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/Tests/Operations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/factories/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/migrations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/database/seeds/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/lang/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/views/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_10_065304_create_permission_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Authentication/LoginUserFeatureTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Authentication/RegisterUserFeatureTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJobTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/ValidateRegisterUserInputJobTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/4um.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/4um.iml" afterDir="false" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added registration route">
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/ValidateRegisterUserInputJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +28,14 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
@@ -210,14 +177,32 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.RegisterJob.php">
+    <configuration name="4um" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegisterJob.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.RegisterJob.php" />
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.4um" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -230,8 +215,20 @@
       <workItem from="1619424477454" duration="1502000" />
       <workItem from="1619465028022" duration="804000" />
       <workItem from="1620303470559" duration="4330000" />
-      <workItem from="1620628589722" duration="11048000" />
+      <workItem from="1620628589722" duration="11241000" />
+      <workItem from="1620642728541" duration="72000" />
+      <workItem from="1620642811929" duration="306000" />
+      <workItem from="1620643130826" duration="2398000" />
+      <workItem from="1620724106699" duration="2733000" />
     </task>
+    <task id="LOCAL-00001" summary="added registration route">
+      <created>1620642556257</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620642556258</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,5 +245,17 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added registration route" />
+    <option name="LAST_COMMIT_MESSAGE" value="added registration route" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/4um@tests.xml" NAME="tests Coverage Results" MODIFIED="1620645323245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/4um@4um.xml" NAME="4um Coverage Results" MODIFIED="1620643157837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

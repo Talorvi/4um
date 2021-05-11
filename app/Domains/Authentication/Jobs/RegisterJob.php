@@ -8,9 +8,9 @@ use Lucid\Units\Job;
 
 class RegisterJob extends Job
 {
-    private $name;
-    private $email;
-    private $password;
+    private string $name;
+    private string $email;
+    private string $password;
 
     /**
      * Create a new job instance.
@@ -29,9 +29,9 @@ class RegisterJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return User
      */
-    public function handle()
+    public function handle() : User
     {
         return User::create([
             'name' => $this->name,

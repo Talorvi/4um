@@ -2,19 +2,20 @@
 
 namespace App\Domains\Authentication\Jobs;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Lucid\Units\Job;
 
 class RespondWithJsonResponseErrorJob extends Job
 {
-    private $errors;
+    private array $errors;
 
     /**
      * Create a new job instance.
      *
      * @param $errors
      */
-    public function __construct($errors)
+    public function __construct(array $errors)
     {
         $this->errors = $errors;
     }
@@ -22,9 +23,9 @@ class RespondWithJsonResponseErrorJob extends Job
     /**
      * Execute the job.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function handle()
+    public function handle(): JsonResponse
     {
         return response()->json([
             'errors'   => $this->errors,

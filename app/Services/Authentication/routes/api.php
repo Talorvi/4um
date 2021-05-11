@@ -30,4 +30,6 @@ Route::group(['prefix' => 'authentication'], function() {
 
     Route::post('/register', [AuthenticationController::class, 'registerUser']);
 
+    Route::post('/login', [AuthenticationController::class, 'loginUser']);
+
 });
