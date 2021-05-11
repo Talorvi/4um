@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added registration route">
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="finished login feature&#10;did some cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/LoginJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/ValidateRegisterUserInputJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/Features/LoginUserFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/Http/Controllers/AuthenticationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Authentication/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +209,7 @@
       <workItem from="1620642728541" duration="72000" />
       <workItem from="1620642811929" duration="306000" />
       <workItem from="1620643130826" duration="2398000" />
-      <workItem from="1620724106699" duration="2733000" />
+      <workItem from="1620724106699" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="added registration route">
       <created>1620642556257</created>
@@ -228,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620642556258</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished login feature&#10;did some cleanup">
+      <created>1620726911703</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620726911703</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,7 +245,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added registration route" />
-    <option name="LAST_COMMIT_MESSAGE" value="added registration route" />
+    <MESSAGE value="finished login feature&#10;did some cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished login feature&#10;did some cleanup" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

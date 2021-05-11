@@ -45,7 +45,7 @@ class Register extends FormRequest
     protected function failedValidation(Validator $validator) {
         throw new HttpResponseException(
             $this->run(RespondWithJsonResponseErrorJob::class, [
-                'errors' => $validator->errors()
+                'errors' => $validator->errors()->toArray()
             ])
         );
     }
