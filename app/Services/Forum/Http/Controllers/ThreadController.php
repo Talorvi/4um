@@ -4,6 +4,7 @@ namespace App\Services\Forum\Http\Controllers;
 
 use App\Services\Forum\Features\AddThreadFeature;
 use App\Services\Forum\Features\DeleteThreadFeature;
+use App\Services\Forum\Features\EditThreadFeature;
 use Lucid\Units\Controller;
 
 class ThreadController extends Controller
@@ -15,7 +16,7 @@ class ThreadController extends Controller
 
     public function editThread()
     {
-        return $this->serve(DeleteThreadFeature::class);
+        return $this->serve(EditThreadFeature::class);
     }
 
     public function deleteThread()

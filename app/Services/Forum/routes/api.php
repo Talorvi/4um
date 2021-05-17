@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'forum'], function() {
 
     Route::middleware('auth:api')->post('/add-thread', [ThreadController::class, 'addThread']);
+    Route::middleware('auth:api')->post('/delete-thread', [ThreadController::class, 'deleteThread']);
 
 });
