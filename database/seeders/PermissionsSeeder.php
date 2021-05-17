@@ -20,16 +20,22 @@ class PermissionsSeeder extends Seeder
         $user = Role::create(['name' => 'user']);
 
         $addThread = Permission::create(['name' => 'add thread']);
+        $editOwnThread = Permission::create(['name' => 'edit own thread']);
         $editThread = Permission::create(['name' => 'edit thread']);
         $deleteThread = Permission::create(['name' => 'delete thread']);
+        $deleteOwnThread = Permission::create(['name' => 'delete own thread']);
 
         $addPost = Permission::create(['name' => 'add post']);
+        $editOwnPost = Permission::create(['name' => 'edit own post']);
         $editPost = Permission::create(['name' => 'edit post']);
         $deletePost = Permission::create(['name' => 'delete post']);
+        $deleteOwnPost = Permission::create(['name' => 'delete own post']);
 
         $addReply = Permission::create(['name' => 'add reply']);
+        $editOwnReply = Permission::create(['name' => 'edit own reply']);
         $editReply = Permission::create(['name' => 'edit reply']);
         $deleteReply = Permission::create(['name' => 'delete reply']);
+        $deleteOwnReply = Permission::create(['name' => 'delete own reply']);
 
         $acceptPosts = Permission::create(['name' => 'accept posts']);
         $denyPosts = Permission::create(['name' => 'deny posts']);
@@ -38,16 +44,16 @@ class PermissionsSeeder extends Seeder
          * user
          */
         $user->givePermissionTo($addThread);
-        $user->givePermissionTo($editThread);
-        $user->givePermissionTo($deleteThread);
+        $user->givePermissionTo($editOwnThread);
+        $user->givePermissionTo($deleteOwnThread);
 
         $user->givePermissionTo($addPost);
-        $user->givePermissionTo($editPost);
-        $user->givePermissionTo($deletePost);
+        $user->givePermissionTo($editOwnPost);
+        $user->givePermissionTo($deleteOwnPost);
 
         $user->givePermissionTo($addReply);
-        $user->givePermissionTo($editReply);
-        $user->givePermissionTo($deleteReply);
+        $user->givePermissionTo($editOwnReply);
+        $user->givePermissionTo($deleteOwnReply);
 
         /**
          * moderator

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static findOrFail(int $thread_id)
+ * @method static find(int $thread_id)
  */
 class Thread extends Model
 {

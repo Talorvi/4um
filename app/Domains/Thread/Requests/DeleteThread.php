@@ -3,16 +3,20 @@
 namespace App\Domains\Thread\Requests;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
+use App\Domains\Thread\Jobs\GetThreadJob;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
+use Lucid\Bus\UnitDispatcher;
 
 class DeleteThread extends FormRequest
 {
+    use UnitDispatcher;
+
     /**
      * Determine if the user is authorized to make this request.
-     * TODO: change authorize(), not every user should be able to delete other users' posts
+     *
      * @return bool
      */
     public function authorize(): bool
@@ -20,9 +24,16 @@ class DeleteThread extends FormRequest
         if (Auth::user()->hasPermissionTo('delete thread')) {
             return true;
         }
-        else {
-            return false;
+
+        $thread = $this->run(GetThreadJob::class, [
+            'thread_id' => $this->request->all()['thread_id']
+        ]);
+
+        if ($thread != null && $thread->user_id === Auth::user()->id && Auth::user()->hasPermissionTo('delete own thread')) {
+            return true;
         }
+
+        return false;
     }
 
     /**
