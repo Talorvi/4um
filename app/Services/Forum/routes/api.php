@@ -12,16 +12,11 @@
 */
 
 // Prefix: /api/forum
+use App\Services\Forum\Http\Controllers\ThreadController;
+use Illuminate\Support\Facades\Route;
+
 Route::group(['prefix' => 'forum'], function() {
 
-    // Controllers live in src/Services/Forum/Http/Controllers
-
-    Route::get('/', function() {
-        return response()->json(['path' => '/api/forum']);
-    });
-
-    Route::middleware('auth:api')->get('/user', function (Request $request) {
-        return $request->user();
-    });
+    Route::middleware('auth:api')->post('/add-thread', [ThreadController::class, 'addThread']);
 
 });

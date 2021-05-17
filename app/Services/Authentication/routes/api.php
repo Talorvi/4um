@@ -18,16 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'authentication'], function() {
 
-    // Controllers live in src/Services/Authentication/Http/Controllers
-
-    Route::get('/', function() {
-        return response()->json(['path' => '/api/authentication']);
-    });
-
-    Route::middleware('auth:api')->get('/user', function (Request $request) {
-        return $request->user();
-    });
-
     Route::post('/register', [AuthenticationController::class, 'registerUser']);
 
     Route::post('/login', [AuthenticationController::class, 'loginUser']);
