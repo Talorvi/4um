@@ -1,6 +1,7 @@
 <?php
 
 use App\Services\Authentication\Providers\AuthenticationServiceProvider;
+use App\Services\Forum\Providers\ForumServiceProvider;
 
 return [
 
@@ -69,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Warsaw',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +182,7 @@ return [
          * Lucid Service Providers
          */
         AuthenticationServiceProvider::class,
+        ForumServiceProvider::class,
 
     ],
 

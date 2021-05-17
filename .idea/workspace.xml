@@ -4,8 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added /.idea to the .gitignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added password confirmation for registration">
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Console/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Middleware/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Operations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/ForumServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/Features/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/Operations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/factories/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/migrations/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/seeds/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/seeds/PermissionsSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/lang/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/views/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +240,8 @@
       <workItem from="1620642728541" duration="72000" />
       <workItem from="1620642811929" duration="306000" />
       <workItem from="1620643130826" duration="2398000" />
-      <workItem from="1620724106699" duration="3414000" />
+      <workItem from="1620724106699" duration="6843000" />
+      <workItem from="1621233120764" duration="3772000" />
     </task>
     <task id="LOCAL-00001" summary="added registration route">
       <created>1620642556257</created>
@@ -237,7 +271,28 @@
       <option name="project" value="LOCAL" />
       <updated>1620727432652</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed">
+      <created>1620727559091</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727559091</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added test for GenerateTokenJob">
+      <created>1620727637015</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727637015</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added password confirmation for registration">
+      <created>1620728895759</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620728895759</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +315,10 @@
     <MESSAGE value="finished login feature&#10;did some cleanup" />
     <MESSAGE value="fixed an error with logging in and registrating" />
     <MESSAGE value="added /.idea to the .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added /.idea to the .gitignore" />
+    <MESSAGE value="fixed" />
+    <MESSAGE value="added test for GenerateTokenJob" />
+    <MESSAGE value="added password confirmation for registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="added password confirmation for registration" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
