@@ -33,10 +33,14 @@ class RegisterJob extends Job
      */
     public function handle() : User
     {
-        return User::create([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password)
         ]);
+
+        $user->assignRole('user');
+
+        return $user;
     }
 }
