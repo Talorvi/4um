@@ -19,5 +19,7 @@ Route::group(['prefix' => 'forum'], function() {
 
     Route::middleware('auth:api')->post('/add-thread', [ThreadController::class, 'addThread']);
     Route::middleware('auth:api')->post('/delete-thread', [ThreadController::class, 'deleteThread']);
-
+    Route::middleware('auth:api')->post('/edit-thread', [ThreadController::class, 'editThread']);
+    Route::middleware('auth:api')->get('/get-thread', [ThreadController::class, 'getThread']);
+    Route::middleware('auth:api')->get('/get-threads', [ThreadController::class, 'getThreads']);
 });

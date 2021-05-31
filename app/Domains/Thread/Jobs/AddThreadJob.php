@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Post\Jobs;
+namespace App\Domains\Thread\Jobs;
 
 use App\Data\Thread;
 use App\Models\User;

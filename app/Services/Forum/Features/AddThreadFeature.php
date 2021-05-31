@@ -2,8 +2,8 @@
 
 namespace App\Services\Forum\Features;
 
-use App\Domains\Post\Jobs\AddThreadJob;
 use App\Domains\Post\Requests\AddThread;
+use App\Domains\Thread\Jobs\AddThreadJob;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
 use Lucid\Units\Feature;
 

@@ -4,41 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="added password confirmation for registration">
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Console/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Middleware/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Operations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/ForumServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/Features/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Tests/Operations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/factories/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/migrations/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/seeds/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/database/seeds/PermissionsSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/lang/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/views/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/resources/views/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="finished deleting thread feature">
+      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/EditThreadJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/GetThreadsJob.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Requests/EditThread.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/GetThreadFeature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/GetThreadsFeature.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Forum/GetThreadFeatureTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Forum/GetThreadsFeatureTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Jobs/GenerateTokenJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Authentication/Requests/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Features/AddThreadFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Features/AddThreadFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Features/EditThreadFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Features/EditThreadFeature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/ThreadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/ThreadController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddThreadJobTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +35,11 @@
     <option name="myAddOrReplace" value="1" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/authentication" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" />
@@ -183,12 +170,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1rhNgVWTejocjP5cGojmoSET10Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -197,6 +187,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../puzzlyfier" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -241,7 +232,15 @@
       <workItem from="1620642811929" duration="306000" />
       <workItem from="1620643130826" duration="2398000" />
       <workItem from="1620724106699" duration="6843000" />
-      <workItem from="1621233120764" duration="3772000" />
+      <workItem from="1621233120764" duration="10738000" />
+      <workItem from="1621267030794" duration="303000" />
+      <workItem from="1621267348652" duration="1603000" />
+      <workItem from="1621279836942" duration="2438000" />
+      <workItem from="1621624461777" duration="1816000" />
+      <workItem from="1621626379604" duration="671000" />
+      <workItem from="1621766152246" duration="967000" />
+      <workItem from="1621838946873" duration="1406000" />
+      <workItem from="1622442937960" duration="3514000" />
     </task>
     <task id="LOCAL-00001" summary="added registration route">
       <created>1620642556257</created>
@@ -292,7 +291,56 @@
       <option name="project" value="LOCAL" />
       <updated>1620728895759</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added HasRole to User, created a new service, added skeleton of PermissionsSeeder">
+      <created>1621238359142</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621238359142</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added basic permissions">
+      <created>1621239316579</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239316580</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updated PermissionsSeeder.php">
+      <created>1621239669584</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239669584</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added default role to the user">
+      <created>1621239778098</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239778098</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added AddPost feature">
+      <created>1621244398017</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621244398017</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added deleting threads feature">
+      <created>1621268671558</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621268671558</updated>
+    </task>
+    <task id="LOCAL-00014" summary="finished deleting thread feature">
+      <created>1621281917336</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621281917336</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +359,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added registration route" />
     <MESSAGE value="finished login feature&#10;did some cleanup" />
     <MESSAGE value="fixed an error with logging in and registrating" />
@@ -318,7 +367,14 @@
     <MESSAGE value="fixed" />
     <MESSAGE value="added test for GenerateTokenJob" />
     <MESSAGE value="added password confirmation for registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="added password confirmation for registration" />
+    <MESSAGE value="added HasRole to User, created a new service, added skeleton of PermissionsSeeder" />
+    <MESSAGE value="added basic permissions" />
+    <MESSAGE value="updated PermissionsSeeder.php" />
+    <MESSAGE value="added default role to the user" />
+    <MESSAGE value="added AddPost feature" />
+    <MESSAGE value="added deleting threads feature" />
+    <MESSAGE value="finished deleting thread feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished deleting thread feature" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
