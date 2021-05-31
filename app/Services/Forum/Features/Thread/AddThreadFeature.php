@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Forum\Features;
+namespace App\Services\Forum\Features\Thread;
 
 use App\Domains\Post\Requests\AddThread;
 use App\Domains\Thread\Jobs\AddThreadJob;

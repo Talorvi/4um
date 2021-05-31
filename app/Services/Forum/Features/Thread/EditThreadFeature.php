@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Forum\Features;
+namespace App\Services\Forum\Features\Thread;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use App\Domains\Thread\Jobs\EditThreadJob;

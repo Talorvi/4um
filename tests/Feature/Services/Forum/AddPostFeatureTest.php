@@ -3,7 +3,7 @@
 namespace Tests\Feature\Services\Forum;
 
 use Tests\TestCase;
-use App\Services\Forum\Features\AddThreadFeature;
+use App\Services\Forum\Features\Thread\Thread\Thread\Thread\Thread\AddThreadFeature;
 
 class AddPostFeatureTest extends TestCase
 {

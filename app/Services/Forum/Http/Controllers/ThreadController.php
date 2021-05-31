@@ -2,11 +2,11 @@
 
 namespace App\Services\Forum\Http\Controllers;
 
-use App\Services\Forum\Features\AddThreadFeature;
-use App\Services\Forum\Features\DeleteThreadFeature;
-use App\Services\Forum\Features\EditThreadFeature;
-use App\Services\Forum\Features\GetThreadFeature;
-use App\Services\Forum\Features\GetThreadsFeature;
+use App\Services\Forum\Features\Thread\AddThreadFeature;
+use App\Services\Forum\Features\Thread\DeleteThreadFeature;
+use App\Services\Forum\Features\Thread\EditThreadFeature;
+use App\Services\Forum\Features\Thread\GetThreadFeature;
+use App\Services\Forum\Features\Thread\GetThreadsFeature;
 use Lucid\Units\Controller;
 
 class ThreadController extends Controller
