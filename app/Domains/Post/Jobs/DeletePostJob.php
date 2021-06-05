@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Domains\Thread\Jobs;
+namespace App\Domains\Post\Jobs;
 
-use App\Models\Thread;
+use App\Models\Post;
 use Exception;
 use Lucid\Units\Job;
 
-class DeleteThreadJob extends Job
+class DeletePostJob extends Job
 {
-    private int $thread_id;
+    private int $post_id;
 
     /**
      * Create a new job instance.
      *
-     * @param int $thread_id
+     * @param int $post_id
      */
-    public function __construct(int $thread_id)
+    public function __construct(int $post_id)
     {
-        $this->thread_id = $thread_id;
+        $this->post_id = $post_id;
     }
 
     /**
@@ -28,7 +28,7 @@ class DeleteThreadJob extends Job
     public function handle(): bool
     {
         try {
-            Thread::findOrFail($this->thread_id)->delete();
+            Post::findOrFail($this->post_id)->delete();
             return true;
         }
         catch (Exception $e) {

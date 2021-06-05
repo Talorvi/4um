@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domains\Thread\Jobs;
+namespace App\Domains\Post\Jobs;
 
-use App\Models\Thread;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
 use Lucid\Units\Job;
 
-class GetThreadsJob extends Job
+class GetPostsJob extends Job
 {
     /**
      * Create a new job instance.
@@ -21,10 +21,10 @@ class GetThreadsJob extends Job
     /**
      * Execute the job.
      *
-     * @return Thread[]|Collection|void
+     * @return Post[]|Collection|void
      */
     public function handle()
     {
-        return Thread::all();
+        return Post::all();
     }
 }

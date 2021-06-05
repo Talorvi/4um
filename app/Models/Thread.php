@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Data;
+namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static findOrFail(int $thread_id)
  * @method static find(int $thread_id)
+ * @method static create(array $array)
  */
 class Thread extends Model
 {
@@ -34,5 +36,15 @@ class Thread extends Model
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Thread has many posts
+     *
+     * @return HasMany
+     */
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Domains\Thread\Jobs;
 
-use App\Data\Thread;
+use App\Models\Thread;
 use Lucid\Units\Job;
 
 class GetThreadJob extends Job
@@ -27,6 +27,6 @@ class GetThreadJob extends Job
      */
     public function handle(): ?Thread
     {
-        return Thread::find($this->thread_id);
+        return Thread::with('posts')->find($this->thread_id);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Domains\Thread\Jobs;
 
-use App\Data\Thread;
+use App\Models\Thread;
 use Exception;
 use Lucid\Units\Job;
 
