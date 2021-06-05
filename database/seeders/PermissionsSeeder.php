@@ -31,11 +31,11 @@ class PermissionsSeeder extends Seeder
         $deletePost = Permission::create(['name' => 'delete post']);
         $deleteOwnPost = Permission::create(['name' => 'delete own post']);
 
-        $addReply = Permission::create(['name' => 'add reply']);
-        $editOwnReply = Permission::create(['name' => 'edit own reply']);
-        $editReply = Permission::create(['name' => 'edit reply']);
-        $deleteReply = Permission::create(['name' => 'delete reply']);
-        $deleteOwnReply = Permission::create(['name' => 'delete own reply']);
+        $addReply = Permission::create(['name' => 'add comment']);
+        $editOwnReply = Permission::create(['name' => 'edit own comment']);
+        $editReply = Permission::create(['name' => 'edit comment']);
+        $deleteReply = Permission::create(['name' => 'delete comment']);
+        $deleteOwnReply = Permission::create(['name' => 'delete own comment']);
 
         $acceptPosts = Permission::create(['name' => 'accept posts']);
         $denyPosts = Permission::create(['name' => 'deny posts']);

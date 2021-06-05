@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Domains\Post\Requests;
+namespace App\Domains\Comment\Requests;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
-use App\Domains\Thread\Jobs\GetThreadJob;
+use App\Domains\Post\Jobs\GetPostJob;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Lucid\Bus\UnitDispatcher;
+use Spatie\Permission\Contracts\Permission;
 
-class AddPost extends FormRequest
+class AddComment extends FormRequest
 {
     use UnitDispatcher;
 
@@ -21,14 +22,13 @@ class AddPost extends FormRequest
      */
     public function authorize(): bool
     {
-        $thread = $this->run(GetThreadJob::class, [
-            'thread_id' => $this->request->all()['thread_id']
+        $post = $this->run(GetPostJob::class, [
+            'post_id' => $this->request->all()['post_id']
         ]);
 
-        if ($thread != null && Auth::user()->hasPermissionTo('add post')) {
+        if ($post != null && Auth::user()->hasPermissionTo('add comment')) {
             return true;
         }
-
         return false;
     }
 
@@ -40,8 +40,8 @@ class AddPost extends FormRequest
     public function rules(): array
     {
         return [
-            'text'      => 'required|string|min:2',
-            'thread_id' => 'required|integer'
+            'text'    => 'required|string|min:2',
+            'post_id' => 'required|integer'
         ];
     }
 

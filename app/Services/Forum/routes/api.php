@@ -12,6 +12,7 @@
 */
 
 // Prefix: /api/forum
+use App\Services\Forum\Http\Controllers\CommentController;
 use App\Services\Forum\Http\Controllers\PostController;
 use App\Services\Forum\Http\Controllers\ThreadController;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,13 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/edit-post', [PostController::class, 'editPost']);
     Route::middleware('auth:api')->get('/get-post', [PostController::class, 'getPost']);
     Route::middleware('auth:api')->get('/get-posts', [PostController::class, 'getPosts']);
+
+    /**
+     * Comment
+     */
+    Route::middleware('auth:api')->post('/add-comment', [CommentController::class, 'addComment']);
+    Route::middleware('auth:api')->post('/delete-comment', [CommentController::class, 'deleteComment']);
+    Route::middleware('auth:api')->post('/edit-comment', [CommentController::class, 'editComment']);
+    Route::middleware('auth:api')->get('/get-comment', [CommentController::class, 'getComment']);
+    Route::middleware('auth:api')->get('/get-comments', [CommentController::class, 'getComments']);
 });

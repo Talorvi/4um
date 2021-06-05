@@ -44,9 +44,9 @@ class EditThread extends FormRequest
     public function rules(): array
     {
         return [
-            'thread_id' => 'integer',
-            'title'     => 'string|min:3|max:32',
-            'text'      => 'string|min:3'
+            'thread_id' => 'required|integer',
+            'title'     => 'required|string|min:3|max:32',
+            'text'      => 'required|string|min:3'
         ];
     }
 

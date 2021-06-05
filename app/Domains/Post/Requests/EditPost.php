@@ -44,8 +44,8 @@ class EditPost extends FormRequest
     public function rules(): array
     {
         return [
-            'post_id'   => 'integer',
-            'text'      => 'string|min:2'
+            'post_id'   => 'required|integer',
+            'text'      => 'required|string|min:2'
         ];
     }
 

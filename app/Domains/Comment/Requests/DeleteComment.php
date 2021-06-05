@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Domains\Post\Requests;
+namespace App\Domains\Comment\Requests;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
-use App\Domains\Thread\Jobs\GetThreadJob;
+use App\Domains\Comment\Jobs\GetCommentJob;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Auth;
 use Lucid\Bus\UnitDispatcher;
 
-class AddPost extends FormRequest
+class DeleteComment extends FormRequest
 {
     use UnitDispatcher;
 
@@ -21,11 +21,15 @@ class AddPost extends FormRequest
      */
     public function authorize(): bool
     {
-        $thread = $this->run(GetThreadJob::class, [
-            'thread_id' => $this->request->all()['thread_id']
+        if (Auth::user()->hasPermissionTo('delete comment')) {
+            return true;
+        }
+
+        $comment = $this->run(GetCommentJob::class, [
+            'comment_id' => $this->request->all()['comment_id']
         ]);
 
-        if ($thread != null && Auth::user()->hasPermissionTo('add post')) {
+        if ($comment != null && $comment->user_id === Auth::user()->id && Auth::user()->hasPermissionTo('delete own comment')) {
             return true;
         }
 
@@ -40,8 +44,7 @@ class AddPost extends FormRequest
     public function rules(): array
     {
         return [
-            'text'      => 'required|string|min:2',
-            'thread_id' => 'required|integer'
+            'comment_id' => 'required|integer'
         ];
     }
 

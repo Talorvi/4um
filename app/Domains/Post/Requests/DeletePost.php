@@ -44,7 +44,7 @@ class DeletePost extends FormRequest
     public function rules(): array
     {
         return [
-            'post_id' => 'integer'
+            'post_id' => 'required|integer'
         ];
     }
 

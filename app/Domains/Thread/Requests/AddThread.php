@@ -36,7 +36,7 @@ class AddThread extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'string|min:3|max:32',
+            'title' => 'required|string|min:3|max:32',
             'text'  => 'string|min:3'
         ];
     }

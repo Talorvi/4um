@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @method static findOrFail(int $post_id)
- * @method static find(int $post_id)
- * @method static create(array $array)
+ * @method static find(int $comment_id)
+ * @method static findOrFail(int $comment_id)
  */
-class Post extends Model
+class Comment extends Model
 {
     use SoftDeletes;
 
@@ -24,36 +22,26 @@ class Post extends Model
     protected $fillable = [
         'text',
         'user_id',
-        'thread_id'
+        'post_id'
     ];
 
     /**
-     * Post belongs to a Thread
+     * Comment belongs to a Post
      *
      * @return BelongsTo
      */
-    public function thread(): BelongsTo
+    public function post(): BelongsTo
     {
-        return $this->belongsTo(Thread::class);
+        return $this->belongsTo(Post::class);
     }
 
     /**
-     * Post belongs to a user
+     * Comment belongs to a user
      *
      * @return BelongsTo
      */
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Post has many Comments
-     *
-     * @return HasMany
-     */
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
     }
 }

@@ -44,7 +44,7 @@ class DeleteThread extends FormRequest
     public function rules(): array
     {
         return [
-            'thread_id' => 'integer'
+            'thread_id' => 'required|integer'
         ];
     }
 
