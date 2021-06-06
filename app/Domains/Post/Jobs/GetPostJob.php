@@ -26,6 +26,6 @@ class GetPostJob extends Job
      */
     public function handle(): ?Post
     {
-        return Post::find($this->post_id);
+        return Post::with('comments')->find($this->post_id);
     }
 }
