@@ -2,8 +2,10 @@
 
 namespace App\Services\Forum\Http\Controllers;
 
+use App\Services\Forum\Features\Post\AcceptPostFeature;
 use App\Services\Forum\Features\Post\AddPostFeature;
 use App\Services\Forum\Features\Post\DeletePostFeature;
+use App\Services\Forum\Features\Post\DenyPostFeature;
 use App\Services\Forum\Features\Post\EditPostFeature;
 use App\Services\Forum\Features\Post\GetPostFeature;
 use App\Services\Forum\Features\Post\GetPostsFeature;
@@ -34,5 +36,15 @@ class PostController extends Controller
     public function getPosts()
     {
         return $this->serve(GetPostsFeature::class);
+    }
+
+    public function acceptPost()
+    {
+        return $this->serve(AcceptPostFeature::class);
+    }
+
+    public function denyPost()
+    {
+        return $this->serve(DenyPostFeature::class);
     }
 }

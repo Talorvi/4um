@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static findOrFail(int $thread_id)
  * @method static find(int $thread_id)
  * @method static create(array $array)
+ * @method static where(string $string, bool $true)
  */
 class Thread extends Model
 {

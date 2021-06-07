@@ -35,6 +35,7 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/edit-post', [PostController::class, 'editPost']);
     Route::middleware('auth:api')->get('/get-post', [PostController::class, 'getPost']);
     Route::middleware('auth:api')->get('/get-posts', [PostController::class, 'getPosts']);
+    Route::middleware('auth:api')->get('/accept-post', [PostController::class, 'acceptPost']);
 
     /**
      * Comment
