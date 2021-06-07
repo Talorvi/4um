@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateThreadsTableAddAccepted extends Migration
+class UpdatePostsTableAddAccepted extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class UpdateThreadsTableAddAccepted extends Migration
      */
     public function up()
     {
-        Schema::table('threads', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             $table->boolean('accepted')->default(1);
         });
     }
@@ -25,7 +25,7 @@ class UpdateThreadsTableAddAccepted extends Migration
      */
     public function down()
     {
-        Schema::table('threads', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             $table->dropColumn('accepted');
         });
     }
