@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Thread;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,6 +49,23 @@ class User extends Authenticatable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['number_of_threads_followed'];
+
+    /**
+     * Gets the number of thread followed by user
+     *
+     * @return int
+     */
+    public function getNumberOfThreadsFollowedAttribute(): int
+    {
+        return $this->getNumberOfThreadsFollowed();
+    }
+
+    /**
      * User has many threads
      *
      * @return HasMany
@@ -55,5 +73,23 @@ class User extends Authenticatable
     public function threads(): HasMany
     {
         return $this->hasMany(Thread::class);
+    }
+
+    /**
+     * Many Users follow many Threads
+     *
+     * @return BelongsToMany
+     */
+    public function followedThreads(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Thread', 'thread_user')->withTimestamps();
+    }
+
+    /**
+     * Gets the number of threads followed by user
+     */
+    private function getNumberOfThreadsFollowed(): int
+    {
+        return $this->followedThreads()->count();
     }
 }

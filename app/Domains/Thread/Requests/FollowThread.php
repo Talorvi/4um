@@ -3,14 +3,12 @@
 namespace App\Domains\Thread\Requests;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
-use App\Domains\Thread\Jobs\GetThreadJob;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Auth;
 use Lucid\Bus\UnitDispatcher;
 
-class EditThread extends FormRequest
+class FollowThread extends FormRequest
 {
     use UnitDispatcher;
 
@@ -21,19 +19,7 @@ class EditThread extends FormRequest
      */
     public function authorize(): bool
     {
-        if (Auth::user()->hasPermissionTo('edit thread')) {
-            return true;
-        }
-
-        $thread = $this->run(GetThreadJob::class, [
-            'thread_id' => $this->request->all()['thread_id']
-        ]);
-
-        if ($thread != null && $thread->user_id === Auth::user()->id && Auth::user()->hasPermissionTo('edit own thread')) {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     /**
@@ -45,8 +31,7 @@ class EditThread extends FormRequest
     {
         return [
             'thread_id' => 'required|integer',
-            'title'     => 'required|string|min:3|max:32',
-            'text'      => 'required|string|min:3'
+            'follow'    => 'required|boolean'
         ];
     }
 
