@@ -36,7 +36,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_followers'];
+    protected $appends = ['number_of_followers', 'score'];
 
     /**
      * Gets the number of users that follow this thread
@@ -46,6 +46,16 @@ class Thread extends Model
     public function getNumberOfFollowersAttribute(): int
     {
         return $this->getNumberOfFollowers();
+    }
+
+    /**
+     * Gets the number of upvotes
+     *
+     * @return int
+     */
+    public function getScoreAttribute(): int
+    {
+        return $this->getNumberOfVotes();
     }
 
     /**
@@ -89,6 +99,16 @@ class Thread extends Model
     }
 
     /**
+     * Many Threads have many votes from many Users
+     *
+     * @return BelongsToMany
+     */
+    public function votes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\User', 'thread_user_voting')->withTimestamps();
+    }
+
+    /**
      * Gets the number of followers
      *
      * @return int
@@ -96,5 +116,17 @@ class Thread extends Model
     private function getNumberOfFollowers(): int
     {
         return $this->followers()->count();
+    }
+
+    /**
+     * Gets the number of votes
+     *
+     * @return int
+     */
+    private function getNumberOfVotes(): int
+    {
+        $upvotes = $this->votes()->wherePivot('value', '=',1)->count();
+        $downvotes = $this->votes()->wherePivot('value', '=', -1)->count();
+        return $upvotes - $downvotes;
     }
 }

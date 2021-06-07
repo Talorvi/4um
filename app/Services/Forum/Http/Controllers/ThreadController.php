@@ -8,6 +8,7 @@ use App\Services\Forum\Features\Thread\EditThreadFeature;
 use App\Services\Forum\Features\Thread\FollowThreadFeature;
 use App\Services\Forum\Features\Thread\GetThreadFeature;
 use App\Services\Forum\Features\Thread\GetThreadsFeature;
+use App\Services\Forum\Features\Thread\VoteForThreadFeature;
 use Lucid\Units\Controller;
 
 class ThreadController extends Controller
@@ -40,5 +41,10 @@ class ThreadController extends Controller
     public function followThread()
     {
         return $this->serve(FollowThreadFeature::class);
+    }
+
+    public function voteForThread()
+    {
+        return $this->serve(VoteForThreadFeature::class);
     }
 }

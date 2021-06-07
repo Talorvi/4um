@@ -53,7 +53,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['number_of_threads_followed'];
+    protected $appends = ['number_of_threads_followed', 'number_of_votes'];
 
     /**
      * Gets the number of thread followed by user
@@ -63,6 +63,16 @@ class User extends Authenticatable
     public function getNumberOfThreadsFollowedAttribute(): int
     {
         return $this->getNumberOfThreadsFollowed();
+    }
+
+    /**
+     * Gets the number of thread followed by user
+     *
+     * @return int
+     */
+    public function getNumberOfVotesAttribute(): int
+    {
+        return $this->getNumberOfVotes();
     }
 
     /**
@@ -86,10 +96,30 @@ class User extends Authenticatable
     }
 
     /**
+     * Many Users may give multiple votes to a multiple Threads
+     *
+     * @return BelongsToMany
+     */
+    public function votes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Thread', 'thread_user_voting')->withTimestamps();
+    }
+
+    /**
      * Gets the number of threads followed by user
      */
     private function getNumberOfThreadsFollowed(): int
     {
         return $this->followedThreads()->count();
+    }
+
+    /**
+     * Gets the number of votes the User has given
+     *
+     * @return int
+     */
+    private function getNumberOfVotes(): int
+    {
+        return $this->votes()->count();
     }
 }
