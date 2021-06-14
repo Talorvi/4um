@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -35,7 +36,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_followers', 'score', 'number_of_posts', 'tags', 'followers', 'votes'];
+    protected $appends = ['number_of_followers', 'score', 'number_of_posts', 'tags', 'followers', 'votes', 'author'];
 
 
 
@@ -116,9 +117,23 @@ class Thread extends Model
             ->makeHidden([
                 'number_of_threads_followed',
                 'number_of_votes',
-                'number_of_comments'
+                'number_of_comments',
+                'avatar_url'
             ])
             ->toArray();
+    }
+
+    /**
+     * Gets the author
+     *
+     */
+    public function getAuthorAttribute(): Collection
+    {
+        return $this->author()->get()->makeHidden([
+            'number_of_threads_followed',
+            'number_of_votes',
+            'number_of_comments',
+        ]);
     }
 
 
@@ -135,7 +150,7 @@ class Thread extends Model
      */
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**

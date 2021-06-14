@@ -39,6 +39,7 @@ class User extends Authenticatable implements HasMedia
     protected $hidden = [
         'password',
         'remember_token',
+        'media'
     ];
 
     /**
@@ -55,7 +56,7 @@ class User extends Authenticatable implements HasMedia
      *
      * @var array
      */
-    protected $appends = ['number_of_threads_followed', 'number_of_votes', 'number_of_comments'];
+    protected $appends = ['number_of_threads_followed', 'number_of_votes', 'number_of_comments', 'avatar_url'];
 
     /**
      * Gets the number of thread followed by user
@@ -85,6 +86,16 @@ class User extends Authenticatable implements HasMedia
     public function getNumberOfCommentsAttribute(): int
     {
         return $this->getNumberOfComments();
+    }
+
+    /**
+     * Gets url to users' avatar
+     *
+     * @return string
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        return $this->getAvatarUrl();
     }
 
     /**
@@ -145,8 +156,23 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * Gets number of comments commited by a User
+     *
+     * @return int
+     */
     private function getNumberOfComments(): int
     {
         return $this->comments()->count();
+    }
+
+    /**
+     * Gets Users' avatar
+     *
+     * @return string
+     */
+    private function getAvatarUrl(): string
+    {
+        return $this->getFirstMediaUrl('avatars');
     }
 }

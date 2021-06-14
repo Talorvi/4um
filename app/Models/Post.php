@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -32,7 +33,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_comments'];
+    protected $appends = ['number_of_comments', 'author'];
 
     /**
      * Gets the number of comments of certain Thread
@@ -42,6 +43,20 @@ class Post extends Model
     public function getNumberOfCommentsAttribute(): int
     {
         return $this->getNumberOfComments();
+    }
+
+    /**
+     * Gets the author
+     *
+     * @return Collection
+     */
+    public function getAuthorAttribute(): Collection
+    {
+        return $this->author()->get()->makeHidden([
+            'number_of_threads_followed',
+            'number_of_votes',
+            'number_of_comments',
+        ]);
     }
 
     /**
@@ -61,7 +76,7 @@ class Post extends Model
      */
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**

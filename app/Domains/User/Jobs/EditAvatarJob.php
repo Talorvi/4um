@@ -40,7 +40,7 @@ class EditAvatarJob extends Job
                 $oldAvatar->delete();
             }
             $user->addMedia($this->avatar->path())->toMediaCollection('avatars');
-
+            $user->save();
             return true;
         }
         catch (Exception $e) {
