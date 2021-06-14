@@ -129,4 +129,14 @@ class Thread extends Model
         $downvotes = $this->votes()->wherePivot('value', '=', -1)->count();
         return $upvotes - $downvotes;
     }
+
+    /**
+     * Many Tags belong to many Threads
+     *
+     * @return BelongsToMany
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Tag', 'tag_thread')->withTimestamps();
+    }
 }

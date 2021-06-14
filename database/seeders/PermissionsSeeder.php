@@ -40,6 +40,8 @@ class PermissionsSeeder extends Seeder
         $acceptPosts = Permission::create(['name' => 'accept posts']);
         $denyPosts = Permission::create(['name' => 'deny posts']);
 
+        $deleteTag = Permission::create(['name' => 'delete tag']);
+
         /**
          * user
          */
@@ -73,6 +75,8 @@ class PermissionsSeeder extends Seeder
         $moderator->givePermissionTo($editReply);
         $moderator->givePermissionTo($deleteReply);
 
+        $moderator->givePermissionTo($deleteTag);
+
         /**
          * admin
          */
@@ -93,5 +97,7 @@ class PermissionsSeeder extends Seeder
         $admin->givePermissionTo($addReply);
         $admin->givePermissionTo($editReply);
         $admin->givePermissionTo($deleteReply);
+
+        $admin->givePermissionTo($deleteTag);
     }
 }
