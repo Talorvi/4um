@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -36,7 +35,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_followers', 'score', 'number_of_posts', 'tags'];
+    protected $appends = ['number_of_followers', 'score', 'number_of_posts', 'tags', 'followers', 'votes'];
 
 
 
@@ -83,6 +82,43 @@ class Thread extends Model
     public function getTagsAttribute(): array
     {
         return $this->getTagsArray();
+    }
+
+    /**
+     * Gets users that followed this thread
+     *
+     * @return array
+     */
+    public function getFollowersAttribute(): array
+    {
+        return $this->followers()
+            ->get(['name'])
+            ->makeHidden([
+                'number_of_threads_followed',
+                'number_of_votes',
+                'number_of_comments',
+                'pivot'
+            ])
+            ->toArray();
+    }
+
+    /**
+     * Gets users that voted on this thread
+     *
+     * @return array
+     */
+    public function getVotesAttribute(): array
+    {
+        return $this->votes()
+            ->get(
+                ['name']
+            )
+            ->makeHidden([
+                'number_of_threads_followed',
+                'number_of_votes',
+                'number_of_comments'
+            ])
+            ->toArray();
     }
 
 
@@ -139,7 +175,9 @@ class Thread extends Model
      */
     public function votes(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\User', 'thread_user_voting')->withTimestamps();
+        return $this->belongsToMany('App\Models\User', 'thread_user_voting')
+            ->withPivot(['value'])
+            ->withTimestamps();
     }
 
     /**
@@ -198,6 +236,6 @@ class Thread extends Model
      */
     private function getTagsArray(): array
     {
-        return $this->tags()->get(['name'])->toArray();
+        return $this->tags()->get(['name'])->makeHidden(['pivot'])->toArray();
     }
 }

@@ -3,10 +3,6 @@
 namespace App\Domains\Thread\Jobs;
 
 use App\Models\Thread;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Lucid\Units\Job;
 
 class GetThreadJob extends Job
@@ -35,7 +31,13 @@ class GetThreadJob extends Job
         $threadBefore = Thread::find($this->thread_id);
         $result = array_merge($result, $threadBefore->toArray());
         $result['posts'] = [];
-        $result['tags'] = $threadBefore->tags()->get()->toArray();
+        $result['tags'] = $threadBefore
+            ->tags()
+            ->get()
+            ->makeHidden([
+                'pivot'
+            ])
+            ->toArray();
         foreach ($threadBefore->posts()->get() as $index => $post) {
             $postAfter = $post->toArray();
             $postAfter['comments'] = [];
