@@ -11,6 +11,7 @@ class EditThreadJob extends Job
     private int $thread_id;
     private ?string $title;
     private ?string $text;
+    private ?array $tags;
 
     /**
      * Create a new job instance.
@@ -18,12 +19,14 @@ class EditThreadJob extends Job
      * @param int $thread_id
      * @param string|null $title
      * @param string|null $text
+     * @param array|null $tags
      */
-    public function __construct(int $thread_id, ?string $title = null, ?string $text = null)
+    public function __construct(int $thread_id, ?string $title = null, ?string $text = null, ?array $tags = null)
     {
         $this->thread_id = $thread_id;
         $this->title = $title;
         $this->text = $text;
+        $this->tags = $tags;
     }
 
     /**
@@ -40,6 +43,9 @@ class EditThreadJob extends Job
             }
             if ($this->text) {
                 $thread->text = $this->text;
+            }
+            if ($this->tags) {
+                $thread->tags()->sync($this->tags);
             }
             $thread->save();
             return true;

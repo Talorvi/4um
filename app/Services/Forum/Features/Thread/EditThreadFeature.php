@@ -13,7 +13,10 @@ class EditThreadFeature extends Feature
     public function handle(EditThread $request)
     {
         $result = $this->run(EditThreadJob::class, [
-            'thread_id' => $request->input('thread_id')
+            'thread_id' => $request->input('thread_id'),
+            'title'     => $request->input('title'),
+            'text'      => $request->input('text'),
+            'tags'      => $request->input('tags')
         ]);
 
         if ($result) {

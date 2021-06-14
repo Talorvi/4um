@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Post\Requests;
+namespace App\Domains\Thread\Requests;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use Illuminate\Contracts\Validation\Validator;
@@ -36,8 +36,10 @@ class AddThread extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|min:3|max:32',
-            'text'  => 'string|min:3'
+            'title'  => 'required|string|min:3|max:32',
+            'text'   => 'string|min:3',
+            'tags'   => 'array',
+            'tags.*' => 'int'
         ];
     }
 

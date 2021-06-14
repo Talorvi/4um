@@ -36,7 +36,14 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_followers', 'score'];
+    protected $appends = ['number_of_followers', 'score', 'number_of_comments', 'tags'];
+
+
+
+
+    /**
+     * Attributes
+     */
 
     /**
      * Gets the number of users that follow this thread
@@ -57,6 +64,33 @@ class Thread extends Model
     {
         return $this->getNumberOfVotes();
     }
+
+    /**
+     * Gets the number of upvotes
+     *
+     * @return int
+     */
+    public function getNumberOfCommentsAttribute(): int
+    {
+        return $this->getNumberOfComments();
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return array
+     */
+    public function getTagsAttribute(): array
+    {
+        return $this->getTagsArray();
+    }
+
+
+
+
+    /**
+     * Relations
+     */
 
     /**
      * Thread belongs to a User
@@ -109,6 +143,23 @@ class Thread extends Model
     }
 
     /**
+     * Many Tags belong to many Threads
+     *
+     * @return BelongsToMany
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Models\Tag', 'tag_thread')->withTimestamps();
+    }
+
+
+
+
+    /**
+     * Functions
+     */
+
+    /**
      * Gets the number of followers
      *
      * @return int
@@ -131,12 +182,22 @@ class Thread extends Model
     }
 
     /**
-     * Many Tags belong to many Threads
+     * Get number of Comments
      *
-     * @return BelongsToMany
+     * @return int
      */
-    public function tags(): BelongsToMany
+    private function getNumberOfComments(): int
     {
-        return $this->belongsToMany('App\Models\Tag', 'tag_thread')->withTimestamps();
+        return $this->comments()->count();
+    }
+
+    /**
+     * Gets array of Tags
+     *
+     * @return array
+     */
+    private function getTagsArray(): array
+    {
+        return $this->tags()->get(['name'])->toArray();
     }
 }

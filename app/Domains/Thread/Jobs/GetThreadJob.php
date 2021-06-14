@@ -35,6 +35,7 @@ class GetThreadJob extends Job
         $threadBefore = Thread::find($this->thread_id);
         $result = array_merge($result, $threadBefore->toArray());
         $result['posts'] = [];
+        $result['tags'] = $threadBefore->tags()->get()->toArray();
         foreach ($threadBefore->posts()->get() as $index => $post) {
             $postAfter = $post->toArray();
             $postAfter['comments'] = [];

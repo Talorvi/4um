@@ -13,7 +13,8 @@ class EditPostFeature extends Feature
     public function handle(EditPost $request)
     {
         $result = $this->run(EditPostJob::class, [
-            'post_id' => $request->input('post_id')
+            'post_id' => $request->input('post_id'),
+            'text'    => $request->input('text')
         ]);
 
         if ($result) {
