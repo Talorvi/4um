@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Thread;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -53,7 +52,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['number_of_threads_followed', 'number_of_votes'];
+    protected $appends = ['number_of_threads_followed', 'number_of_votes', 'number_of_comments'];
 
     /**
      * Gets the number of thread followed by user
@@ -73,6 +72,16 @@ class User extends Authenticatable
     public function getNumberOfVotesAttribute(): int
     {
         return $this->getNumberOfVotes();
+    }
+
+    /**
+     * Gets the number of comments created by user
+     *
+     * @return int
+     */
+    public function getNumberOfCommentsAttribute(): int
+    {
+        return $this->getNumberOfComments();
     }
 
     /**
@@ -121,5 +130,20 @@ class User extends Authenticatable
     private function getNumberOfVotes(): int
     {
         return $this->votes()->count();
+    }
+
+    /**
+     * User has many comments
+     *
+     * @return HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    private function getNumberOfComments(): int
+    {
+        return $this->comments()->count();
     }
 }

@@ -36,7 +36,7 @@ class Thread extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_followers', 'score', 'number_of_comments', 'tags'];
+    protected $appends = ['number_of_followers', 'score', 'number_of_posts', 'tags'];
 
 
 
@@ -70,9 +70,9 @@ class Thread extends Model
      *
      * @return int
      */
-    public function getNumberOfCommentsAttribute(): int
+    public function getNumberOfPostsAttribute(): int
     {
-        return $this->getNumberOfComments();
+        return $this->getNumberOfPosts();
     }
 
     /**
@@ -186,9 +186,9 @@ class Thread extends Model
      *
      * @return int
      */
-    private function getNumberOfComments(): int
+    private function getNumberOfPosts(): int
     {
-        return $this->comments()->count();
+        return $this->posts()->count();
     }
 
     /**

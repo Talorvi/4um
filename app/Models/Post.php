@@ -28,6 +28,23 @@ class Post extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['number_of_comments'];
+
+    /**
+     * Gets the number of comments of certain Thread
+     *
+     * @return int
+     */
+    public function getNumberOfCommentsAttribute(): int
+    {
+        return $this->getNumberOfComments();
+    }
+
+    /**
      * Post belongs to a Thread
      *
      * @return BelongsTo
@@ -55,5 +72,14 @@ class Post extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Gets the number of Comments
+     * @return int
+     */
+    private function getNumberOfComments(): int
+    {
+        return $this->comments()->count();
     }
 }
