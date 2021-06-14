@@ -2,6 +2,7 @@
 
 use App\Services\Authentication\Providers\AuthenticationServiceProvider;
 use App\Services\Forum\Providers\ForumServiceProvider;
+use App\Services\User\Providers\UserServiceProvider;
 
 return [
 
@@ -183,6 +184,7 @@ return [
          */
         AuthenticationServiceProvider::class,
         ForumServiceProvider::class,
+        UserServiceProvider::class,
 
     ],
 
