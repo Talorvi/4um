@@ -29,8 +29,9 @@ class GenerateTokenJob extends Job
         $result = $this->user->createToken('authToken');
 
         return [
-            'token' => $result->accessToken,
-            'expires_in' => $result->token->toArray()['expires_at']
+            'token'      => $result->accessToken,
+            'expires_in' => $result->token->toArray()['expires_at'],
+            'user'       => $this->user,
         ];
     }
 }
