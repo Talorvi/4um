@@ -31,8 +31,14 @@ class AcceptPostJob extends Job
     public function handle(): bool
     {
         try {
-            $post = Post::findOrFail($this->post_id);
-            $post->accepted = $this->accepted;
+            $post = Post::withTrashed()->findOrFail($this->post_id);
+            if ($this->accepted) {
+                $post->accepted = $this->accepted;
+                $post->restore();
+            }
+            else {
+                $post->delete();
+            }
             $post->save();
             return true;
         }
