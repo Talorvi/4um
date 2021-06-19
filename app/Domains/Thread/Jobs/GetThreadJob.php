@@ -38,7 +38,7 @@ class GetThreadJob extends Job
                 'pivot'
             ])
             ->toArray();
-        foreach ($threadBefore->posts()->get() as $index => $post) {
+        foreach ($threadBefore->posts()->where('accepted', '=', 1)->get() as $index => $post) {
             $postAfter = $post->toArray();
             $postAfter['comments'] = [];
             array_push($result['posts'], $postAfter);

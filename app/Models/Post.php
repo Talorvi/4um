@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static findOrFail(int $post_id)
  * @method static find(int $post_id)
  * @method static create(array $array)
+ * @method static where(string $string, string $string1, bool $true)
  */
 class Post extends Model
 {
@@ -33,7 +34,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $appends = ['number_of_comments', 'author'];
+    protected $appends = ['number_of_comments', 'author', 'comments'];
 
     /**
      * Gets the number of comments of certain Thread
@@ -57,6 +58,16 @@ class Post extends Model
             'number_of_votes',
             'number_of_comments',
         ]);
+    }
+
+    /**
+     * Gets Comments associated with the Post
+     *
+     * @return Collection
+     */
+    public function getCommentsAttribute(): Collection
+    {
+        return $this->comments()->get();
     }
 
     /**

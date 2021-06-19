@@ -241,7 +241,7 @@ class Thread extends Model
      */
     private function getNumberOfPosts(): int
     {
-        return $this->posts()->count();
+        return $this->posts()->where('accepted', '=', 1)->count();
     }
 
     /**
