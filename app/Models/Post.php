@@ -26,7 +26,8 @@ class Post extends Model
     protected $fillable = [
         'text',
         'user_id',
-        'thread_id'
+        'thread_id',
+        'accepted'
     ];
 
     /**
