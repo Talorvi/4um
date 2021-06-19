@@ -5,8 +5,6 @@ namespace App\Services\Forum\Operations;
 use App\Domains\Post\Jobs\AddPostJob;
 use App\Domains\Post\Jobs\ProcessPostJob;
 use App\Domains\Post\Requests\AddPost;
-use App\Jobs\ProcessPost;
-use Illuminate\Support\Facades\Log;
 use Lucid\Units\Operation;
 
 class AddPostOperation extends Operation
