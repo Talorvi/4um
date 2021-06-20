@@ -10,7 +10,6 @@ class AddThreadJob extends Job
 {
     private string $title;
     private string $text;
-    private ?array $tags;
     private User $user;
 
     /**
@@ -19,14 +18,12 @@ class AddThreadJob extends Job
      * @param string $title
      * @param string $text
      * @param User $user
-     * @param array|null $tags
      */
-    public function __construct(string $title, string $text, User $user, ?array $tags)
+    public function __construct(string $title, string $text, User $user)
     {
         $this->title = $title;
         $this->text = $text;
         $this->user = $user;
-        $this->tags = $tags;
     }
 
     /**
@@ -36,16 +33,10 @@ class AddThreadJob extends Job
      */
     public function handle()
     {
-        $thread = Thread::create([
+        return Thread::create([
             'title'   => $this->title,
             'text'    => $this->text,
             'user_id' => $this->user->id
         ]);
-
-        if ($this->tags) {
-            $thread->tags()->sync($this->tags);
-        }
-
-        return $thread;
     }
 }

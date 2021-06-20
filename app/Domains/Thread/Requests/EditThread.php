@@ -48,7 +48,7 @@ class EditThread extends FormRequest
             'title'     => 'required|string|min:3|max:32',
             'text'      => 'required|string|min:3',
             'tags'      => 'array',
-            'tags.*'    => 'int'
+            'tags.*'    => 'string'
         ];
     }
 
