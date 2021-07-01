@@ -2,6 +2,7 @@
 
 namespace App\Domains\Post\Jobs;
 
+use App\Events\PostProcessed;
 use App\Models\Post;
 use Lucid\Units\QueueableJob;
 
@@ -33,13 +34,12 @@ class ProcessPostJob extends QueueableJob
         if ($output < 0.3) {
             $this->post->accepted = 1;
             $this->post->save();
+
+            event(new PostProcessed('Post id: '.$this->post->id.' has been processed.'));
         }
         else {
             $this->post->accepted = 0;
             $this->post->save();
-            /**
-             * TODO: add notification
-             */
         }
     }
 }
