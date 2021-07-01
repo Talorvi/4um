@@ -2,6 +2,7 @@
 
 namespace App\Domains\Post\Jobs;
 
+use App\Events\PostAdded;
 use App\Events\PostProcessed;
 use App\Models\Post;
 use Lucid\Units\QueueableJob;
@@ -35,11 +36,32 @@ class ProcessPostJob extends QueueableJob
             $this->post->accepted = 1;
             $this->post->save();
 
-            event(new PostProcessed('Post id: '.$this->post->id.' has been processed.'));
+            /**
+             * Notifies the author that his post has been processed
+             */
+            event(new PostProcessed('Successfully processed the post', $this->post->id, $this->post->user_id));
+
+            /**
+             * Notifies the thread author that someone added a post to his/hers thread
+             */
+            event(new PostAdded('Someone added a post to your thread', $this->post->thread_id, $this->post->thread->user_id, $this->post->user_id));
+
+            /**
+             * Notifies all followers
+             */
+            foreach ($this->post->thread->followers as $follower) {
+                event(new PostAdded('Someone added a post you follow', $this->post->thread_id, $follower["user_id"], $this->post->user_id));
+            }
         }
         else {
             $this->post->accepted = 0;
             $this->post->save();
         }
+
+        /**
+         * Notifies the author that his post has been processed
+         */
+        event(new PostProcessed('Your post has been marked as offensive. Moderation will investigate that.', $this->post->id, $this->post->user_id));
+
     }
 }

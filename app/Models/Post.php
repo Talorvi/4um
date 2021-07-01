@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static where(string $string, string $string1, bool $true)
  * @property int|mixed accepted
  * @property mixed id
+ * @property mixed user_id
+ * @property mixed thread_id
  */
 class Post extends Model
 {

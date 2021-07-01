@@ -7,28 +7,30 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class PostProcessed implements ShouldBroadcastNow
+class CommentAdded implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public string $message;
     public int $post_id;
     public int $post_author_id;
+    public int $comment_author_id;
 
-    public function __construct(string $message, int $post_id, int $post_author_id)
+    public function __construct(string $message, int $post_id, int $post_author_id, int $comment_author_id)
     {
         $this->message = $message;
         $this->post_id = $post_id;
         $this->post_author_id = $post_author_id;
+        $this->comment_author_id = $comment_author_id;
     }
 
     public function broadcastOn(): array
     {
-        return ['processed-posts-'.$this->post_author_id];
+        return ['notification-'.$this->post_author_id];
     }
 
     public function broadcastAs(): string
     {
-        return 'post-processed';
+        return 'comment-received';
     }
 }
