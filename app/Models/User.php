@@ -157,6 +157,16 @@ class User extends Authenticatable implements HasMedia
     }
 
     /**
+     * User has many notifications
+     *
+     * @return HasMany
+     */
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    /**
      * Gets number of comments commited by a User
      *
      * @return int

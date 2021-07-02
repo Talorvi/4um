@@ -13,6 +13,7 @@
 
 // Prefix: /api/forum
 use App\Services\Forum\Http\Controllers\CommentController;
+use App\Services\Forum\Http\Controllers\NotificationController;
 use App\Services\Forum\Http\Controllers\PostController;
 use App\Services\Forum\Http\Controllers\TagController;
 use App\Services\Forum\Http\Controllers\ThreadController;
@@ -58,4 +59,10 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/delete-tag', [TagController::class, 'deleteTag']);
     Route::middleware('auth:api')->get('/get-tag', [TagController::class, 'getTag']);
     Route::middleware('auth:api')->get('/get-tags', [TagController::class, 'getTags']);
+
+    /**
+     * Notification
+     */
+    Route::middleware('auth:api')->get('/get-notifications', [NotificationController::class, 'getNotifications']);
+    Route::middleware('auth:api')->post('/delete-notification', [NotificationController::class, 'deleteNotification']);
 });
