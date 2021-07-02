@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Notification;
+use Carbon\Carbon;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -20,6 +21,7 @@ class PostAdded implements ShouldBroadcastNow
     public int $thread_id;
     public int $thread_author_id;
     public int $post_author_id;
+    public Carbon $created_at;
 
     public function __construct(string $message, int $thread_id, int $thread_author_id, int $post_author_id)
     {
@@ -27,6 +29,7 @@ class PostAdded implements ShouldBroadcastNow
         $this->thread_id = $thread_id;
         $this->thread_author_id = $thread_author_id;
         $this->post_author_id = $post_author_id;
+        $this->created_at = Carbon::now();
 
         Notification::create([
             'message' => $this->message,
