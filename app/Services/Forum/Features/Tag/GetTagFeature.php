@@ -2,6 +2,7 @@
 
 namespace App\Services\Forum\Features\Tag;
 
+use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use App\Domains\Tag\Jobs\GetTagJob;
 use Illuminate\Http\Request;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
@@ -15,6 +16,13 @@ class GetTagFeature extends Feature
             'tag_id' => $request->input('tag_id')
         ]);
 
-        return $this->run(new RespondWithJsonJob($tag));
+        if ($tag)
+        {
+            return $this->run(new RespondWithJsonJob($tag));
+        }
+
+        return $this->run(new RespondWithJsonResponseErrorJob([
+            'tag_id' => 'Tag could not be printed properly. Check tag ID.'
+        ]));
     }
 }
