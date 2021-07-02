@@ -19,7 +19,7 @@ class AddCommentFeature extends Feature
             'post_id' => $request->input('post_id')
         ]);
 
-        event(new CommentAdded("Someone commented your post", $comment->post_id, $comment->post->user_id, $comment->user_id));
+        event(new CommentAdded("Someone commented your post", $comment->post_id, $comment->post->user_id, $comment->post->thread_id, $comment->user_id));
 
         return $this->run(new RespondWithJsonJob($comment));
     }

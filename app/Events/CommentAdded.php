@@ -14,13 +14,15 @@ class CommentAdded implements ShouldBroadcastNow
     public string $message;
     public int $post_id;
     public int $post_author_id;
+    public int $thread_id;
     public int $comment_author_id;
 
-    public function __construct(string $message, int $post_id, int $post_author_id, int $comment_author_id)
+    public function __construct(string $message, int $post_id, int $post_author_id, int $thread_id, int $comment_author_id)
     {
         $this->message = $message;
         $this->post_id = $post_id;
         $this->post_author_id = $post_author_id;
+        $this->thread_id = $thread_id;
         $this->comment_author_id = $comment_author_id;
     }
 

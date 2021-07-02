@@ -39,7 +39,7 @@ class ProcessPostJob extends QueueableJob
             /**
              * Notifies the author that his post has been processed
              */
-            event(new PostProcessed('Successfully processed the post', $this->post->id, $this->post->user_id));
+            event(new PostProcessed('Successfully processed the post', $this->post->id, $this->post->thread_id, $this->post->user_id));
 
             /**
              * Notifies the thread author that someone added a post to his/hers thread
@@ -56,12 +56,12 @@ class ProcessPostJob extends QueueableJob
         else {
             $this->post->accepted = 0;
             $this->post->save();
-        }
 
-        /**
-         * Notifies the author that his post has been processed
-         */
-        event(new PostProcessed('Your post has been marked as offensive. Moderation will investigate that.', $this->post->id, $this->post->user_id));
+            /**
+             * Notifies the author that his post has been processed
+             */
+            event(new PostProcessed('Your post has been marked as offensive. Moderation will investigate that.', $this->post->id, $this->post->thread_id, $this->post->user_id));
+        }
 
     }
 }
