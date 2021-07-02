@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Notification;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -26,6 +27,12 @@ class PostAdded implements ShouldBroadcastNow
         $this->thread_id = $thread_id;
         $this->thread_author_id = $thread_author_id;
         $this->post_author_id = $post_author_id;
+
+        Notification::create([
+            'message' => $this->message,
+            'thread_id' => $this->thread_id,
+            'user_id' => $this->thread_author_id
+        ]);
     }
 
     public function broadcastOn(): array

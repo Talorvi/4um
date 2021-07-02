@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static find(int $notification_id)
  * @method static findOrFail($post_id)
  * @method static where(string $string, string $string1, $id)
+ * @method static create(array $array)
  */
 class Notification extends Model
 {

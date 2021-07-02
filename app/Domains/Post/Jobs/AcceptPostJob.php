@@ -51,14 +51,14 @@ class AcceptPostJob extends Job
                 }
             }
             else {
-                event(new PostProcessed('Your post has been deleted', $post->id, $post->thread_id, $post->user_id));
+                event(new PostProcessed('Your post has been deleted', $post->id, $post->thread_id, $post->thread->user_id, $post->user_id));
                 $post->delete();
             }
             $post->save();
             return true;
         }
         catch (Exception $e) {
-            event(new PostProcessed('Your post has been deleted', $post->id, $post->thread_id, $post->user_id));
+            event(new PostProcessed('Your post has been deleted', $post->id, $post->thread_id, $post->thread->user_id, $post->user_id));
             return false;
         }
     }

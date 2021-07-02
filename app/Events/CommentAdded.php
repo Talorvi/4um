@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Notification;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -24,6 +25,12 @@ class CommentAdded implements ShouldBroadcastNow
         $this->post_author_id = $post_author_id;
         $this->thread_id = $thread_id;
         $this->comment_author_id = $comment_author_id;
+
+        Notification::create([
+            'message' => $this->message,
+            'thread_id' => $this->thread_id,
+            'user_id' => $this->post_author_id
+        ]);
     }
 
     public function broadcastOn(): array
