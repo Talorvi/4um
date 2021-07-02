@@ -27,6 +27,7 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/edit-thread', [ThreadController::class, 'editThread']);
     Route::middleware('auth:api')->get('/get-thread', [ThreadController::class, 'getThread']);
     Route::middleware('auth:api')->get('/get-threads', [ThreadController::class, 'getThreads']);
+    Route::middleware('auth:api')->get('/get-followed-threads', [ThreadController::class, 'getFollowedThreads']);
     Route::middleware('auth:api')->post('/follow-thread', [ThreadController::class, 'followThread']);
     Route::middleware('auth:api')->post('/vote-for-thread', [ThreadController::class, 'voteForThread']);
 
