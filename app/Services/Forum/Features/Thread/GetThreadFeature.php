@@ -2,6 +2,7 @@
 
 namespace App\Services\Forum\Features\Thread;
 
+use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use App\Domains\Thread\Jobs\GetThreadJob;
 use Illuminate\Http\Request;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
@@ -15,6 +16,12 @@ class GetThreadFeature extends Feature
             'thread_id' => $request->input('thread_id')
         ]);
 
-        return $this->run(new RespondWithJsonJob($thread));
+        if ($thread) {
+            return $this->run(new RespondWithJsonJob($thread));
+        }
+
+        return $this->run(new RespondWithJsonResponseErrorJob([
+            'comment_id' => 'Thread could not be printed properly. Check thread ID.'
+        ]));
     }
 }

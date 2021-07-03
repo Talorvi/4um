@@ -2,6 +2,7 @@
 
 namespace App\Domains\Comment\Jobs;
 
+use App\Events\CommentAdded;
 use App\Models\Comment;
 use App\Models\User;
 use Lucid\Units\Job;

@@ -93,7 +93,7 @@ class Thread extends Model
     public function getFollowersAttribute(): array
     {
         return $this->followers()
-            ->get(['name'])
+            ->get(['name', 'user_id'])
             ->makeHidden([
                 'number_of_threads_followed',
                 'number_of_votes',
@@ -241,7 +241,7 @@ class Thread extends Model
      */
     private function getNumberOfPosts(): int
     {
-        return $this->posts()->count();
+        return $this->posts()->where('accepted', '=', 1)->count();
     }
 
     /**

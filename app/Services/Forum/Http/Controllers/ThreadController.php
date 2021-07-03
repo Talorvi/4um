@@ -2,6 +2,7 @@
 
 namespace App\Services\Forum\Http\Controllers;
 
+use App\Domains\Thread\Jobs\GetFollowedThreadsJob;
 use App\Services\Forum\Features\Thread\AddThreadFeature;
 use App\Services\Forum\Features\Thread\DeleteThreadFeature;
 use App\Services\Forum\Features\Thread\EditThreadFeature;
@@ -36,6 +37,11 @@ class ThreadController extends Controller
     public function getThreads()
     {
         return $this->serve(GetThreadsFeature::class);
+    }
+
+    public function getFollowedThreads()
+    {
+        return $this->serve(GetFollowedThreadsJob::class);
     }
 
     public function followThread()

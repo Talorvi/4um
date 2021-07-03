@@ -13,6 +13,7 @@
 
 // Prefix: /api/forum
 use App\Services\Forum\Http\Controllers\CommentController;
+use App\Services\Forum\Http\Controllers\NotificationController;
 use App\Services\Forum\Http\Controllers\PostController;
 use App\Services\Forum\Http\Controllers\TagController;
 use App\Services\Forum\Http\Controllers\ThreadController;
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/edit-thread', [ThreadController::class, 'editThread']);
     Route::middleware('auth:api')->get('/get-thread', [ThreadController::class, 'getThread']);
     Route::middleware('auth:api')->get('/get-threads', [ThreadController::class, 'getThreads']);
+    Route::middleware('auth:api')->get('/get-followed-threads', [ThreadController::class, 'getFollowedThreads']);
     Route::middleware('auth:api')->post('/follow-thread', [ThreadController::class, 'followThread']);
     Route::middleware('auth:api')->post('/vote-for-thread', [ThreadController::class, 'voteForThread']);
 
@@ -39,6 +41,7 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->get('/get-post', [PostController::class, 'getPost']);
     Route::middleware('auth:api')->get('/get-posts', [PostController::class, 'getPosts']);
     Route::middleware('auth:api')->post('/accept-post', [PostController::class, 'acceptPost']);
+    Route::middleware('auth:api')->get('/get-awaiting-posts', [PostController::class, 'getAwaitingPosts']);
 
     /**
      * Comment
@@ -56,4 +59,10 @@ Route::group(['prefix' => 'forum'], function() {
     Route::middleware('auth:api')->post('/delete-tag', [TagController::class, 'deleteTag']);
     Route::middleware('auth:api')->get('/get-tag', [TagController::class, 'getTag']);
     Route::middleware('auth:api')->get('/get-tags', [TagController::class, 'getTags']);
+
+    /**
+     * Notification
+     */
+    Route::middleware('auth:api')->get('/get-notifications', [NotificationController::class, 'getNotifications']);
+    Route::middleware('auth:api')->post('/delete-notification', [NotificationController::class, 'deleteNotification']);
 });
