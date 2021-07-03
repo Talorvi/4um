@@ -31,8 +31,6 @@ class EditAvatarJob extends Job
      */
     public function handle(): bool
     {
-        $user = User::findOrFail($this->user_id);
-
       try {
             $user = User::findOrFail($this->user_id);
             $oldAvatars = $user->getMedia('avatars');
