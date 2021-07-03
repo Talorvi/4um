@@ -34,9 +34,10 @@ class AddPostJob extends Job
     public function handle()
     {
         return Post::create([
-            'text'    => $this->text,
-            'user_id' => $this->user->id,
-            'thread_id' => $this->thread_id
+            'text'      => $this->text,
+            'user_id'   => $this->user->id,
+            'thread_id' => $this->thread_id,
+            'accepted'  => 0
         ]);
     }
 }

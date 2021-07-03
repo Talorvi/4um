@@ -5,8 +5,8 @@ namespace App\Services\Forum\Http\Controllers;
 use App\Services\Forum\Features\Post\AcceptPostFeature;
 use App\Services\Forum\Features\Post\AddPostFeature;
 use App\Services\Forum\Features\Post\DeletePostFeature;
-use App\Services\Forum\Features\Post\DenyPostFeature;
 use App\Services\Forum\Features\Post\EditPostFeature;
+use App\Services\Forum\Features\Post\GetAwaitingPostsFeature;
 use App\Services\Forum\Features\Post\GetPostFeature;
 use App\Services\Forum\Features\Post\GetPostsFeature;
 use Lucid\Units\Controller;
@@ -43,8 +43,8 @@ class PostController extends Controller
         return $this->serve(AcceptPostFeature::class);
     }
 
-    public function denyPost()
+    public function getAwaitingPosts()
     {
-        return $this->serve(DenyPostFeature::class);
+        return $this->serve(GetAwaitingPostsFeature::class);
     }
 }

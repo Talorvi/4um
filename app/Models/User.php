@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Passport\HasApiTokens;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -56,7 +57,7 @@ class User extends Authenticatable implements HasMedia
      *
      * @var array
      */
-    protected $appends = ['number_of_threads_followed', 'number_of_votes', 'number_of_comments', 'avatar_url'];
+    protected $appends = ['number_of_threads_followed', 'number_of_votes', 'number_of_comments', 'avatar_url', 'user_roles'];
 
     /**
      * Gets the number of thread followed by user
@@ -96,6 +97,16 @@ class User extends Authenticatable implements HasMedia
     public function getAvatarUrlAttribute(): string
     {
         return $this->getAvatarUrl();
+    }
+
+    /**
+     * Gets User Roles
+     *
+     * @return Collection
+     */
+    public function getUserRolesAttribute(): Collection
+    {
+        return $this->getRoleNames();
     }
 
     /**
@@ -154,6 +165,16 @@ class User extends Authenticatable implements HasMedia
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * User has many notifications
+     *
+     * @return HasMany
+     */
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class);
     }
 
     /**

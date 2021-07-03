@@ -25,6 +25,6 @@ class GetPostsJob extends Job
      */
     public function handle()
     {
-        return Post::all();
+        return Post::where('accepted', '=', 1)->get();
     }
 }

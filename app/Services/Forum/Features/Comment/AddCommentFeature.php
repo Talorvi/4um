@@ -4,6 +4,8 @@ namespace App\Services\Forum\Features\Comment;
 
 use App\Domains\Comment\Jobs\AddCommentJob;
 use App\Domains\Comment\Requests\AddComment;
+use App\Domains\Post\Jobs\GetPostJob;
+use App\Events\CommentAdded;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
 use Lucid\Units\Feature;
 
@@ -16,6 +18,8 @@ class AddCommentFeature extends Feature
             'user' => $request->user(),
             'post_id' => $request->input('post_id')
         ]);
+
+        event(new CommentAdded("Someone commented your post", $comment->post_id, $comment->post->user_id, $comment->post->thread_id, $comment->user_id));
 
         return $this->run(new RespondWithJsonJob($comment));
     }

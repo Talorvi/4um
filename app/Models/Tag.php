@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @method static find(int $tag_id)
+ * @method static findOrCreate(string[] $array)
+ * @method static create(string[] $array)
+ * @method static where(string $string, string $string1, string $tag_name)
  */
 class Tag extends Model
 {
