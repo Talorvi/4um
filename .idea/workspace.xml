@@ -3,24 +3,92 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="finished deleting thread feature">
-      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/EditThreadJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/GetThreadsJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Domains/Thread/Requests/EditThread.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/GetThreadFeature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Forum/Features/GetThreadsFeature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Forum/GetThreadFeatureTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/Services/Forum/GetThreadsFeatureTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/AddThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Post/Jobs/AddPostJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Post/Jobs/AddPostJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Features/AddThreadFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Features/AddThreadFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Features/EditThreadFeature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Features/EditThreadFeature.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/ThreadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/Http/Controllers/ThreadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Forum/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/GenerateTokenJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/GenerateTokenJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/ValidateRegisterUserInputJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/AddCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/AddCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/DeleteCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/DeleteCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/EditCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/EditCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Forum/Jobs/DeleteThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/DeleteNotificationJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/DeleteNotificationJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AcceptPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AcceptPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DeletePostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DeletePostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DenyPostJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/EditPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/EditPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetAwaitingPostsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetAwaitingPostsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/ProcessPostJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/AddTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/AddTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/DeleteTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/DeleteTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/FindOrCreateTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/FindOrCreateTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/RemoveUnusedTagsJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/AcceptThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DeleteThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DeleteThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DenyThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/FollowThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/FollowThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetFollowedThreadsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetFollowedThreadsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/VoteForThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/VoteForThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUsersJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUsersJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateAvatarJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateAvatarJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateUserJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateUserJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/AddPostOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/AddThreadOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/EditThreadOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Thread/Operations/AddThreadOperationTest.php" beforeDir="false" />
+    </list>
+    <list id="dab0eeed-195a-452b-9c66-bd4c06465857" name="Changes by Mateusz" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +105,29 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/authentication" />
+        <entry key="$PROJECT_DIR$" value="tests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php">
+      <ranges>
+        <range start1="24" end1="25" start2="24" end2="25" changelist="36d8d694-c8c6-4b57-a953-c54f99d0812a" />
+        <range start1="26" end1="27" start2="26" end2="27" changelist="dab0eeed-195a-452b-9c66-bd4c06465857" />
+      </ranges>
+    </file>
+  </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9003" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
@@ -167,6 +252,20 @@
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/vendor/league/glide" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rhNgVWTejocjP5cGojmoSET10Z" />
@@ -187,14 +286,20 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../puzzlyfier" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="PHP Script.RegisterJob.php">
     <configuration name="4um" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GetUserJobTest.test_get_existing_user_job" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domains\User\Jobs\GetUserJobTest" file="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" method="test_get_existing_user_job" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -210,13 +315,14 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.RegisterJob.php" />
-        <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.4um" />
+        <item itemvalue="PHPUnit.GetUserJobTest.test_get_existing_user_job" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="" />
@@ -241,6 +347,12 @@
       <workItem from="1621766152246" duration="967000" />
       <workItem from="1621838946873" duration="1406000" />
       <workItem from="1622442937960" duration="3514000" />
+      <workItem from="1625167979773" duration="2048000" />
+      <workItem from="1625219795084" duration="5590000" />
+      <workItem from="1625229374135" duration="259000" />
+      <workItem from="1625302240229" duration="1127000" />
+      <workItem from="1625303752509" duration="4626000" />
+      <workItem from="1625308446934" duration="12963000" />
     </task>
     <task id="LOCAL-00001" summary="added registration route">
       <created>1620642556257</created>
@@ -377,11 +489,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="finished deleting thread feature" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
+    <expand>
+      <path>
+        <item name="4um" type="b2602c69:ProjectViewProjectNode" />
+        <item name="4um" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/4um@tests.xml" NAME="tests Coverage Results" MODIFIED="1620645323245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/4um@4um.xml" NAME="4um Coverage Results" MODIFIED="1620643157837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

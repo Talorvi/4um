@@ -9,6 +9,8 @@ class AddTagJobTest extends TestCase
 {
     public function test_add_tag_job()
     {
-        $this->markTestIncomplete();
+        $job = new AddTagJob('test');
+        $result = $job->handle();
+        $this->assertNotNull($result);
     }
 }

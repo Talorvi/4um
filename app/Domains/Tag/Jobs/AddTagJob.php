@@ -22,7 +22,7 @@ class AddTagJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return Tag
      */
     public function handle()
     {

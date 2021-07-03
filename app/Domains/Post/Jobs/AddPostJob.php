@@ -29,7 +29,7 @@ class AddPostJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return Post
      */
     public function handle()
     {

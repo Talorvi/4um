@@ -29,7 +29,7 @@ class AddThreadJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return Thread
      */
     public function handle()
     {

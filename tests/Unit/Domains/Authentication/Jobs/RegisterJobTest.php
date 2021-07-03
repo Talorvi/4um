@@ -9,6 +9,8 @@ class RegisterJobTest extends TestCase
 {
     public function test_register_job()
     {
-        $this->markTestIncomplete();
+        $job = new RegisterJob('Adam','adam@adam.adam','adamadam');
+        $result = $job->handle();
+        $this->assertNotNull($result);
     }
 }
