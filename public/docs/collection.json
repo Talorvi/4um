@@ -1,0 +1,1232 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "www.4um.polarlooptheory.pl"
+        }
+    ],
+    "info": {
+        "name": "4um",
+        "_postman_id": "7d2ca055-f441-4bd8-ad5a-0d321495bca6",
+        "description": "4um documentation",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "\nAPIs for managing authentication",
+            "item": [
+                {
+                    "name": "Creates a user",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/authentication\/register",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/authentication\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Bob\",\"email\":\"Bob@example.com\",\"password\":\"bobross\",\"password_confirmation\":\"bobross\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"id\": 25,\n\"number_of_threads_followed\": 0,\n\"number_of_votes\": 0,\n\"number_of_comments\": 0,\n\"avatar_url\": \"\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Login user",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/authentication\/login",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/authentication\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"Bob@example.com\",\"password\":\"bobross\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"token\": \"TOKEN\",\n\"expires_in\": \"2022-01-04T12:56:47.000000Z\",\n\"user\": {\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"number_of_threads_followed\": 0,\n\"number_of_votes\": 0,\n\"number_of_comments\": 0,\n\"avatar_url\": \"\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Comment management",
+            "description": "\nAPIs for managing comments",
+            "item": [
+                {
+                    "name": "Add comment",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/add-comment",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/add-comment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"post_id\":9,\"text\":\"perferendis\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"text\": \"New comment\",\n\"user_id\": 17,\n\"post_id\": 129,\n\"updated_at\": \"2021-07-04T15:40:17.000000Z\",\n\"created_at\": \"2021-07-04T15:40:17.000000Z\",\n\"id\": 29,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"post\": {\n\"id\": 129,\n\"user_id\": 17,\n\"thread_id\": 40,\n\"text\": \"I like you a lot\",\n\"created_at\": \"2021-07-04T15:39:14.000000Z\",\n\"updated_at\": \"2021-07-04T15:39:46.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 1,\n\"number_of_comments\": 1,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": [\n{\n\"id\": 29,\n\"text\": \"New comment\",\n\"user_id\": 17,\n\"post_id\": 129,\n\"created_at\": \"2021-07-04T15:40:17.000000Z\",\n\"updated_at\": \"2021-07-04T15:40:17.000000Z\",\n\"deleted_at\": null,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n}\n]\n}\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete comment",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-comment",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-comment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"comment_id\":4}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Comment deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit comment",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/edit-comment",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/edit-comment"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"comment_id\":11,\"text\":\"dolor\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Comment edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get comment",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-comment",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-comment",
+                            "variable": [
+                                {
+                                    "id": "comment_id",
+                                    "key": "comment_id",
+                                    "value": "19",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Comment edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get comments",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-comments",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-comments"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 27,\n\"text\": \"komm\",\n\"user_id\": 23,\n\"post_id\": 117,\n\"created_at\": \"2021-07-02T18:27:23.000000Z\",\n\"updated_at\": \"2021-07-02T18:27:23.000000Z\",\n\"deleted_at\": null,\n\"author\": [\n{\n\"id\": 23,\n\"name\": \"Kot Bonifacy\",\n\"email\": \"bonifacy@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-02T18:24:20.000000Z\",\n\"updated_at\": \"2021-07-02T18:24:20.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/44\/php5TgEjW\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 23,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n},\n{\n\"id\": 29,\n\"text\": \"Updated comment\",\n\"user_id\": 17,\n\"post_id\": 129,\n\"created_at\": \"2021-07-04T15:40:17.000000Z\",\n\"updated_at\": \"2021-07-04T15:41:41.000000Z\",\n\"deleted_at\": null,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Notification management",
+            "description": "\nAPIs for managing notifications",
+            "item": [
+                {
+                    "name": "Get notifications",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-notifications",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-notifications"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 2,\n\"message\": \"Someone commented your post\",\n\"user_id\": 17,\n\"thread_id\": 7,\n\"created_at\": \"2021-07-02T18:14:27.000000Z\",\n\"updated_at\": \"2021-07-02T18:14:27.000000Z\"\n},\n{\n\"id\": 4,\n\"message\": \"Someone added a post to your thread\",\n\"user_id\": 17,\n\"thread_id\": 33,\n\"created_at\": \"2021-07-02T18:26:25.000000Z\",\n\"updated_at\": \"2021-07-02T18:26:25.000000Z\"\n},\n{\n\"id\": 7,\n\"message\": \"Successfully processed the post\",\n\"user_id\": 17,\n\"thread_id\": 37,\n\"created_at\": \"2021-07-02T19:42:01.000000Z\",\n\"updated_at\": \"2021-07-02T19:42:01.000000Z\"\n},\n{\n\"id\": 10,\n\"message\": \"Successfully processed the post\",\n\"user_id\": 17,\n\"thread_id\": 37,\n\"created_at\": \"2021-07-02T19:45:33.000000Z\",\n\"updated_at\": \"2021-07-02T19:45:33.000000Z\"\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete notification",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-notification",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-notification"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"notification_id\":10}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Notification deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Post management",
+            "description": "\nAPIs for managing posts",
+            "item": [
+                {
+                    "name": "Add post",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/add-post",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/add-post"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"thread_id\":7,\"text\":\"odio\"}"
+                        },
+                        "description": "This endpoint works asynchronous. It goes into queue.\nWhen the job is done, user receives a notification."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"text\": \"I like your thread\",\n\"user_id\": 17,\n\"thread_id\": 40,\n\"accepted\": 0,\n\"updated_at\": \"2021-07-04T15:11:14.000000Z\",\n\"created_at\": \"2021-07-04T15:11:14.000000Z\",\n\"id\": 126,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete post",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-post",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-post"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"post_id\":18}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Post deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit post",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/edit-post",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/edit-post"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"post_id\":1}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Post edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get post",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-post",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-post"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 126,\n\"user_id\": 17,\n\"thread_id\": 40,\n\"text\": \"Updated first post\",\n\"created_at\": \"2021-07-04T15:11:14.000000Z\",\n\"updated_at\": \"2021-07-04T15:12:23.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 0,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get posts",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-posts",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 119,\n\"user_id\": 17,\n\"thread_id\": 37,\n\"text\": \"I like your thread\",\n\"created_at\": \"2021-07-02T19:45:23.000000Z\",\n\"updated_at\": \"2021-07-02T19:45:33.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 1,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n},\n{\n\"id\": 123,\n\"user_id\": 23,\n\"thread_id\": 37,\n\"text\": \"test\",\n\"created_at\": \"2021-07-02T19:54:30.000000Z\",\n\"updated_at\": \"2021-07-02T19:54:39.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 1,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 23,\n\"name\": \"Kot Bonifacy\",\n\"email\": \"bonifacy@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-02T18:24:20.000000Z\",\n\"updated_at\": \"2021-07-02T18:24:20.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/44\/php5TgEjW\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 23,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Accept post",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/accept-post",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/accept-post"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"post_id\":3,\"accepted\":1}"
+                        },
+                        "description": "For accepted = 1 accepts the post, for 0, deletes the post"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Post has been processed.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get awaiting posts",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-awaiting-posts",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-awaiting-posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"data\": [\n{\n\"id\": 126,\n\"user_id\": 17,\n\"thread_id\": 40,\n\"text\": \"Updated first post\",\n\"created_at\": \"2021-07-04T15:11:14.000000Z\",\n\"updated_at\": \"2021-07-04T15:12:23.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 0,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n},\n{\n\"id\": 127,\n\"user_id\": 17,\n\"thread_id\": 40,\n\"text\": \"I hate you\",\n\"created_at\": \"2021-07-04T15:21:50.000000Z\",\n\"updated_at\": \"2021-07-04T15:21:50.000000Z\",\n\"deleted_at\": null,\n\"accepted\": 0,\n\"number_of_comments\": 0,\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"comments\": []\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tag management",
+            "description": "\nAPIs for managing tags",
+            "item": [
+                {
+                    "name": "Add tag",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/add-tag",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/add-tag"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"\\\"new tag\\\"\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"name\": \"new tag\",\n\"updated_at\": \"2021-07-04T12:51:51.000000Z\",\n\"created_at\": \"2021-07-04T12:51:51.000000Z\",\n\"id\": 19\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete tag",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-tag",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-tag"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"tag_id\":6}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Tag deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get tag",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-tag",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-tag",
+                            "variable": [
+                                {
+                                    "id": "tag_id",
+                                    "key": "tag_id",
+                                    "value": "6",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 6,\n\"name\": \"tag2\",\n\"created_at\": \"2021-06-20T09:58:48.000000Z\",\n\"updated_at\": \"2021-06-20T09:58:48.000000Z\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get tags",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-tags",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-tags"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 9,\n\"name\": \"tag\",\n\"created_at\": \"2021-06-20T12:01:15.000000Z\",\n\"updated_at\": \"2021-06-20T12:01:15.000000Z\"\n},\n{\n\"id\": 10,\n\"name\": \"tag1\",\n\"created_at\": \"2021-06-20T12:01:33.000000Z\",\n\"updated_at\": \"2021-06-20T12:01:33.000000Z\"\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Thread management",
+            "description": "\nAPIs for managing threads",
+            "item": [
+                {
+                    "name": "Add thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/add-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/add-thread"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"sint\",\"text\":\"ut\",\"tags\":[\"natus\",\"inventore\"]}"
+                        },
+                        "description": "Responds with created Thread and User that posted this thread"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"user_id\": 25,\n\"updated_at\": \"2021-07-04T14:32:53.000000Z\",\n\"created_at\": \"2021-07-04T14:32:53.000000Z\",\n\"id\": 39,\n\"number_of_followers\": 0,\n\"score\": 0,\n\"number_of_posts\": 0,\n\"tags\": [\n{\n\"name\": \"tag1\"\n},\n{\n\"name\": \"tag2\"\n}\n],\n\"followers\": [],\n\"votes\": [],\n\"author\": [\n{\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"avatar_url\": \"http:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-thread"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"thread_id\":5}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Thread deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/edit-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/edit-thread"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"thread_id\":12,\"title\":\"necessitatibus\",\"text\":\"at\",\"tags\":[\"nihil\",\"nemo\"]}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Thread edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-thread",
+                            "variable": [
+                                {
+                                    "id": "thread_id",
+                                    "key": "thread_id",
+                                    "value": "40",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 40,\n\"user_id\": 25,\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"created_at\": \"2021-07-04T14:37:48.000000Z\",\n\"updated_at\": \"2021-07-04T14:37:48.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 0,\n\"score\": 0,\n\"number_of_posts\": 0,\n\"tags\": [\n{\n\"id\": 10,\n\"name\": \"tag1\",\n\"created_at\": \"2021-06-20T12:01:33.000000Z\",\n\"updated_at\": \"2021-06-20T12:01:33.000000Z\"\n},\n{\n\"id\": 20,\n\"name\": \"tag2\",\n\"created_at\": \"2021-07-04T14:32:29.000000Z\",\n\"updated_at\": \"2021-07-04T14:32:29.000000Z\"\n}\n],\n\"followers\": [],\n\"votes\": [],\n\"author\": [\n{\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"avatar_url\": \"http:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"posts\": []\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get threads",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-threads",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-threads"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 38,\n\"user_id\": 17,\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"created_at\": \"2021-07-04T14:32:29.000000Z\",\n\"updated_at\": \"2021-07-04T14:32:29.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 0,\n\"score\": 0,\n\"number_of_posts\": 0,\n\"tags\": [\n{\n\"name\": \"tag1\"\n},\n{\n\"name\": \"tag2\"\n}\n],\n\"followers\": [],\n\"votes\": [],\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n},\n{\n\"id\": 40,\n\"user_id\": 25,\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"created_at\": \"2021-07-04T14:37:48.000000Z\",\n\"updated_at\": \"2021-07-04T14:37:48.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 0,\n\"score\": 0,\n\"number_of_posts\": 0,\n\"tags\": [\n{\n\"name\": \"tag1\"\n},\n{\n\"name\": \"tag2\"\n}\n],\n\"followers\": [],\n\"votes\": [],\n\"author\": [\n{\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n]\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get followed threads",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/get-followed-threads",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/get-followed-threads"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 30,\n\"user_id\": 17,\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"created_at\": \"2021-06-20T12:04:36.000000Z\",\n\"updated_at\": \"2021-06-20T12:04:36.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 1,\n\"score\": 1,\n\"number_of_posts\": 4,\n\"tags\": [],\n\"followers\": [\n{\n\"name\": \"Mr Sandman\",\n\"user_id\": 17,\n\"avatar_url\": \"\",\n\"user_roles\": [],\n\"roles\": []\n}\n],\n\"votes\": [\n{\n\"name\": \"Mr Sandman\",\n\"user_roles\": [],\n\"pivot\": {\n\"thread_id\": 30,\n\"user_id\": 17,\n\"value\": 1,\n\"created_at\": \"2021-06-28T13:36:49.000000Z\",\n\"updated_at\": \"2021-06-28T13:36:49.000000Z\"\n},\n\"roles\": []\n}\n],\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"pivot\": {\n\"user_id\": 17,\n\"thread_id\": 30,\n\"created_at\": \"2021-06-29T13:27:07.000000Z\",\n\"updated_at\": \"2021-06-29T13:27:07.000000Z\"\n}\n},\n{\n\"id\": 32,\n\"user_id\": 17,\n\"title\": \"thread bez tagow\",\n\"text\": \"no totalnie bez\",\n\"created_at\": \"2021-06-20T12:24:00.000000Z\",\n\"updated_at\": \"2021-06-20T12:24:00.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 1,\n\"score\": -3,\n\"number_of_posts\": 1,\n\"tags\": [],\n\"followers\": [\n{\n\"name\": \"Mr Sandman\",\n\"user_id\": 17,\n\"avatar_url\": \"\",\n\"user_roles\": [],\n\"roles\": []\n}\n],\n\"votes\": [\n{\n\"name\": \"jacek123\",\n\"user_roles\": [],\n\"pivot\": {\n\"thread_id\": 32,\n\"user_id\": 22,\n\"value\": -1,\n\"created_at\": \"2021-06-28T12:57:27.000000Z\",\n\"updated_at\": \"2021-06-28T12:57:27.000000Z\"\n},\n\"roles\": []\n},\n{\n\"name\": \"Mr Sandman\",\n\"user_roles\": [],\n\"pivot\": {\n\"thread_id\": 32,\n\"user_id\": 17,\n\"value\": -1,\n\"created_at\": \"2021-06-30T12:17:25.000000Z\",\n\"updated_at\": \"2021-06-30T12:17:25.000000Z\"\n},\n\"roles\": []\n},\n{\n\"name\": \"Kot Bonifacy\",\n\"user_roles\": [],\n\"pivot\": {\n\"thread_id\": 32,\n\"user_id\": 23,\n\"value\": -1,\n\"created_at\": \"2021-07-02T18:33:18.000000Z\",\n\"updated_at\": \"2021-07-02T18:33:18.000000Z\"\n},\n\"roles\": []\n}\n],\n\"author\": [\n{\n\"id\": 17,\n\"name\": \"Mr Sandman\",\n\"email\": \"test@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-05-17T19:59:06.000000Z\",\n\"updated_at\": \"2021-07-04T12:26:09.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2\",\n\"user_roles\": [\n\"admin\"\n],\n\"roles\": [\n{\n\"id\": 7,\n\"name\": \"admin\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 17,\n\"role_id\": 7,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"pivot\": {\n\"user_id\": 17,\n\"thread_id\": 32,\n\"created_at\": \"2021-07-02T18:23:42.000000Z\",\n\"updated_at\": \"2021-07-02T18:23:42.000000Z\"\n}\n},\n{\n\"id\": 40,\n\"user_id\": 25,\n\"title\": \"New post\",\n\"text\": \"New post :)\",\n\"created_at\": \"2021-07-04T14:37:48.000000Z\",\n\"updated_at\": \"2021-07-04T14:37:48.000000Z\",\n\"deleted_at\": null,\n\"number_of_followers\": 1,\n\"score\": 0,\n\"number_of_posts\": 0,\n\"tags\": [\n{\n\"name\": \"tag1\"\n},\n{\n\"name\": \"tag2\"\n}\n],\n\"followers\": [\n{\n\"name\": \"Mr Sandman\",\n\"user_id\": 17,\n\"avatar_url\": \"\",\n\"user_roles\": [],\n\"roles\": []\n}\n],\n\"votes\": [],\n\"author\": [\n{\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"avatar_url\": \"https:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"pivot\": {\n\"user_id\": 17,\n\"thread_id\": 40,\n\"created_at\": \"2021-07-04T14:50:27.000000Z\",\n\"updated_at\": \"2021-07-04T14:50:27.000000Z\"\n}\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Follow thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/follow-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/follow-thread"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"thread_id\":12,\"follow\":19}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Thread (un)followed successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Vote for thread",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/vote-for-thread",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/vote-for-thread"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"thread_id\":8,\"score\":1}"
+                        },
+                        "description": "Votes for a thread - score is:\n- 0 is for removing vote\n- 1 is for upvoting\n- -1 is for downvoting"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Voted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User management",
+            "description": "\nAPIs for managing users",
+            "item": [
+                {
+                    "name": "Get user",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/get-user",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/user\/get-user",
+                            "variable": [
+                                {
+                                    "id": "user_id",
+                                    "key": "user_id",
+                                    "value": "25",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"number_of_threads_followed\": 0,\n\"number_of_votes\": 0,\n\"number_of_comments\": 0,\n\"avatar_url\": \"\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n\"errors\": {\n\"user_id\": \"User could not be printed properly. Check user ID.\"\n},\n\"status\": 400\n}",
+                            "name": "400, user not found"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get users",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/get-users",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/user\/get-users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n{\n\"id\": 24,\n\"name\": \"New Test :)\",\n\"email\": \"newtest123@test.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:41:55.000000Z\",\n\"updated_at\": \"2021-07-04T11:41:55.000000Z\",\n\"number_of_threads_followed\": 0,\n\"number_of_votes\": 0,\n\"number_of_comments\": 0,\n\"avatar_url\": \"\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 24,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n},\n{\n\"id\": 25,\n\"name\": \"Bob\",\n\"email\": \"Bob@example.com\",\n\"email_verified_at\": null,\n\"created_at\": \"2021-07-04T11:52:21.000000Z\",\n\"updated_at\": \"2021-07-04T11:52:21.000000Z\",\n\"number_of_threads_followed\": 0,\n\"number_of_votes\": 0,\n\"number_of_comments\": 0,\n\"avatar_url\": \"\",\n\"user_roles\": [\n\"user\"\n],\n\"roles\": [\n{\n\"id\": 9,\n\"name\": \"user\",\n\"guard_name\": \"web\",\n\"created_at\": \"2021-06-05T16:44:16.000000Z\",\n\"updated_at\": \"2021-06-05T16:44:16.000000Z\",\n\"pivot\": {\n\"model_id\": 25,\n\"role_id\": 9,\n\"model_type\": \"App\\\\Models\\\\User\"\n}\n}\n]\n}\n],\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit user",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/edit-user",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/user\/edit-user"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":25,\"password\":\"bobross25\",\"password_confirmation\":\"bobross25\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"User edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Edit avatar",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/edit-avatar",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/user\/edit-avatar"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "user_id",
+                                    "value": 25,
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Avatar edited successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

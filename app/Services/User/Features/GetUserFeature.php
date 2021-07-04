@@ -2,6 +2,7 @@
 
 namespace App\Services\User\Features;
 
+use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use App\Domains\User\Jobs\GetUserJob;
 use Illuminate\Http\Request;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
@@ -15,6 +16,12 @@ class GetUserFeature extends Feature
             'user_id' => $request->input('user_id')
         ]);
 
-        return $this->run(new RespondWithJsonJob($user));
+        if($user) {
+            return $this->run(new RespondWithJsonJob($user));
+        }
+
+        return $this->run(new RespondWithJsonResponseErrorJob([
+            'user_id' => 'User could not be printed properly. Check user ID.'
+        ]));
     }
 }

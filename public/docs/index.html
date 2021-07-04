@@ -1,0 +1,4851 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>4um Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.4.1.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "https://www.4um.polarlooptheory.pl";
+    </script>
+    <script src="../docs/js/tryitout-3.4.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;javascript&quot;,&quot;bash&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+        <img src="../img/v1.png" alt="logo" class="logo" style="padding-top: 10px;" width="230px"/>
+                <div class="lang-selector">
+                            <a href="#" data-language-name="javascript">javascript</a>
+                            <a href="#" data-language-name="bash">bash</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: July 4 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>4um documentation</p>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">https://www.4um.polarlooptheory.pl</code></pre>
+
+        <h1>Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by checking Authentication section below.</p>
+
+        <h1 id="authentication">Authentication</h1>
+    <p>
+        <p>APIs for managing authentication</p>
+    </p>
+
+            <h2 id="authentication-POSTapi-authentication-register">Creates a user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-authentication-register">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/authentication/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "Bob",
+    "email": "Bob@example.com",
+    "password": "bobross",
+    "password_confirmation": "bobross"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/authentication/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"Bob\",
+    \"email\": \"Bob@example.com\",
+    \"password\": \"bobross\",
+    \"password_confirmation\": \"bobross\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-authentication-register">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;Bob&quot;,
+        &quot;email&quot;: &quot;Bob@example.com&quot;,
+        &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+        &quot;id&quot;: 25,
+        &quot;number_of_threads_followed&quot;: 0,
+        &quot;number_of_votes&quot;: 0,
+        &quot;number_of_comments&quot;: 0,
+        &quot;avatar_url&quot;: &quot;&quot;,
+        &quot;user_roles&quot;: [
+            &quot;user&quot;
+        ],
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;user&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                &quot;pivot&quot;: {
+                    &quot;model_id&quot;: 25,
+                    &quot;role_id&quot;: 9,
+                    &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                }
+            }
+        ]
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-authentication-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-authentication-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-authentication-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-authentication-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-authentication-register"></code></pre>
+</span>
+<form id="form-POSTapi-authentication-register" data-method="POST"
+      data-path="api/authentication/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-authentication-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-authentication-register"
+                    onclick="tryItOut('POSTapi-authentication-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-authentication-register"
+                    onclick="cancelTryOut('POSTapi-authentication-register');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-authentication-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/authentication/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-authentication-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Name/login of the user. Must be unique.</p>        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-authentication-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Email of the user. Must be unique.</p>        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-authentication-register"
+               data-component="body" required  hidden>
+    <br>
+<p>Password has to be at least 6 characters long.</p>        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-authentication-register"
+               data-component="body" required  hidden>
+    <br>
+<p>This field is required to be the same as the password.</p>        </p>
+    
+    </form>
+
+            <h2 id="authentication-POSTapi-authentication-login">Login user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-authentication-login">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/authentication/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "Bob@example.com",
+    "password": "bobross"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/authentication/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"Bob@example.com\",
+    \"password\": \"bobross\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-authentication-login">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;token&quot;: &quot;TOKEN&quot;,
+        &quot;expires_in&quot;: &quot;2022-01-04T12:56:47.000000Z&quot;,
+        &quot;user&quot;: {
+            &quot;id&quot;: 25,
+            &quot;name&quot;: &quot;Bob&quot;,
+            &quot;email&quot;: &quot;Bob@example.com&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+            &quot;number_of_threads_followed&quot;: 0,
+            &quot;number_of_votes&quot;: 0,
+            &quot;number_of_comments&quot;: 0,
+            &quot;avatar_url&quot;: &quot;&quot;,
+            &quot;user_roles&quot;: [
+                &quot;user&quot;
+            ],
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;user&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;,
+                    &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;pivot&quot;: {
+                        &quot;model_id&quot;: 25,
+                        &quot;role_id&quot;: 9,
+                        &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                    }
+                }
+            ]
+        }
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-authentication-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-authentication-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-authentication-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-authentication-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-authentication-login"></code></pre>
+</span>
+<form id="form-POSTapi-authentication-login" data-method="POST"
+      data-path="api/authentication/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-authentication-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-authentication-login"
+                    onclick="tryItOut('POSTapi-authentication-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-authentication-login"
+                    onclick="cancelTryOut('POSTapi-authentication-login');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-authentication-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/authentication/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-authentication-login"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-authentication-login"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+        <h1 id="comment-management">Comment management</h1>
+    <p>
+        <p>APIs for managing comments</p>
+    </p>
+
+            <h2 id="comment-management-POSTapi-forum-add-comment">Add comment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-add-comment">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/add-comment"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 9,
+    "text": "perferendis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/add-comment" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"post_id\": 9,
+    \"text\": \"perferendis\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-add-comment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;text&quot;: &quot;New comment&quot;,
+        &quot;user_id&quot;: 17,
+        &quot;post_id&quot;: 129,
+        &quot;updated_at&quot;: &quot;2021-07-04T15:40:17.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T15:40:17.000000Z&quot;,
+        &quot;id&quot;: 29,
+        &quot;author&quot;: [
+            {
+                &quot;id&quot;: 17,
+                &quot;name&quot;: &quot;Mr Sandman&quot;,
+                &quot;email&quot;: &quot;test@test.com&quot;,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                &quot;user_roles&quot;: [
+                    &quot;admin&quot;
+                ],
+                &quot;roles&quot;: [
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;admin&quot;,
+                        &quot;guard_name&quot;: &quot;web&quot;,
+                        &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;pivot&quot;: {
+                            &quot;model_id&quot;: 17,
+                            &quot;role_id&quot;: 7,
+                            &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                        }
+                    }
+                ]
+            }
+        ],
+        &quot;post&quot;: {
+            &quot;id&quot;: 129,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 40,
+            &quot;text&quot;: &quot;I like you a lot&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T15:39:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T15:39:46.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;accepted&quot;: 1,
+            &quot;number_of_comments&quot;: 1,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;comments&quot;: [
+                {
+                    &quot;id&quot;: 29,
+                    &quot;text&quot;: &quot;New comment&quot;,
+                    &quot;user_id&quot;: 17,
+                    &quot;post_id&quot;: 129,
+                    &quot;created_at&quot;: &quot;2021-07-04T15:40:17.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T15:40:17.000000Z&quot;,
+                    &quot;deleted_at&quot;: null,
+                    &quot;author&quot;: [
+                        {
+                            &quot;id&quot;: 17,
+                            &quot;name&quot;: &quot;Mr Sandman&quot;,
+                            &quot;email&quot;: &quot;test@test.com&quot;,
+                            &quot;email_verified_at&quot;: null,
+                            &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                            &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                            &quot;user_roles&quot;: [
+                                &quot;admin&quot;
+                            ],
+                            &quot;roles&quot;: [
+                                {
+                                    &quot;id&quot;: 7,
+                                    &quot;name&quot;: &quot;admin&quot;,
+                                    &quot;guard_name&quot;: &quot;web&quot;,
+                                    &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                                    &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                                    &quot;pivot&quot;: {
+                                        &quot;model_id&quot;: 17,
+                                        &quot;role_id&quot;: 7,
+                                        &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-add-comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-add-comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-add-comment"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-add-comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-add-comment"></code></pre>
+</span>
+<form id="form-POSTapi-forum-add-comment" data-method="POST"
+      data-path="api/forum/add-comment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-add-comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-add-comment"
+                    onclick="tryItOut('POSTapi-forum-add-comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-add-comment"
+                    onclick="cancelTryOut('POSTapi-forum-add-comment');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-add-comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/add-comment</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-add-comment" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-add-comment"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>post_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="post_id"
+               data-endpoint="POSTapi-forum-add-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-forum-add-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="comment-management-POSTapi-forum-delete-comment">Delete comment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-comment">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-comment"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "comment_id": 4
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-comment" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"comment_id\": 4
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-comment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Comment deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-comment"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-comment"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-comment" data-method="POST"
+      data-path="api/forum/delete-comment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-comment"
+                    onclick="tryItOut('POSTapi-forum-delete-comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-comment"
+                    onclick="cancelTryOut('POSTapi-forum-delete-comment');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-comment</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-comment" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-comment"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>comment_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="comment_id"
+               data-endpoint="POSTapi-forum-delete-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="comment-management-POSTapi-forum-edit-comment">Edit comment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-edit-comment">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-comment"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "comment_id": 11,
+    "text": "dolor"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-comment" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"comment_id\": 11,
+    \"text\": \"dolor\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-edit-comment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Comment edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-edit-comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-edit-comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-edit-comment"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-edit-comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-edit-comment"></code></pre>
+</span>
+<form id="form-POSTapi-forum-edit-comment" data-method="POST"
+      data-path="api/forum/edit-comment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-edit-comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-edit-comment"
+                    onclick="tryItOut('POSTapi-forum-edit-comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-edit-comment"
+                    onclick="cancelTryOut('POSTapi-forum-edit-comment');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-edit-comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/edit-comment</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-edit-comment" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-edit-comment"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>comment_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="comment_id"
+               data-endpoint="POSTapi-forum-edit-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-forum-edit-comment"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="comment-management-GETapi-forum-get-comment">Get comment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-comment">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-comment"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-comment" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-comment">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Comment edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-comment" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-comment"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-comment"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-comment" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-comment"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-comment" data-method="GET"
+      data-path="api/forum/get-comment"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-comment', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-comment"
+                    onclick="tryItOut('GETapi-forum-get-comment');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-comment"
+                    onclick="cancelTryOut('GETapi-forum-get-comment');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-comment" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-comment</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-comment" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-comment"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>comment_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="comment_id"
+               data-endpoint="GETapi-forum-get-comment"
+               data-component="url" required  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="comment-management-GETapi-forum-get-comments">Get comments</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-comments">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-comments"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-comments" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-comments">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 27,
+            &quot;text&quot;: &quot;komm&quot;,
+            &quot;user_id&quot;: 23,
+            &quot;post_id&quot;: 117,
+            &quot;created_at&quot;: &quot;2021-07-02T18:27:23.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T18:27:23.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 23,
+                    &quot;name&quot;: &quot;Kot Bonifacy&quot;,
+                    &quot;email&quot;: &quot;bonifacy@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-07-02T18:24:20.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-02T18:24:20.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/44\/php5TgEjW&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;user&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;user&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 23,
+                                &quot;role_id&quot;: 9,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 29,
+            &quot;text&quot;: &quot;Updated comment&quot;,
+            &quot;user_id&quot;: 17,
+            &quot;post_id&quot;: 129,
+            &quot;created_at&quot;: &quot;2021-07-04T15:40:17.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T15:41:41.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-comments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-comments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-comments"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-comments"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-comments" data-method="GET"
+      data-path="api/forum/get-comments"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-comments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-comments"
+                    onclick="tryItOut('GETapi-forum-get-comments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-comments"
+                    onclick="cancelTryOut('GETapi-forum-get-comments');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-comments" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-comments</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-comments" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-comments"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="notification-management">Notification management</h1>
+    <p>
+        <p>APIs for managing notifications</p>
+    </p>
+
+            <h2 id="notification-management-GETapi-forum-get-notifications">Get notifications</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-notifications">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-notifications"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-notifications" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-notifications">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;message&quot;: &quot;Someone commented your post&quot;,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 7,
+            &quot;created_at&quot;: &quot;2021-07-02T18:14:27.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T18:14:27.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;message&quot;: &quot;Someone added a post to your thread&quot;,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 33,
+            &quot;created_at&quot;: &quot;2021-07-02T18:26:25.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T18:26:25.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;message&quot;: &quot;Successfully processed the post&quot;,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 37,
+            &quot;created_at&quot;: &quot;2021-07-02T19:42:01.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T19:42:01.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;message&quot;: &quot;Successfully processed the post&quot;,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 37,
+            &quot;created_at&quot;: &quot;2021-07-02T19:45:33.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T19:45:33.000000Z&quot;
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-notifications" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-notifications"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-notifications"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-notifications" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-notifications"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-notifications" data-method="GET"
+      data-path="api/forum/get-notifications"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-notifications', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-notifications"
+                    onclick="tryItOut('GETapi-forum-get-notifications');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-notifications"
+                    onclick="cancelTryOut('GETapi-forum-get-notifications');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-notifications" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-notifications</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-notifications" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-notifications"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="notification-management-POSTapi-forum-delete-notification">Delete notification</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-notification">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-notification"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "notification_id": 10
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-notification" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"notification_id\": 10
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-notification">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Notification deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-notification" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-notification"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-notification"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-notification" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-notification"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-notification" data-method="POST"
+      data-path="api/forum/delete-notification"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-notification', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-notification"
+                    onclick="tryItOut('POSTapi-forum-delete-notification');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-notification"
+                    onclick="cancelTryOut('POSTapi-forum-delete-notification');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-notification" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-notification</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-notification" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-notification"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>notification_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="notification_id"
+               data-endpoint="POSTapi-forum-delete-notification"
+               data-component="body" required  hidden>
+    <br>
+<p>ID of the notification to be deleted.</p>        </p>
+    
+    </form>
+
+        <h1 id="post-management">Post management</h1>
+    <p>
+        <p>APIs for managing posts</p>
+    </p>
+
+            <h2 id="post-management-POSTapi-forum-add-post">Add post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>This endpoint works asynchronous. It goes into queue.
+When the job is done, user receives a notification.</p>
+
+<span id="example-requests-POSTapi-forum-add-post">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/add-post"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thread_id": 7,
+    "text": "odio"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/add-post" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"thread_id\": 7,
+    \"text\": \"odio\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-add-post">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;text&quot;: &quot;I like your thread&quot;,
+        &quot;user_id&quot;: 17,
+        &quot;thread_id&quot;: 40,
+        &quot;accepted&quot;: 0,
+        &quot;updated_at&quot;: &quot;2021-07-04T15:11:14.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T15:11:14.000000Z&quot;,
+        &quot;id&quot;: 126,
+        &quot;number_of_comments&quot;: 0,
+        &quot;author&quot;: [
+            {
+                &quot;id&quot;: 17,
+                &quot;name&quot;: &quot;Mr Sandman&quot;,
+                &quot;email&quot;: &quot;test@test.com&quot;,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                &quot;user_roles&quot;: [
+                    &quot;admin&quot;
+                ],
+                &quot;roles&quot;: [
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;admin&quot;,
+                        &quot;guard_name&quot;: &quot;web&quot;,
+                        &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;pivot&quot;: {
+                            &quot;model_id&quot;: 17,
+                            &quot;role_id&quot;: 7,
+                            &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                        }
+                    }
+                ]
+            }
+        ],
+        &quot;comments&quot;: []
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-add-post" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-add-post"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-add-post"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-add-post" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-add-post"></code></pre>
+</span>
+<form id="form-POSTapi-forum-add-post" data-method="POST"
+      data-path="api/forum/add-post"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-add-post', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-add-post"
+                    onclick="tryItOut('POSTapi-forum-add-post');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-add-post"
+                    onclick="cancelTryOut('POSTapi-forum-add-post');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-add-post" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/add-post</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-add-post" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-add-post"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="POSTapi-forum-add-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-forum-add-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="post-management-POSTapi-forum-delete-post">Delete post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-post">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-post"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 18
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-post" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"post_id\": 18
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-post">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Post deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-post" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-post"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-post"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-post" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-post"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-post" data-method="POST"
+      data-path="api/forum/delete-post"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-post', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-post"
+                    onclick="tryItOut('POSTapi-forum-delete-post');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-post"
+                    onclick="cancelTryOut('POSTapi-forum-delete-post');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-post" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-post</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-post" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-post"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>post_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="post_id"
+               data-endpoint="POSTapi-forum-delete-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="post-management-POSTapi-forum-edit-post">Edit post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-edit-post">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-post"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 1
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-post" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"post_id\": 1
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-edit-post">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Post edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-edit-post" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-edit-post"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-edit-post"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-edit-post" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-edit-post"></code></pre>
+</span>
+<form id="form-POSTapi-forum-edit-post" data-method="POST"
+      data-path="api/forum/edit-post"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-edit-post', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-edit-post"
+                    onclick="tryItOut('POSTapi-forum-edit-post');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-edit-post"
+                    onclick="cancelTryOut('POSTapi-forum-edit-post');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-edit-post" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/edit-post</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-edit-post" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-edit-post"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>post_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="post_id"
+               data-endpoint="POSTapi-forum-edit-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="post-management-GETapi-forum-get-post">Get post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-post">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-post"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-post" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-post">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 126,
+        &quot;user_id&quot;: 17,
+        &quot;thread_id&quot;: 40,
+        &quot;text&quot;: &quot;Updated first post&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T15:11:14.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-07-04T15:12:23.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;accepted&quot;: 0,
+        &quot;number_of_comments&quot;: 0,
+        &quot;author&quot;: [
+            {
+                &quot;id&quot;: 17,
+                &quot;name&quot;: &quot;Mr Sandman&quot;,
+                &quot;email&quot;: &quot;test@test.com&quot;,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                &quot;user_roles&quot;: [
+                    &quot;admin&quot;
+                ],
+                &quot;roles&quot;: [
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;admin&quot;,
+                        &quot;guard_name&quot;: &quot;web&quot;,
+                        &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;pivot&quot;: {
+                            &quot;model_id&quot;: 17,
+                            &quot;role_id&quot;: 7,
+                            &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                        }
+                    }
+                ]
+            }
+        ],
+        &quot;comments&quot;: []
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-post" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-post"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-post"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-post" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-post"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-post" data-method="GET"
+      data-path="api/forum/get-post"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-post', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-post"
+                    onclick="tryItOut('GETapi-forum-get-post');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-post"
+                    onclick="cancelTryOut('GETapi-forum-get-post');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-post" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-post</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-post" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-post"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="post-management-GETapi-forum-get-posts">Get posts</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-posts">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-posts"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-posts" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-posts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 119,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 37,
+            &quot;text&quot;: &quot;I like your thread&quot;,
+            &quot;created_at&quot;: &quot;2021-07-02T19:45:23.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T19:45:33.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;accepted&quot;: 1,
+            &quot;number_of_comments&quot;: 0,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;comments&quot;: []
+        },
+        {
+            &quot;id&quot;: 123,
+            &quot;user_id&quot;: 23,
+            &quot;thread_id&quot;: 37,
+            &quot;text&quot;: &quot;test&quot;,
+            &quot;created_at&quot;: &quot;2021-07-02T19:54:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-02T19:54:39.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;accepted&quot;: 1,
+            &quot;number_of_comments&quot;: 0,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 23,
+                    &quot;name&quot;: &quot;Kot Bonifacy&quot;,
+                    &quot;email&quot;: &quot;bonifacy@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-07-02T18:24:20.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-02T18:24:20.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/44\/php5TgEjW&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;user&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;user&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 23,
+                                &quot;role_id&quot;: 9,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;comments&quot;: []
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-posts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-posts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-posts"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-posts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-posts"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-posts" data-method="GET"
+      data-path="api/forum/get-posts"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-posts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-posts"
+                    onclick="tryItOut('GETapi-forum-get-posts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-posts"
+                    onclick="cancelTryOut('GETapi-forum-get-posts');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-posts" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-posts</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-posts" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-posts"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="post-management-POSTapi-forum-accept-post">Accept post</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>For accepted = 1 accepts the post, for 0, deletes the post</p>
+
+<span id="example-requests-POSTapi-forum-accept-post">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/accept-post"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "post_id": 3,
+    "accepted": 1
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/accept-post" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"post_id\": 3,
+    \"accepted\": 1
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-accept-post">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Post has been processed.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-accept-post" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-accept-post"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-accept-post"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-accept-post" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-accept-post"></code></pre>
+</span>
+<form id="form-POSTapi-forum-accept-post" data-method="POST"
+      data-path="api/forum/accept-post"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-accept-post', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-accept-post"
+                    onclick="tryItOut('POSTapi-forum-accept-post');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-accept-post"
+                    onclick="cancelTryOut('POSTapi-forum-accept-post');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-accept-post" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/accept-post</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-accept-post" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-accept-post"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>post_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="post_id"
+               data-endpoint="POSTapi-forum-accept-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>accepted</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="accepted"
+               data-endpoint="POSTapi-forum-accept-post"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="post-management-GETapi-forum-get-awaiting-posts">Get awaiting posts</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-awaiting-posts">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-awaiting-posts"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-awaiting-posts" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-awaiting-posts">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 126,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 40,
+            &quot;text&quot;: &quot;Updated first post&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T15:11:14.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T15:12:23.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;accepted&quot;: 0,
+            &quot;number_of_comments&quot;: 0,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;comments&quot;: []
+        },
+        {
+            &quot;id&quot;: 127,
+            &quot;user_id&quot;: 17,
+            &quot;thread_id&quot;: 40,
+            &quot;text&quot;: &quot;I hate you&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T15:21:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T15:21:50.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;accepted&quot;: 0,
+            &quot;number_of_comments&quot;: 0,
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;comments&quot;: []
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-awaiting-posts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-awaiting-posts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-awaiting-posts"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-awaiting-posts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-awaiting-posts"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-awaiting-posts" data-method="GET"
+      data-path="api/forum/get-awaiting-posts"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-awaiting-posts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-awaiting-posts"
+                    onclick="tryItOut('GETapi-forum-get-awaiting-posts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-awaiting-posts"
+                    onclick="cancelTryOut('GETapi-forum-get-awaiting-posts');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-awaiting-posts" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-awaiting-posts</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-awaiting-posts" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-awaiting-posts"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="tag-management">Tag management</h1>
+    <p>
+        <p>APIs for managing tags</p>
+    </p>
+
+            <h2 id="tag-management-POSTapi-forum-add-tag">Add tag</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-add-tag">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/add-tag"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "\"new tag\""
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/add-tag" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"new tag\\\"\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-add-tag">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;new tag&quot;,
+        &quot;updated_at&quot;: &quot;2021-07-04T12:51:51.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T12:51:51.000000Z&quot;,
+        &quot;id&quot;: 19
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-add-tag" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-add-tag"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-add-tag"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-add-tag" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-add-tag"></code></pre>
+</span>
+<form id="form-POSTapi-forum-add-tag" data-method="POST"
+      data-path="api/forum/add-tag"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-add-tag', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-add-tag"
+                    onclick="tryItOut('POSTapi-forum-add-tag');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-add-tag"
+                    onclick="cancelTryOut('POSTapi-forum-add-tag');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-add-tag" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/add-tag</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-add-tag" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-add-tag"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-forum-add-tag"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="tag-management-POSTapi-forum-delete-tag">Delete tag</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-tag">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-tag"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "tag_id": 6
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-tag" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"tag_id\": 6
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-tag">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Tag deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-tag" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-tag"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-tag"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-tag" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-tag"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-tag" data-method="POST"
+      data-path="api/forum/delete-tag"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-tag', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-tag"
+                    onclick="tryItOut('POSTapi-forum-delete-tag');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-tag"
+                    onclick="cancelTryOut('POSTapi-forum-delete-tag');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-tag" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-tag</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-tag" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-tag"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>tag_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="tag_id"
+               data-endpoint="POSTapi-forum-delete-tag"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="tag-management-GETapi-forum-get-tag">Get tag</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-tag">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-tag"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-tag" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-tag">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;tag2&quot;,
+        &quot;created_at&quot;: &quot;2021-06-20T09:58:48.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-06-20T09:58:48.000000Z&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-tag" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-tag"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-tag"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-tag" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-tag"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-tag" data-method="GET"
+      data-path="api/forum/get-tag"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-tag', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-tag"
+                    onclick="tryItOut('GETapi-forum-get-tag');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-tag"
+                    onclick="cancelTryOut('GETapi-forum-get-tag');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-tag" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-tag</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-tag" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-tag"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>tag_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+                <input type="number"
+               name="tag_id"
+               data-endpoint="GETapi-forum-get-tag"
+               data-component="url"  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="tag-management-GETapi-forum-get-tags">Get tags</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-tags">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-tags"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-tags" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-tags">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 9,
+            &quot;name&quot;: &quot;tag&quot;,
+            &quot;created_at&quot;: &quot;2021-06-20T12:01:15.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-20T12:01:15.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;name&quot;: &quot;tag1&quot;,
+            &quot;created_at&quot;: &quot;2021-06-20T12:01:33.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-20T12:01:33.000000Z&quot;
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-tags" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-tags"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-tags"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-tags" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-tags"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-tags" data-method="GET"
+      data-path="api/forum/get-tags"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-tags', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-tags"
+                    onclick="tryItOut('GETapi-forum-get-tags');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-tags"
+                    onclick="cancelTryOut('GETapi-forum-get-tags');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-tags" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-tags</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-tags" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-tags"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="thread-management">Thread management</h1>
+    <p>
+        <p>APIs for managing threads</p>
+    </p>
+
+            <h2 id="thread-management-POSTapi-forum-add-thread">Add thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Responds with created Thread and User that posted this thread</p>
+
+<span id="example-requests-POSTapi-forum-add-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/add-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "sint",
+    "text": "ut",
+    "tags": [
+        "natus",
+        "inventore"
+    ]
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/add-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"sint\",
+    \"text\": \"ut\",
+    \"tags\": [
+        \"natus\",
+        \"inventore\"
+    ]
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-add-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;title&quot;: &quot;New post&quot;,
+        &quot;text&quot;: &quot;New post :)&quot;,
+        &quot;user_id&quot;: 25,
+        &quot;updated_at&quot;: &quot;2021-07-04T14:32:53.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T14:32:53.000000Z&quot;,
+        &quot;id&quot;: 39,
+        &quot;number_of_followers&quot;: 0,
+        &quot;score&quot;: 0,
+        &quot;number_of_posts&quot;: 0,
+        &quot;tags&quot;: [
+            {
+                &quot;name&quot;: &quot;tag1&quot;
+            },
+            {
+                &quot;name&quot;: &quot;tag2&quot;
+            }
+        ],
+        &quot;followers&quot;: [],
+        &quot;votes&quot;: [],
+        &quot;author&quot;: [
+            {
+                &quot;id&quot;: 25,
+                &quot;name&quot;: &quot;Bob&quot;,
+                &quot;email&quot;: &quot;Bob@example.com&quot;,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                &quot;avatar_url&quot;: &quot;http:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ&quot;,
+                &quot;user_roles&quot;: [
+                    &quot;user&quot;
+                ],
+                &quot;roles&quot;: [
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;name&quot;: &quot;user&quot;,
+                        &quot;guard_name&quot;: &quot;web&quot;,
+                        &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;pivot&quot;: {
+                            &quot;model_id&quot;: 25,
+                            &quot;role_id&quot;: 9,
+                            &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-add-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-add-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-add-thread"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-add-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-add-thread"></code></pre>
+</span>
+<form id="form-POSTapi-forum-add-thread" data-method="POST"
+      data-path="api/forum/add-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-add-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-add-thread"
+                    onclick="tryItOut('POSTapi-forum-add-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-add-thread"
+                    onclick="cancelTryOut('POSTapi-forum-add-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-add-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/add-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-add-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-add-thread"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTapi-forum-add-thread"
+               data-component="body" required  hidden>
+    <br>
+<p>Title of the thread</p>        </p>
+                <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-forum-add-thread"
+               data-component="body" required  hidden>
+    <br>
+<p>The content of the thread</p>        </p>
+                <p>
+            <b><code>tags</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="tags.0"
+               data-endpoint="POSTapi-forum-add-thread"
+               data-component="body"  hidden>
+        <input type="text"
+               name="tags.1"
+               data-endpoint="POSTapi-forum-add-thread"
+               data-component="body" hidden>
+    <br>
+<p>Array of tags (strings)</p>        </p>
+    
+    </form>
+
+            <h2 id="thread-management-POSTapi-forum-delete-thread">Delete thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thread_id": 5
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"thread_id\": 5
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Thread deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-thread"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-thread"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-thread" data-method="POST"
+      data-path="api/forum/delete-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-thread"
+                    onclick="tryItOut('POSTapi-forum-delete-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-thread"
+                    onclick="cancelTryOut('POSTapi-forum-delete-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-thread"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="POSTapi-forum-delete-thread"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="thread-management-POSTapi-forum-edit-thread">Edit thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-edit-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thread_id": 12,
+    "title": "necessitatibus",
+    "text": "at",
+    "tags": [
+        "nihil",
+        "nemo"
+    ]
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/edit-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"thread_id\": 12,
+    \"title\": \"necessitatibus\",
+    \"text\": \"at\",
+    \"tags\": [
+        \"nihil\",
+        \"nemo\"
+    ]
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-edit-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Thread edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-edit-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-edit-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-edit-thread"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-edit-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-edit-thread"></code></pre>
+</span>
+<form id="form-POSTapi-forum-edit-thread" data-method="POST"
+      data-path="api/forum/edit-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-edit-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-edit-thread"
+                    onclick="tryItOut('POSTapi-forum-edit-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-edit-thread"
+                    onclick="cancelTryOut('POSTapi-forum-edit-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-edit-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/edit-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-edit-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-edit-thread"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="POSTapi-forum-edit-thread"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>title</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="title"
+               data-endpoint="POSTapi-forum-edit-thread"
+               data-component="body"  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>text</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="text"
+               data-endpoint="POSTapi-forum-edit-thread"
+               data-component="body"  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>tags</code></b>&nbsp;&nbsp;<small>string[]</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="tags.0"
+               data-endpoint="POSTapi-forum-edit-thread"
+               data-component="body"  hidden>
+        <input type="text"
+               name="tags.1"
+               data-endpoint="POSTapi-forum-edit-thread"
+               data-component="body" hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="thread-management-GETapi-forum-get-thread">Get thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 40,
+        &quot;user_id&quot;: 25,
+        &quot;title&quot;: &quot;New post&quot;,
+        &quot;text&quot;: &quot;New post :)&quot;,
+        &quot;created_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+        &quot;deleted_at&quot;: null,
+        &quot;number_of_followers&quot;: 0,
+        &quot;score&quot;: 0,
+        &quot;number_of_posts&quot;: 0,
+        &quot;tags&quot;: [
+            {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;tag1&quot;,
+                &quot;created_at&quot;: &quot;2021-06-20T12:01:33.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-20T12:01:33.000000Z&quot;
+            },
+            {
+                &quot;id&quot;: 20,
+                &quot;name&quot;: &quot;tag2&quot;,
+                &quot;created_at&quot;: &quot;2021-07-04T14:32:29.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T14:32:29.000000Z&quot;
+            }
+        ],
+        &quot;followers&quot;: [],
+        &quot;votes&quot;: [],
+        &quot;author&quot;: [
+            {
+                &quot;id&quot;: 25,
+                &quot;name&quot;: &quot;Bob&quot;,
+                &quot;email&quot;: &quot;Bob@example.com&quot;,
+                &quot;email_verified_at&quot;: null,
+                &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                &quot;avatar_url&quot;: &quot;http:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ&quot;,
+                &quot;user_roles&quot;: [
+                    &quot;user&quot;
+                ],
+                &quot;roles&quot;: [
+                    {
+                        &quot;id&quot;: 9,
+                        &quot;name&quot;: &quot;user&quot;,
+                        &quot;guard_name&quot;: &quot;web&quot;,
+                        &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                        &quot;pivot&quot;: {
+                            &quot;model_id&quot;: 25,
+                            &quot;role_id&quot;: 9,
+                            &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                        }
+                    }
+                ]
+            }
+        ],
+        &quot;posts&quot;: []
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-thread"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-thread"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-thread" data-method="GET"
+      data-path="api/forum/get-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-thread"
+                    onclick="tryItOut('GETapi-forum-get-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-thread"
+                    onclick="cancelTryOut('GETapi-forum-get-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-thread"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="GETapi-forum-get-thread"
+               data-component="url" required  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="thread-management-GETapi-forum-get-threads">Get threads</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-threads">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-threads"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-threads" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-threads">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 38,
+            &quot;user_id&quot;: 17,
+            &quot;title&quot;: &quot;New post&quot;,
+            &quot;text&quot;: &quot;New post :)&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T14:32:29.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T14:32:29.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;number_of_followers&quot;: 0,
+            &quot;score&quot;: 0,
+            &quot;number_of_posts&quot;: 0,
+            &quot;tags&quot;: [
+                {
+                    &quot;name&quot;: &quot;tag1&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;tag2&quot;
+                }
+            ],
+            &quot;followers&quot;: [],
+            &quot;votes&quot;: [],
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 40,
+            &quot;user_id&quot;: 25,
+            &quot;title&quot;: &quot;New post&quot;,
+            &quot;text&quot;: &quot;New post :)&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;number_of_followers&quot;: 0,
+            &quot;score&quot;: 0,
+            &quot;number_of_posts&quot;: 0,
+            &quot;tags&quot;: [
+                {
+                    &quot;name&quot;: &quot;tag1&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;tag2&quot;
+                }
+            ],
+            &quot;followers&quot;: [],
+            &quot;votes&quot;: [],
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 25,
+                    &quot;name&quot;: &quot;Bob&quot;,
+                    &quot;email&quot;: &quot;Bob@example.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;user&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;user&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 25,
+                                &quot;role_id&quot;: 9,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-threads" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-threads"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-threads"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-threads" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-threads"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-threads" data-method="GET"
+      data-path="api/forum/get-threads"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-threads', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-threads"
+                    onclick="tryItOut('GETapi-forum-get-threads');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-threads"
+                    onclick="cancelTryOut('GETapi-forum-get-threads');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-threads" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-threads</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-threads" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-threads"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="thread-management-GETapi-forum-get-followed-threads">Get followed threads</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-forum-get-followed-threads">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/get-followed-threads"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/forum/get-followed-threads" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-forum-get-followed-threads">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 30,
+            &quot;user_id&quot;: 17,
+            &quot;title&quot;: &quot;New post&quot;,
+            &quot;text&quot;: &quot;New post :)&quot;,
+            &quot;created_at&quot;: &quot;2021-06-20T12:04:36.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-20T12:04:36.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;number_of_followers&quot;: 1,
+            &quot;score&quot;: 1,
+            &quot;number_of_posts&quot;: 4,
+            &quot;tags&quot;: [],
+            &quot;followers&quot;: [
+                {
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;user_id&quot;: 17,
+                    &quot;avatar_url&quot;: &quot;&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;roles&quot;: []
+                }
+            ],
+            &quot;votes&quot;: [
+                {
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;pivot&quot;: {
+                        &quot;thread_id&quot;: 30,
+                        &quot;user_id&quot;: 17,
+                        &quot;value&quot;: 1,
+                        &quot;created_at&quot;: &quot;2021-06-28T13:36:49.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-28T13:36:49.000000Z&quot;
+                    },
+                    &quot;roles&quot;: []
+                }
+            ],
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;pivot&quot;: {
+                &quot;user_id&quot;: 17,
+                &quot;thread_id&quot;: 30,
+                &quot;created_at&quot;: &quot;2021-06-29T13:27:07.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-29T13:27:07.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 32,
+            &quot;user_id&quot;: 17,
+            &quot;title&quot;: &quot;thread bez tagow&quot;,
+            &quot;text&quot;: &quot;no totalnie bez&quot;,
+            &quot;created_at&quot;: &quot;2021-06-20T12:24:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-06-20T12:24:00.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;number_of_followers&quot;: 1,
+            &quot;score&quot;: -3,
+            &quot;number_of_posts&quot;: 1,
+            &quot;tags&quot;: [],
+            &quot;followers&quot;: [
+                {
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;user_id&quot;: 17,
+                    &quot;avatar_url&quot;: &quot;&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;roles&quot;: []
+                }
+            ],
+            &quot;votes&quot;: [
+                {
+                    &quot;name&quot;: &quot;jacek123&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;pivot&quot;: {
+                        &quot;thread_id&quot;: 32,
+                        &quot;user_id&quot;: 22,
+                        &quot;value&quot;: -1,
+                        &quot;created_at&quot;: &quot;2021-06-28T12:57:27.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-28T12:57:27.000000Z&quot;
+                    },
+                    &quot;roles&quot;: []
+                },
+                {
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;pivot&quot;: {
+                        &quot;thread_id&quot;: 32,
+                        &quot;user_id&quot;: 17,
+                        &quot;value&quot;: -1,
+                        &quot;created_at&quot;: &quot;2021-06-30T12:17:25.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-06-30T12:17:25.000000Z&quot;
+                    },
+                    &quot;roles&quot;: []
+                },
+                {
+                    &quot;name&quot;: &quot;Kot Bonifacy&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;pivot&quot;: {
+                        &quot;thread_id&quot;: 32,
+                        &quot;user_id&quot;: 23,
+                        &quot;value&quot;: -1,
+                        &quot;created_at&quot;: &quot;2021-07-02T18:33:18.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2021-07-02T18:33:18.000000Z&quot;
+                    },
+                    &quot;roles&quot;: []
+                }
+            ],
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 17,
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;email&quot;: &quot;test@test.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-05-17T19:59:06.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T12:26:09.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/43\/phpcjJdT2&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;admin&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;admin&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 17,
+                                &quot;role_id&quot;: 7,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;pivot&quot;: {
+                &quot;user_id&quot;: 17,
+                &quot;thread_id&quot;: 32,
+                &quot;created_at&quot;: &quot;2021-07-02T18:23:42.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-02T18:23:42.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 40,
+            &quot;user_id&quot;: 25,
+            &quot;title&quot;: &quot;New post&quot;,
+            &quot;text&quot;: &quot;New post :)&quot;,
+            &quot;created_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T14:37:48.000000Z&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;number_of_followers&quot;: 1,
+            &quot;score&quot;: 0,
+            &quot;number_of_posts&quot;: 0,
+            &quot;tags&quot;: [
+                {
+                    &quot;name&quot;: &quot;tag1&quot;
+                },
+                {
+                    &quot;name&quot;: &quot;tag2&quot;
+                }
+            ],
+            &quot;followers&quot;: [
+                {
+                    &quot;name&quot;: &quot;Mr Sandman&quot;,
+                    &quot;user_id&quot;: 17,
+                    &quot;avatar_url&quot;: &quot;&quot;,
+                    &quot;user_roles&quot;: [],
+                    &quot;roles&quot;: []
+                }
+            ],
+            &quot;votes&quot;: [],
+            &quot;author&quot;: [
+                {
+                    &quot;id&quot;: 25,
+                    &quot;name&quot;: &quot;Bob&quot;,
+                    &quot;email&quot;: &quot;Bob@example.com&quot;,
+                    &quot;email_verified_at&quot;: null,
+                    &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+                    &quot;avatar_url&quot;: &quot;https:\/\/www.4um.polarlooptheory.pl\/storage\/45\/phpPPQ0gJ&quot;,
+                    &quot;user_roles&quot;: [
+                        &quot;user&quot;
+                    ],
+                    &quot;roles&quot;: [
+                        {
+                            &quot;id&quot;: 9,
+                            &quot;name&quot;: &quot;user&quot;,
+                            &quot;guard_name&quot;: &quot;web&quot;,
+                            &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                            &quot;pivot&quot;: {
+                                &quot;model_id&quot;: 25,
+                                &quot;role_id&quot;: 9,
+                                &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                            }
+                        }
+                    ]
+                }
+            ],
+            &quot;pivot&quot;: {
+                &quot;user_id&quot;: 17,
+                &quot;thread_id&quot;: 40,
+                &quot;created_at&quot;: &quot;2021-07-04T14:50:27.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-07-04T14:50:27.000000Z&quot;
+            }
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-forum-get-followed-threads" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-forum-get-followed-threads"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-forum-get-followed-threads"></code></pre>
+</span>
+<span id="execution-error-GETapi-forum-get-followed-threads" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-forum-get-followed-threads"></code></pre>
+</span>
+<form id="form-GETapi-forum-get-followed-threads" data-method="GET"
+      data-path="api/forum/get-followed-threads"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-forum-get-followed-threads', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-forum-get-followed-threads"
+                    onclick="tryItOut('GETapi-forum-get-followed-threads');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-forum-get-followed-threads"
+                    onclick="cancelTryOut('GETapi-forum-get-followed-threads');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-forum-get-followed-threads" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/forum/get-followed-threads</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-forum-get-followed-threads" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-forum-get-followed-threads"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="thread-management-POSTapi-forum-follow-thread">Follow thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-follow-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/follow-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thread_id": 12,
+    "follow": 19
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/follow-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"thread_id\": 12,
+    \"follow\": 19
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-follow-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Thread (un)followed successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-follow-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-follow-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-follow-thread"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-follow-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-follow-thread"></code></pre>
+</span>
+<form id="form-POSTapi-forum-follow-thread" data-method="POST"
+      data-path="api/forum/follow-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-follow-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-follow-thread"
+                    onclick="tryItOut('POSTapi-forum-follow-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-follow-thread"
+                    onclick="cancelTryOut('POSTapi-forum-follow-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-follow-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/follow-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-follow-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-follow-thread"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="POSTapi-forum-follow-thread"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>follow</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="follow"
+               data-endpoint="POSTapi-forum-follow-thread"
+               data-component="body" required  hidden>
+    <br>
+<p>This can be either 0 or 1. 1 means that user will follow thread, 0 is for unfollow.</p>        </p>
+    
+    </form>
+
+            <h2 id="thread-management-POSTapi-forum-vote-for-thread">Vote for thread</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Votes for a thread - score is:</p>
+<ul>
+<li>0 is for removing vote</li>
+<li>1 is for upvoting</li>
+<li>-1 is for downvoting</li>
+</ul>
+
+<span id="example-requests-POSTapi-forum-vote-for-thread">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/vote-for-thread"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "thread_id": 8,
+    "score": 1
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/vote-for-thread" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"thread_id\": 8,
+    \"score\": 1
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-vote-for-thread">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Voted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-vote-for-thread" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-vote-for-thread"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-vote-for-thread"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-vote-for-thread" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-vote-for-thread"></code></pre>
+</span>
+<form id="form-POSTapi-forum-vote-for-thread" data-method="POST"
+      data-path="api/forum/vote-for-thread"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-vote-for-thread', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-vote-for-thread"
+                    onclick="tryItOut('POSTapi-forum-vote-for-thread');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-vote-for-thread"
+                    onclick="cancelTryOut('POSTapi-forum-vote-for-thread');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-vote-for-thread" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/vote-for-thread</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-vote-for-thread" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-vote-for-thread"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>thread_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="thread_id"
+               data-endpoint="POSTapi-forum-vote-for-thread"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>score</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="score"
+               data-endpoint="POSTapi-forum-vote-for-thread"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+        <h1 id="user-management">User management</h1>
+    <p>
+        <p>APIs for managing users</p>
+    </p>
+
+            <h2 id="user-management-GETapi-user-get-user">Get user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-user-get-user">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/user/get-user"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/user/get-user" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-user-get-user">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;id&quot;: 25,
+        &quot;name&quot;: &quot;Bob&quot;,
+        &quot;email&quot;: &quot;Bob@example.com&quot;,
+        &quot;email_verified_at&quot;: null,
+        &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+        &quot;number_of_threads_followed&quot;: 0,
+        &quot;number_of_votes&quot;: 0,
+        &quot;number_of_comments&quot;: 0,
+        &quot;avatar_url&quot;: &quot;&quot;,
+        &quot;user_roles&quot;: [
+            &quot;user&quot;
+        ],
+        &quot;roles&quot;: [
+            {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;user&quot;,
+                &quot;guard_name&quot;: &quot;web&quot;,
+                &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                &quot;pivot&quot;: {
+                    &quot;model_id&quot;: 25,
+                    &quot;role_id&quot;: 9,
+                    &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                }
+            }
+        ]
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+            <blockquote>
+            <p>Example response (400, user not found):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;errors&quot;: {
+        &quot;user_id&quot;: &quot;User could not be printed properly. Check user ID.&quot;
+    },
+    &quot;status&quot;: 400
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-user-get-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user-get-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user-get-user"></code></pre>
+</span>
+<span id="execution-error-GETapi-user-get-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user-get-user"></code></pre>
+</span>
+<form id="form-GETapi-user-get-user" data-method="GET"
+      data-path="api/user/get-user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user-get-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user-get-user"
+                    onclick="tryItOut('GETapi-user-get-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user-get-user"
+                    onclick="cancelTryOut('GETapi-user-get-user');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user-get-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user/get-user</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-user-get-user" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-user-get-user"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>user_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="user_id"
+               data-endpoint="GETapi-user-get-user"
+               data-component="url" required  hidden>
+    <br>
+            </p>
+                    </form>
+
+            <h2 id="user-management-GETapi-user-get-users">Get users</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-user-get-users">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/user/get-users"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request GET \
+    --get "https://www.4um.polarlooptheory.pl/api/user/get-users" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-GETapi-user-get-users">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 24,
+            &quot;name&quot;: &quot;New Test :)&quot;,
+            &quot;email&quot;: &quot;newtest123@test.com&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;created_at&quot;: &quot;2021-07-04T11:41:55.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T11:41:55.000000Z&quot;,
+            &quot;number_of_threads_followed&quot;: 0,
+            &quot;number_of_votes&quot;: 0,
+            &quot;number_of_comments&quot;: 0,
+            &quot;avatar_url&quot;: &quot;&quot;,
+            &quot;user_roles&quot;: [
+                &quot;user&quot;
+            ],
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;user&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;,
+                    &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;pivot&quot;: {
+                        &quot;model_id&quot;: 24,
+                        &quot;role_id&quot;: 9,
+                        &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                    }
+                }
+            ]
+        },
+        {
+            &quot;id&quot;: 25,
+            &quot;name&quot;: &quot;Bob&quot;,
+            &quot;email&quot;: &quot;Bob@example.com&quot;,
+            &quot;email_verified_at&quot;: null,
+            &quot;created_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2021-07-04T11:52:21.000000Z&quot;,
+            &quot;number_of_threads_followed&quot;: 0,
+            &quot;number_of_votes&quot;: 0,
+            &quot;number_of_comments&quot;: 0,
+            &quot;avatar_url&quot;: &quot;&quot;,
+            &quot;user_roles&quot;: [
+                &quot;user&quot;
+            ],
+            &quot;roles&quot;: [
+                {
+                    &quot;id&quot;: 9,
+                    &quot;name&quot;: &quot;user&quot;,
+                    &quot;guard_name&quot;: &quot;web&quot;,
+                    &quot;created_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2021-06-05T16:44:16.000000Z&quot;,
+                    &quot;pivot&quot;: {
+                        &quot;model_id&quot;: 25,
+                        &quot;role_id&quot;: 9,
+                        &quot;model_type&quot;: &quot;App\\Models\\User&quot;
+                    }
+                }
+            ]
+        }
+    ],
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-GETapi-user-get-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-user-get-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-user-get-users"></code></pre>
+</span>
+<span id="execution-error-GETapi-user-get-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-user-get-users"></code></pre>
+</span>
+<form id="form-GETapi-user-get-users" data-method="GET"
+      data-path="api/user/get-users"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-user-get-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-user-get-users"
+                    onclick="tryItOut('GETapi-user-get-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-user-get-users"
+                    onclick="cancelTryOut('GETapi-user-get-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-user-get-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/user/get-users</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-user-get-users" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-user-get-users"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+            <h2 id="user-management-POSTapi-user-edit-user">Edit user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-user-edit-user">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/user/edit-user"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "user_id": 25,
+    "password": "bobross25",
+    "password_confirmation": "bobross25"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/user/edit-user" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": 25,
+    \"password\": \"bobross25\",
+    \"password_confirmation\": \"bobross25\"
+}"
+</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-user-edit-user">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;User edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-user-edit-user" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-user-edit-user"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-user-edit-user"></code></pre>
+</span>
+<span id="execution-error-POSTapi-user-edit-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-user-edit-user"></code></pre>
+</span>
+<form id="form-POSTapi-user-edit-user" data-method="POST"
+      data-path="api/user/edit-user"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-edit-user', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-user-edit-user"
+                    onclick="tryItOut('POSTapi-user-edit-user');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-user-edit-user"
+                    onclick="cancelTryOut('POSTapi-user-edit-user');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-user-edit-user" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/user/edit-user</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-user-edit-user" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-user-edit-user"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>user_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="user_id"
+               data-endpoint="POSTapi-user-edit-user"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-user-edit-user"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>password_confirmation</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password_confirmation"
+               data-endpoint="POSTapi-user-edit-user"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+            <h2 id="user-management-POSTapi-user-edit-avatar">Edit avatar</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-user-edit-avatar">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/user/edit-avatar"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('user_id', '25');
+body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/user/edit-avatar" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "user_id=25" \
+    --form "avatar=@C:\Users\Mateusz\AppData\Local\Temp\php83B4.tmp" </code></pre>
+</span>
+
+<span id="example-responses-POSTapi-user-edit-avatar">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Avatar edited successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-user-edit-avatar" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-user-edit-avatar"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-user-edit-avatar"></code></pre>
+</span>
+<span id="execution-error-POSTapi-user-edit-avatar" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-user-edit-avatar"></code></pre>
+</span>
+<form id="form-POSTapi-user-edit-avatar" data-method="POST"
+      data-path="api/user/edit-avatar"
+      data-authed="1"
+      data-hasfiles="1"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"multipart\/form-data","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-user-edit-avatar', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-user-edit-avatar"
+                    onclick="tryItOut('POSTapi-user-edit-avatar');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-user-edit-avatar"
+                    onclick="cancelTryOut('POSTapi-user-edit-avatar');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-user-edit-avatar" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/user/edit-avatar</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-user-edit-avatar" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-user-edit-avatar"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>user_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="user_id"
+               data-endpoint="POSTapi-user-edit-avatar"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+                <p>
+            <b><code>avatar</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+                <input type="file"
+               name="avatar"
+               data-endpoint="POSTapi-user-edit-avatar"
+               data-component="body" required  hidden>
+    <br>
+        </p>
+    
+    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                                    <a href="#" data-language-name="bash">bash</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["javascript","bash"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>
