@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static find(int $comment_id)
  * @method static findOrFail(int $comment_id)
+ * @property mixed post
+ * @property mixed post_id
+ * @property mixed user_id
  */
 class Comment extends Model
 {

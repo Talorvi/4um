@@ -39,18 +39,18 @@ class ProcessPostJob extends QueueableJob
             /**
              * Notifies the author that his post has been processed
              */
-            event(new PostProcessed('Successfully processed the post', $this->post->id, $this->post->thread_id, $this->post->thread->user_id, $this->post->user_id));
+            event(new PostProcessed('Successfully processed the post', $this->post));
 
             /**
              * Notifies the thread author that someone added a post to his/hers thread
              */
-            event(new PostAdded('Someone added a post to your thread', $this->post->thread_id, $this->post->thread->user_id, $this->post->user_id));
+            event(new PostAdded('Someone added a post to your thread', $this->post));
 
             /**
              * Notifies all followers
              */
             foreach ($this->post->thread->followers as $follower) {
-                event(new PostAdded('Someone added a post you follow', $this->post->thread_id, $follower["user_id"], $this->post->user_id));
+                event(new PostAdded('Someone added a post you follow', $this->post));
             }
         }
         else {
@@ -60,7 +60,7 @@ class ProcessPostJob extends QueueableJob
             /**
              * Notifies the author that his post has been processed
              */
-            event(new PostProcessed('Your post has been marked as offensive. Moderation will investigate that.', $this->post->id, $this->post->thread_id, $this->post->thread->user_id, $this->post->user_id));
+            event(new PostProcessed('Your post has been marked as offensive. Moderation will investigate that.', $this->post));
         }
 
     }

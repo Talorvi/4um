@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Comment;
 use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -17,16 +18,18 @@ class CommentAdded implements ShouldBroadcastNow
     public int $post_id;
     public int $post_author_id;
     public int $thread_id;
+    public string $thread_title;
     public int $comment_author_id;
     public Carbon $created_at;
 
-    public function __construct(string $message, int $post_id, int $post_author_id, int $thread_id, int $comment_author_id)
+    public function __construct(string $message, Comment $comment)
     {
         $this->message = $message;
-        $this->post_id = $post_id;
-        $this->post_author_id = $post_author_id;
-        $this->thread_id = $thread_id;
-        $this->comment_author_id = $comment_author_id;
+        $this->post_id = $comment->post_id;
+        $this->post_author_id = $comment->post->user_id;
+        $this->thread_id = $comment->post->thread_id;
+        $this->thread_title = $comment->post->thread->title;
+        $this->comment_author_id = $comment->user_id;
         $this->created_at = Carbon::now();
 
         Notification::create([

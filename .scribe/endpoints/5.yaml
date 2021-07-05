@@ -1,0 +1,741 @@
+name: 'Thread management'
+description: |-
+
+  APIs for managing threads
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/add-thread
+    metadata:
+      title: 'Add thread'
+      description: 'Responds with created Thread and User that posted this thread'
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'Title of the thread'
+        required: true
+        example: sint
+        type: string
+      text:
+        name: text
+        description: 'The content of the thread'
+        required: true
+        example: ut
+        type: string
+      tags:
+        name: tags
+        description: 'Array of tags (strings)'
+        required: false
+        example:
+          - natus
+          - inventore
+        type: 'string[]'
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "title": "New post",
+          "text": "New post :)",
+          "user_id": 25,
+          "updated_at": "2021-07-04T14:32:53.000000Z",
+          "created_at": "2021-07-04T14:32:53.000000Z",
+          "id": 39,
+          "number_of_followers": 0,
+          "score": 0,
+          "number_of_posts": 0,
+          "tags": [
+          {
+          "name": "tag1"
+          },
+          {
+          "name": "tag2"
+          }
+          ],
+          "followers": [],
+          "votes": [],
+          "author": [
+          {
+          "id": 25,
+          "name": "Bob",
+          "email": "Bob@example.com",
+          "email_verified_at": null,
+          "created_at": "2021-07-04T11:52:21.000000Z",
+          "updated_at": "2021-07-04T11:52:21.000000Z",
+          "avatar_url": "http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ",
+          "user_roles": [
+          "user"
+          ],
+          "roles": [
+          {
+          "id": 9,
+          "name": "user",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 25,
+          "role_id": 9,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/delete-thread
+    metadata:
+      title: 'Delete thread'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      thread_id:
+        name: thread_id
+        description: ''
+        required: true
+        example: 5
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Thread deleted successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/edit-thread
+    metadata:
+      title: 'Edit thread'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      thread_id:
+        name: thread_id
+        description: ''
+        required: true
+        example: 12
+        type: integer
+      title:
+        name: title
+        description: ''
+        required: false
+        example: necessitatibus
+        type: string
+      text:
+        name: text
+        description: ''
+        required: false
+        example: at
+        type: string
+      tags:
+        name: tags
+        description: ''
+        required: false
+        example:
+          - nihil
+          - nemo
+        type: 'string[]'
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Thread edited successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/forum/get-thread
+    metadata:
+      title: 'Get thread'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      thread_id:
+        name: thread_id
+        description: ''
+        required: true
+        example: 40
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "id": 40,
+          "user_id": 25,
+          "title": "New post",
+          "text": "New post :)",
+          "created_at": "2021-07-04T14:37:48.000000Z",
+          "updated_at": "2021-07-04T14:37:48.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 0,
+          "score": 0,
+          "number_of_posts": 0,
+          "tags": [
+          {
+          "id": 10,
+          "name": "tag1",
+          "created_at": "2021-06-20T12:01:33.000000Z",
+          "updated_at": "2021-06-20T12:01:33.000000Z"
+          },
+          {
+          "id": 20,
+          "name": "tag2",
+          "created_at": "2021-07-04T14:32:29.000000Z",
+          "updated_at": "2021-07-04T14:32:29.000000Z"
+          }
+          ],
+          "followers": [],
+          "votes": [],
+          "author": [
+          {
+          "id": 25,
+          "name": "Bob",
+          "email": "Bob@example.com",
+          "email_verified_at": null,
+          "created_at": "2021-07-04T11:52:21.000000Z",
+          "updated_at": "2021-07-04T11:52:21.000000Z",
+          "avatar_url": "http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ",
+          "user_roles": [
+          "user"
+          ],
+          "roles": [
+          {
+          "id": 9,
+          "name": "user",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 25,
+          "role_id": 9,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "posts": []
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/forum/get-threads
+    metadata:
+      title: 'Get threads'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 38,
+          "user_id": 17,
+          "title": "New post",
+          "text": "New post :)",
+          "created_at": "2021-07-04T14:32:29.000000Z",
+          "updated_at": "2021-07-04T14:32:29.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 0,
+          "score": 0,
+          "number_of_posts": 0,
+          "tags": [
+          {
+          "name": "tag1"
+          },
+          {
+          "name": "tag2"
+          }
+          ],
+          "followers": [],
+          "votes": [],
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          },
+          {
+          "id": 40,
+          "user_id": 25,
+          "title": "New post",
+          "text": "New post :)",
+          "created_at": "2021-07-04T14:37:48.000000Z",
+          "updated_at": "2021-07-04T14:37:48.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 0,
+          "score": 0,
+          "number_of_posts": 0,
+          "tags": [
+          {
+          "name": "tag1"
+          },
+          {
+          "name": "tag2"
+          }
+          ],
+          "followers": [],
+          "votes": [],
+          "author": [
+          {
+          "id": 25,
+          "name": "Bob",
+          "email": "Bob@example.com",
+          "email_verified_at": null,
+          "created_at": "2021-07-04T11:52:21.000000Z",
+          "updated_at": "2021-07-04T11:52:21.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ",
+          "user_roles": [
+          "user"
+          ],
+          "roles": [
+          {
+          "id": 9,
+          "name": "user",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 25,
+          "role_id": 9,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          }
+          ],
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/forum/get-followed-threads
+    metadata:
+      title: 'Get followed threads'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 30,
+          "user_id": 17,
+          "title": "New post",
+          "text": "New post :)",
+          "created_at": "2021-06-20T12:04:36.000000Z",
+          "updated_at": "2021-06-20T12:04:36.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 1,
+          "score": 1,
+          "number_of_posts": 4,
+          "tags": [],
+          "followers": [
+          {
+          "name": "Mr Sandman",
+          "user_id": 17,
+          "avatar_url": "",
+          "user_roles": [],
+          "roles": []
+          }
+          ],
+          "votes": [
+          {
+          "name": "Mr Sandman",
+          "user_roles": [],
+          "pivot": {
+          "thread_id": 30,
+          "user_id": 17,
+          "value": 1,
+          "created_at": "2021-06-28T13:36:49.000000Z",
+          "updated_at": "2021-06-28T13:36:49.000000Z"
+          },
+          "roles": []
+          }
+          ],
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "pivot": {
+          "user_id": 17,
+          "thread_id": 30,
+          "created_at": "2021-06-29T13:27:07.000000Z",
+          "updated_at": "2021-06-29T13:27:07.000000Z"
+          }
+          },
+          {
+          "id": 32,
+          "user_id": 17,
+          "title": "thread bez tagow",
+          "text": "no totalnie bez",
+          "created_at": "2021-06-20T12:24:00.000000Z",
+          "updated_at": "2021-06-20T12:24:00.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 1,
+          "score": -3,
+          "number_of_posts": 1,
+          "tags": [],
+          "followers": [
+          {
+          "name": "Mr Sandman",
+          "user_id": 17,
+          "avatar_url": "",
+          "user_roles": [],
+          "roles": []
+          }
+          ],
+          "votes": [
+          {
+          "name": "jacek123",
+          "user_roles": [],
+          "pivot": {
+          "thread_id": 32,
+          "user_id": 22,
+          "value": -1,
+          "created_at": "2021-06-28T12:57:27.000000Z",
+          "updated_at": "2021-06-28T12:57:27.000000Z"
+          },
+          "roles": []
+          },
+          {
+          "name": "Mr Sandman",
+          "user_roles": [],
+          "pivot": {
+          "thread_id": 32,
+          "user_id": 17,
+          "value": -1,
+          "created_at": "2021-06-30T12:17:25.000000Z",
+          "updated_at": "2021-06-30T12:17:25.000000Z"
+          },
+          "roles": []
+          },
+          {
+          "name": "Kot Bonifacy",
+          "user_roles": [],
+          "pivot": {
+          "thread_id": 32,
+          "user_id": 23,
+          "value": -1,
+          "created_at": "2021-07-02T18:33:18.000000Z",
+          "updated_at": "2021-07-02T18:33:18.000000Z"
+          },
+          "roles": []
+          }
+          ],
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "pivot": {
+          "user_id": 17,
+          "thread_id": 32,
+          "created_at": "2021-07-02T18:23:42.000000Z",
+          "updated_at": "2021-07-02T18:23:42.000000Z"
+          }
+          },
+          {
+          "id": 40,
+          "user_id": 25,
+          "title": "New post",
+          "text": "New post :)",
+          "created_at": "2021-07-04T14:37:48.000000Z",
+          "updated_at": "2021-07-04T14:37:48.000000Z",
+          "deleted_at": null,
+          "number_of_followers": 1,
+          "score": 0,
+          "number_of_posts": 0,
+          "tags": [
+          {
+          "name": "tag1"
+          },
+          {
+          "name": "tag2"
+          }
+          ],
+          "followers": [
+          {
+          "name": "Mr Sandman",
+          "user_id": 17,
+          "avatar_url": "",
+          "user_roles": [],
+          "roles": []
+          }
+          ],
+          "votes": [],
+          "author": [
+          {
+          "id": 25,
+          "name": "Bob",
+          "email": "Bob@example.com",
+          "email_verified_at": null,
+          "created_at": "2021-07-04T11:52:21.000000Z",
+          "updated_at": "2021-07-04T11:52:21.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ",
+          "user_roles": [
+          "user"
+          ],
+          "roles": [
+          {
+          "id": 9,
+          "name": "user",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 25,
+          "role_id": 9,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "pivot": {
+          "user_id": 17,
+          "thread_id": 40,
+          "created_at": "2021-07-04T14:50:27.000000Z",
+          "updated_at": "2021-07-04T14:50:27.000000Z"
+          }
+          }
+          ],
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/follow-thread
+    metadata:
+      title: 'Follow thread'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      thread_id:
+        name: thread_id
+        description: ''
+        required: true
+        example: 12
+        type: integer
+      follow:
+        name: follow
+        description: 'This can be either 0 or 1. 1 means that user will follow thread, 0 is for unfollow.'
+        required: true
+        example: 19
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Thread (un)followed successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/vote-for-thread
+    metadata:
+      title: 'Vote for thread'
+      description: |-
+        Votes for a thread - score is:
+        - 0 is for removing vote
+        - 1 is for upvoting
+        - -1 is for downvoting
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      thread_id:
+        name: thread_id
+        description: ''
+        required: true
+        example: 8
+        type: integer
+      score:
+        name: score
+        description: ''
+        required: true
+        example: 1
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Voted successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []

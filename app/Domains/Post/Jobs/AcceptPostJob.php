@@ -41,17 +41,17 @@ class AcceptPostJob extends Job
                 /**
                  * Notifies the thread author that someone added a post to his/hers thread
                  */
-                event(new PostAdded('Someone added a post to your thread', $post->thread_id, $post->thread->user_id, $post->user_id));
+                event(new PostAdded('Someone added a post to your thread', $post));
 
                 /**
                  * Notifies all followers
                  */
                 foreach ($post->thread->followers as $follower) {
-                    event(new PostAdded('Someone added a post you follow', $post->thread_id, $follower["user_id"], $post->user_id));
+                    event(new PostAdded('Someone added a post you follow', $post));
                 }
             }
             else {
-                event(new PostProcessed('Your post has been deleted', $post->id, $post->thread_id, $post->thread->user_id, $post->user_id));
+                event(new PostProcessed('Your post has been deleted', $post));
                 $post->delete();
             }
             $post->save();
