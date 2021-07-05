@@ -2,14 +2,11 @@
 
 namespace App\Domains\Post\Requests;
 
-use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
+use App\Foundation\Http\ApiFormRequest;
 use Illuminate\Support\Facades\Auth;
 use Lucid\Bus\UnitDispatcher;
 
-class AcceptPost extends FormRequest
+class AcceptPost extends ApiFormRequest
 {
     use UnitDispatcher;
 
@@ -38,34 +35,5 @@ class AcceptPost extends FormRequest
             'post_id'   => 'required|integer',
             'accepted'  => 'required|boolean'
         ];
-    }
-
-    /**
-     * Responds with an json array containing errors
-     *
-     * @param Validator $validator
-     * @throw HttpResponseException
-     */
-    protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(
-            $this->run(RespondWithJsonResponseErrorJob::class, [
-                'errors' => $validator->errors()->toArray()
-            ])
-        );
-    }
-
-    /**
-     * Responds with a json array when the authentication fails
-     *
-     * @throw HttpResponseException
-     */
-    protected function failedAuthorization() {
-        throw new HttpResponseException(
-            $this->run(RespondWithJsonResponseErrorJob::class, [
-                'errors' => [
-                    'authorization' => 'Could not authorize. You don\'t have permission to do that.'
-                ]
-            ])
-        );
     }
 }

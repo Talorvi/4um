@@ -2,13 +2,10 @@
 
 namespace App\Domains\Authentication\Requests;
 
-use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
+use App\Foundation\Http\ApiFormRequest;
 use Lucid\Bus\UnitDispatcher;
 
-class Login extends FormRequest
+class Login extends ApiFormRequest
 {
     use UnitDispatcher;
 
@@ -33,19 +30,5 @@ class Login extends FormRequest
             'email'    => 'required|email',
             'password' => 'required|min:6'
         ];
-    }
-
-    /**
-     * Responds with an json array containing errors
-     *
-     * @param Validator $validator
-     * @throw HttpResponseException
-     */
-    protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(
-            $this->run(RespondWithJsonResponseErrorJob::class, [
-                'errors' => $validator->errors()->toArray()
-            ])
-        );
     }
 }
