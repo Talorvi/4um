@@ -1,0 +1,365 @@
+name: 'Comment management'
+description: |-
+
+  APIs for managing comments
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/add-comment
+    metadata:
+      title: 'Add comment'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      post_id:
+        name: post_id
+        description: ''
+        required: true
+        example: 9
+        type: integer
+      text:
+        name: text
+        description: ''
+        required: true
+        example: perferendis
+        type: string
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "text": "New comment",
+          "user_id": 17,
+          "post_id": 129,
+          "updated_at": "2021-07-04T15:40:17.000000Z",
+          "created_at": "2021-07-04T15:40:17.000000Z",
+          "id": 29,
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "post": {
+          "id": 129,
+          "user_id": 17,
+          "thread_id": 40,
+          "text": "I like you a lot",
+          "created_at": "2021-07-04T15:39:14.000000Z",
+          "updated_at": "2021-07-04T15:39:46.000000Z",
+          "deleted_at": null,
+          "accepted": 1,
+          "number_of_comments": 1,
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ],
+          "comments": [
+          {
+          "id": 29,
+          "text": "New comment",
+          "user_id": 17,
+          "post_id": 129,
+          "created_at": "2021-07-04T15:40:17.000000Z",
+          "updated_at": "2021-07-04T15:40:17.000000Z",
+          "deleted_at": null,
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          }
+          ]
+          }
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/delete-comment
+    metadata:
+      title: 'Delete comment'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      comment_id:
+        name: comment_id
+        description: ''
+        required: true
+        example: 4
+        type: integer
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Comment deleted successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forum/edit-comment
+    metadata:
+      title: 'Edit comment'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      comment_id:
+        name: comment_id
+        description: ''
+        required: true
+        example: 11
+        type: integer
+      text:
+        name: text
+        description: ''
+        required: true
+        example: dolor
+        type: string
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Comment edited successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/forum/get-comment
+    metadata:
+      title: 'Get comment'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      comment_id:
+        name: comment_id
+        description: ''
+        required: true
+        example: 19
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": {
+          "success": "Comment edited successfully."
+          },
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/forum/get-comments
+    metadata:
+      title: 'Get comments'
+      description: ''
+      authenticated: true
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+          {
+          "id": 27,
+          "text": "komm",
+          "user_id": 23,
+          "post_id": 117,
+          "created_at": "2021-07-02T18:27:23.000000Z",
+          "updated_at": "2021-07-02T18:27:23.000000Z",
+          "deleted_at": null,
+          "author": [
+          {
+          "id": 23,
+          "name": "Kot Bonifacy",
+          "email": "bonifacy@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-07-02T18:24:20.000000Z",
+          "updated_at": "2021-07-02T18:24:20.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/44/php5TgEjW",
+          "user_roles": [
+          "user"
+          ],
+          "roles": [
+          {
+          "id": 9,
+          "name": "user",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 23,
+          "role_id": 9,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          },
+          {
+          "id": 29,
+          "text": "Updated comment",
+          "user_id": 17,
+          "post_id": 129,
+          "created_at": "2021-07-04T15:40:17.000000Z",
+          "updated_at": "2021-07-04T15:41:41.000000Z",
+          "deleted_at": null,
+          "author": [
+          {
+          "id": 17,
+          "name": "Mr Sandman",
+          "email": "test@test.com",
+          "email_verified_at": null,
+          "created_at": "2021-05-17T19:59:06.000000Z",
+          "updated_at": "2021-07-04T12:26:09.000000Z",
+          "avatar_url": "https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2",
+          "user_roles": [
+          "admin"
+          ],
+          "roles": [
+          {
+          "id": 7,
+          "name": "admin",
+          "guard_name": "web",
+          "created_at": "2021-06-05T16:44:16.000000Z",
+          "updated_at": "2021-06-05T16:44:16.000000Z",
+          "pivot": {
+          "model_id": 17,
+          "role_id": 7,
+          "model_type": "App\\Models\\User"
+          }
+          }
+          ]
+          }
+          ]
+          }
+          ],
+          "status": 200
+          }
+        headers: []
+        description: '200'
+    responseFields: []

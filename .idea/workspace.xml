@@ -3,18 +3,132 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="" />
+    <list default="true" id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="finished deleting thread feature">
+      <change afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/AddThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Post/Jobs/AddPostJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Post/Jobs/AddPostJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Thread/Jobs/AddThreadJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Features/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/GenerateTokenJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/GenerateTokenJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/LoginJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RegisterJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/RespondWithJsonResponseErrorJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Authentication/Jobs/ValidateRegisterUserInputJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/AddCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/AddCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/DeleteCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/DeleteCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/EditCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/EditCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Comment/Jobs/GetCommentsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Forum/Jobs/DeleteThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/DeleteNotificationJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/DeleteNotificationJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Notification/Jobs/GetNotificationsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AcceptPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AcceptPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/AddPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DeletePostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DeletePostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/DenyPostJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/EditPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/EditPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetAwaitingPostsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetAwaitingPostsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/GetPostsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Post/Jobs/ProcessPostJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/AddTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/AddTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/DeleteTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/DeleteTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/FindOrCreateTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/FindOrCreateTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/GetTagsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Tag/Jobs/RemoveUnusedTagsJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/AcceptThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DeleteThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DeleteThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/DenyThreadJobTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/EditThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/FollowThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/FollowThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetFollowedThreadsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetFollowedThreadsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/GetThreadsJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/VoteForThreadJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/Thread/Jobs/VoteForThreadJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUsersJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUsersJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateAvatarJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateAvatarJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateUserJobTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/UpdateUserJobTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/AddPostOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/AddThreadOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Forum/Operations/EditThreadOperationTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/Services/Thread/Operations/AddThreadOperationTest.php" beforeDir="false" />
+    </list>
+    <list id="dab0eeed-195a-452b-9c66-bd4c06465857" name="Changes by Mateusz" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="tests" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/app/Domains/Tag/Jobs/AddTagJob.php">
+      <ranges>
+        <range start1="24" end1="25" start2="24" end2="25" changelist="36d8d694-c8c6-4b57-a953-c54f99d0812a" />
+        <range start1="26" end1="27" start2="26" end2="27" changelist="dab0eeed-195a-452b-9c66-bd4c06465857" />
+      </ranges>
+    </file>
+  </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9003" listening_started="true">
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="9003" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
@@ -137,14 +251,33 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/lcobucci/clock" />
       <path value="$PROJECT_DIR$/vendor/defuse/php-encryption" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image" />
+      <path value="$PROJECT_DIR$/vendor/spatie/temporary-directory" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-medialibrary" />
+      <path value="$PROJECT_DIR$/vendor/spatie/image-optimizer" />
+      <path value="$PROJECT_DIR$/vendor/league/glide" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rhNgVWTejocjP5cGojmoSET10Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -153,17 +286,43 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="sshConsole" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.RegisterJob.php">
+    <configuration name="4um" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GetUserJobTest.test_get_existing_user_job" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Domains\User\Jobs\GetUserJobTest" file="$PROJECT_DIR$/tests/Unit/Domains/User/Jobs/GetUserJobTest.php" method="test_get_existing_user_job" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RegisterJob.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/Domains/Authentication/Jobs/RegisterJob.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.GetUserJobTest.test_get_existing_user_job" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="36d8d694-c8c6-4b57-a953-c54f99d0812a" name="Default Changelist" comment="" />
@@ -172,10 +331,170 @@
       <option name="presentableId" value="Default" />
       <updated>1619424474862</updated>
       <workItem from="1619424477454" duration="1502000" />
+      <workItem from="1619465028022" duration="804000" />
+      <workItem from="1620303470559" duration="4330000" />
+      <workItem from="1620628589722" duration="11241000" />
+      <workItem from="1620642728541" duration="72000" />
+      <workItem from="1620642811929" duration="306000" />
+      <workItem from="1620643130826" duration="2398000" />
+      <workItem from="1620724106699" duration="6843000" />
+      <workItem from="1621233120764" duration="10738000" />
+      <workItem from="1621267030794" duration="303000" />
+      <workItem from="1621267348652" duration="1603000" />
+      <workItem from="1621279836942" duration="2438000" />
+      <workItem from="1621624461777" duration="1816000" />
+      <workItem from="1621626379604" duration="671000" />
+      <workItem from="1621766152246" duration="967000" />
+      <workItem from="1621838946873" duration="1406000" />
+      <workItem from="1622442937960" duration="3514000" />
+      <workItem from="1625167979773" duration="2048000" />
+      <workItem from="1625219795084" duration="5590000" />
+      <workItem from="1625229374135" duration="259000" />
+      <workItem from="1625302240229" duration="1127000" />
+      <workItem from="1625303752509" duration="4626000" />
+      <workItem from="1625308446934" duration="12963000" />
     </task>
+    <task id="LOCAL-00001" summary="added registration route">
+      <created>1620642556257</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620642556258</updated>
+    </task>
+    <task id="LOCAL-00002" summary="finished login feature&#10;did some cleanup">
+      <created>1620726911703</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620726911703</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fixed an error with logging in and registrating">
+      <created>1620727318943</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727318943</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added /.idea to the .gitignore">
+      <created>1620727432652</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727432652</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed">
+      <created>1620727559091</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727559091</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added test for GenerateTokenJob">
+      <created>1620727637015</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620727637015</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added password confirmation for registration">
+      <created>1620728895759</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620728895759</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added HasRole to User, created a new service, added skeleton of PermissionsSeeder">
+      <created>1621238359142</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621238359142</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added basic permissions">
+      <created>1621239316579</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239316580</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updated PermissionsSeeder.php">
+      <created>1621239669584</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239669584</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added default role to the user">
+      <created>1621239778098</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1621239778098</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added AddPost feature">
+      <created>1621244398017</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621244398017</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added deleting threads feature">
+      <created>1621268671558</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621268671558</updated>
+    </task>
+    <task id="LOCAL-00014" summary="finished deleting thread feature">
+      <created>1621281917336</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621281917336</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added registration route" />
+    <MESSAGE value="finished login feature&#10;did some cleanup" />
+    <MESSAGE value="fixed an error with logging in and registrating" />
+    <MESSAGE value="added /.idea to the .gitignore" />
+    <MESSAGE value="fixed" />
+    <MESSAGE value="added test for GenerateTokenJob" />
+    <MESSAGE value="added password confirmation for registration" />
+    <MESSAGE value="added HasRole to User, created a new service, added skeleton of PermissionsSeeder" />
+    <MESSAGE value="added basic permissions" />
+    <MESSAGE value="updated PermissionsSeeder.php" />
+    <MESSAGE value="added default role to the user" />
+    <MESSAGE value="added AddPost feature" />
+    <MESSAGE value="added deleting threads feature" />
+    <MESSAGE value="finished deleting thread feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished deleting thread feature" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="4um" type="b2602c69:ProjectViewProjectNode" />
+        <item name="4um" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>

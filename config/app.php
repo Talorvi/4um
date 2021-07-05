@@ -1,5 +1,9 @@
 <?php
 
+use App\Services\Authentication\Providers\AuthenticationServiceProvider;
+use App\Services\Forum\Providers\ForumServiceProvider;
+use App\Services\User\Providers\UserServiceProvider;
+
 return [
 
     /*
@@ -67,7 +71,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Warsaw',
 
     /*
     |--------------------------------------------------------------------------
@@ -171,9 +175,16 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Lucid Service Providers
+         */
+        AuthenticationServiceProvider::class,
+        ForumServiceProvider::class,
+        UserServiceProvider::class,
 
     ],
 

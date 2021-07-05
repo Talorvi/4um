@@ -1,0 +1,3611 @@
+openapi: 3.0.3
+info:
+  title: 4um
+  description: '4um documentation'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://www.4um.polarlooptheory.pl'
+paths:
+  /api/authentication/register:
+    post:
+      summary: 'Creates a user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: Bob
+                    email: Bob@example.com
+                    updated_at: '2021-07-04T11:52:21.000000Z'
+                    created_at: '2021-07-04T11:52:21.000000Z'
+                    id: 25
+                    number_of_threads_followed: 0
+                    number_of_votes: 0
+                    number_of_comments: 0
+                    avatar_url: ''
+                    user_roles:
+                      - user
+                    roles:
+                      -
+                        id: 9
+                        name: user
+                        guard_name: web
+                        created_at: '2021-06-05T16:44:16.000000Z'
+                        updated_at: '2021-06-05T16:44:16.000000Z'
+                        pivot:
+                          model_id: 25
+                          role_id: 9
+                          model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      name: Bob
+                      email: Bob@example.com
+                      updated_at: '2021-07-04T11:52:21.000000Z'
+                      created_at: '2021-07-04T11:52:21.000000Z'
+                      id: 25
+                      number_of_threads_followed: 0
+                      number_of_votes: 0
+                      number_of_comments: 0
+                      avatar_url: ''
+                      user_roles:
+                        - user
+                      roles:
+                        -
+                          id: 9
+                          name: user
+                          guard_name: web
+                          created_at: '2021-06-05T16:44:16.000000Z'
+                          updated_at: '2021-06-05T16:44:16.000000Z'
+                          pivot:
+                            model_id: 25
+                            role_id: 9
+                            model_type: App\Models\User
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Name/login of the user. Must be unique.'
+                  example: Bob
+                email:
+                  type: string
+                  description: 'Email of the user. Must be unique.'
+                  example: Bob@example.com
+                password:
+                  type: string
+                  description: 'Password has to be at least 6 characters long.'
+                  example: bobross
+                password_confirmation:
+                  type: string
+                  description: 'This field is required to be the same as the password.'
+                  example: bobross
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/authentication/login:
+    post:
+      summary: 'Login user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    token: TOKEN
+                    expires_in: '2022-01-04T12:56:47.000000Z'
+                    user:
+                      id: 25
+                      name: Bob
+                      email: Bob@example.com
+                      email_verified_at: null
+                      created_at: '2021-07-04T11:52:21.000000Z'
+                      updated_at: '2021-07-04T11:52:21.000000Z'
+                      number_of_threads_followed: 0
+                      number_of_votes: 0
+                      number_of_comments: 0
+                      avatar_url: ''
+                      user_roles:
+                        - user
+                      roles:
+                        -
+                          id: 9
+                          name: user
+                          guard_name: web
+                          created_at: '2021-06-05T16:44:16.000000Z'
+                          updated_at: '2021-06-05T16:44:16.000000Z'
+                          pivot:
+                            model_id: 25
+                            role_id: 9
+                            model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      token: TOKEN
+                      expires_in: '2022-01-04T12:56:47.000000Z'
+                      user:
+                        id: 25
+                        name: Bob
+                        email: Bob@example.com
+                        email_verified_at: null
+                        created_at: '2021-07-04T11:52:21.000000Z'
+                        updated_at: '2021-07-04T11:52:21.000000Z'
+                        number_of_threads_followed: 0
+                        number_of_votes: 0
+                        number_of_comments: 0
+                        avatar_url: ''
+                        user_roles:
+                          - user
+                        roles:
+                          -
+                            id: 9
+                            name: user
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 25
+                              role_id: 9
+                              model_type: App\Models\User
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: Bob@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: bobross
+              required:
+                - email
+                - password
+      security: []
+  /api/forum/add-comment:
+    post:
+      summary: 'Add comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    text: 'New comment'
+                    user_id: 17
+                    post_id: 129
+                    updated_at: '2021-07-04T15:40:17.000000Z'
+                    created_at: '2021-07-04T15:40:17.000000Z'
+                    id: 29
+                    author:
+                      -
+                        id: 17
+                        name: 'Mr Sandman'
+                        email: test@test.com
+                        email_verified_at: null
+                        created_at: '2021-05-17T19:59:06.000000Z'
+                        updated_at: '2021-07-04T12:26:09.000000Z'
+                        avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                        user_roles:
+                          - admin
+                        roles:
+                          -
+                            id: 7
+                            name: admin
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 17
+                              role_id: 7
+                              model_type: App\Models\User
+                    post:
+                      id: 129
+                      user_id: 17
+                      thread_id: 40
+                      text: 'I like you a lot'
+                      created_at: '2021-07-04T15:39:14.000000Z'
+                      updated_at: '2021-07-04T15:39:46.000000Z'
+                      deleted_at: null
+                      accepted: 1
+                      number_of_comments: 1
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments:
+                        -
+                          id: 29
+                          text: 'New comment'
+                          user_id: 17
+                          post_id: 129
+                          created_at: '2021-07-04T15:40:17.000000Z'
+                          updated_at: '2021-07-04T15:40:17.000000Z'
+                          deleted_at: null
+                          author:
+                            -
+                              id: 17
+                              name: 'Mr Sandman'
+                              email: test@test.com
+                              email_verified_at: null
+                              created_at: '2021-05-17T19:59:06.000000Z'
+                              updated_at: '2021-07-04T12:26:09.000000Z'
+                              avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                              user_roles:
+                                - admin
+                              roles:
+                                -
+                                  id: 7
+                                  name: admin
+                                  guard_name: web
+                                  created_at: '2021-06-05T16:44:16.000000Z'
+                                  updated_at: '2021-06-05T16:44:16.000000Z'
+                                  pivot:
+                                    model_id: 17
+                                    role_id: 7
+                                    model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      text: 'New comment'
+                      user_id: 17
+                      post_id: 129
+                      updated_at: '2021-07-04T15:40:17.000000Z'
+                      created_at: '2021-07-04T15:40:17.000000Z'
+                      id: 29
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      post:
+                        id: 129
+                        user_id: 17
+                        thread_id: 40
+                        text: 'I like you a lot'
+                        created_at: '2021-07-04T15:39:14.000000Z'
+                        updated_at: '2021-07-04T15:39:46.000000Z'
+                        deleted_at: null
+                        accepted: 1
+                        number_of_comments: 1
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        comments:
+                          -
+                            id: 29
+                            text: 'New comment'
+                            user_id: 17
+                            post_id: 129
+                            created_at: '2021-07-04T15:40:17.000000Z'
+                            updated_at: '2021-07-04T15:40:17.000000Z'
+                            deleted_at: null
+                            author:
+                              -
+                                id: 17
+                                name: 'Mr Sandman'
+                                email: test@test.com
+                                email_verified_at: null
+                                created_at: '2021-05-17T19:59:06.000000Z'
+                                updated_at: '2021-07-04T12:26:09.000000Z'
+                                avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                                user_roles:
+                                  - admin
+                                roles:
+                                  -
+                                    id: 7
+                                    name: admin
+                                    guard_name: web
+                                    created_at: '2021-06-05T16:44:16.000000Z'
+                                    updated_at: '2021-06-05T16:44:16.000000Z'
+                                    pivot:
+                                      model_id: 17
+                                      role_id: 7
+                                      model_type: App\Models\User
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Comment management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  description: ''
+                  example: 9
+                text:
+                  type: string
+                  description: ''
+                  example: perferendis
+              required:
+                - post_id
+                - text
+  /api/forum/delete-comment:
+    post:
+      summary: 'Delete comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Comment deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Comment deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Comment management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment_id:
+                  type: integer
+                  description: ''
+                  example: 4
+              required:
+                - comment_id
+  /api/forum/edit-comment:
+    post:
+      summary: 'Edit comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Comment edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Comment edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Comment management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment_id:
+                  type: integer
+                  description: ''
+                  example: 11
+                text:
+                  type: string
+                  description: ''
+                  example: dolor
+              required:
+                - comment_id
+                - text
+  /api/forum/get-comment:
+    get:
+      summary: 'Get comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Comment edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Comment edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Comment management'
+    parameters:
+      -
+        in: path
+        name: comment_id
+        description: ''
+        example: 19
+        required: true
+        schema:
+          type: integer
+  /api/forum/get-comments:
+    get:
+      summary: 'Get comments'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 27
+                      text: komm
+                      user_id: 23
+                      post_id: 117
+                      created_at: '2021-07-02T18:27:23.000000Z'
+                      updated_at: '2021-07-02T18:27:23.000000Z'
+                      deleted_at: null
+                      author:
+                        -
+                          id: 23
+                          name: 'Kot Bonifacy'
+                          email: bonifacy@test.com
+                          email_verified_at: null
+                          created_at: '2021-07-02T18:24:20.000000Z'
+                          updated_at: '2021-07-02T18:24:20.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/44/php5TgEjW'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 23
+                                role_id: 9
+                                model_type: App\Models\User
+                    -
+                      id: 29
+                      text: 'Updated comment'
+                      user_id: 17
+                      post_id: 129
+                      created_at: '2021-07-04T15:40:17.000000Z'
+                      updated_at: '2021-07-04T15:41:41.000000Z'
+                      deleted_at: null
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 27
+                        text: komm
+                        user_id: 23
+                        post_id: 117
+                        created_at: '2021-07-02T18:27:23.000000Z'
+                        updated_at: '2021-07-02T18:27:23.000000Z'
+                        deleted_at: null
+                        author:
+                          -
+                            id: 23
+                            name: 'Kot Bonifacy'
+                            email: bonifacy@test.com
+                            email_verified_at: null
+                            created_at: '2021-07-02T18:24:20.000000Z'
+                            updated_at: '2021-07-02T18:24:20.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/44/php5TgEjW'
+                            user_roles:
+                              - user
+                            roles:
+                              -
+                                id: 9
+                                name: user
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 23
+                                  role_id: 9
+                                  model_type: App\Models\User
+                      -
+                        id: 29
+                        text: 'Updated comment'
+                        user_id: 17
+                        post_id: 129
+                        created_at: '2021-07-04T15:40:17.000000Z'
+                        updated_at: '2021-07-04T15:41:41.000000Z'
+                        deleted_at: null
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Comment management'
+  /api/forum/get-notifications:
+    get:
+      summary: 'Get notifications'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 2
+                      message: 'Someone commented your post'
+                      user_id: 17
+                      thread_id: 7
+                      created_at: '2021-07-02T18:14:27.000000Z'
+                      updated_at: '2021-07-02T18:14:27.000000Z'
+                    -
+                      id: 4
+                      message: 'Someone added a post to your thread'
+                      user_id: 17
+                      thread_id: 33
+                      created_at: '2021-07-02T18:26:25.000000Z'
+                      updated_at: '2021-07-02T18:26:25.000000Z'
+                    -
+                      id: 7
+                      message: 'Successfully processed the post'
+                      user_id: 17
+                      thread_id: 37
+                      created_at: '2021-07-02T19:42:01.000000Z'
+                      updated_at: '2021-07-02T19:42:01.000000Z'
+                    -
+                      id: 10
+                      message: 'Successfully processed the post'
+                      user_id: 17
+                      thread_id: 37
+                      created_at: '2021-07-02T19:45:33.000000Z'
+                      updated_at: '2021-07-02T19:45:33.000000Z'
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        message: 'Someone commented your post'
+                        user_id: 17
+                        thread_id: 7
+                        created_at: '2021-07-02T18:14:27.000000Z'
+                        updated_at: '2021-07-02T18:14:27.000000Z'
+                      -
+                        id: 4
+                        message: 'Someone added a post to your thread'
+                        user_id: 17
+                        thread_id: 33
+                        created_at: '2021-07-02T18:26:25.000000Z'
+                        updated_at: '2021-07-02T18:26:25.000000Z'
+                      -
+                        id: 7
+                        message: 'Successfully processed the post'
+                        user_id: 17
+                        thread_id: 37
+                        created_at: '2021-07-02T19:42:01.000000Z'
+                        updated_at: '2021-07-02T19:42:01.000000Z'
+                      -
+                        id: 10
+                        message: 'Successfully processed the post'
+                        user_id: 17
+                        thread_id: 37
+                        created_at: '2021-07-02T19:45:33.000000Z'
+                        updated_at: '2021-07-02T19:45:33.000000Z'
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Notification management'
+  /api/forum/delete-notification:
+    post:
+      summary: 'Delete notification'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Notification deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Notification deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Notification management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                notification_id:
+                  type: integer
+                  description: 'ID of the notification to be deleted.'
+                  example: 10
+              required:
+                - notification_id
+  /api/forum/add-post:
+    post:
+      summary: 'Add post'
+      description: "This endpoint works asynchronous. It goes into queue.\nWhen the job is done, user receives a notification."
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    text: 'I like your thread'
+                    user_id: 17
+                    thread_id: 40
+                    accepted: 0
+                    updated_at: '2021-07-04T15:11:14.000000Z'
+                    created_at: '2021-07-04T15:11:14.000000Z'
+                    id: 126
+                    number_of_comments: 0
+                    author:
+                      -
+                        id: 17
+                        name: 'Mr Sandman'
+                        email: test@test.com
+                        email_verified_at: null
+                        created_at: '2021-05-17T19:59:06.000000Z'
+                        updated_at: '2021-07-04T12:26:09.000000Z'
+                        avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                        user_roles:
+                          - admin
+                        roles:
+                          -
+                            id: 7
+                            name: admin
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 17
+                              role_id: 7
+                              model_type: App\Models\User
+                    comments: []
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      text: 'I like your thread'
+                      user_id: 17
+                      thread_id: 40
+                      accepted: 0
+                      updated_at: '2021-07-04T15:11:14.000000Z'
+                      created_at: '2021-07-04T15:11:14.000000Z'
+                      id: 126
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments: []
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  description: ''
+                  example: 7
+                text:
+                  type: string
+                  description: ''
+                  example: odio
+              required:
+                - thread_id
+                - text
+  /api/forum/delete-post:
+    post:
+      summary: 'Delete post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Post deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Post deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  description: ''
+                  example: 18
+              required:
+                - post_id
+  /api/forum/edit-post:
+    post:
+      summary: 'Edit post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Post edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Post edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  description: ''
+                  example: 1
+              required:
+                - post_id
+  /api/forum/get-post:
+    get:
+      summary: 'Get post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 126
+                    user_id: 17
+                    thread_id: 40
+                    text: 'Updated first post'
+                    created_at: '2021-07-04T15:11:14.000000Z'
+                    updated_at: '2021-07-04T15:12:23.000000Z'
+                    deleted_at: null
+                    accepted: 0
+                    number_of_comments: 0
+                    author:
+                      -
+                        id: 17
+                        name: 'Mr Sandman'
+                        email: test@test.com
+                        email_verified_at: null
+                        created_at: '2021-05-17T19:59:06.000000Z'
+                        updated_at: '2021-07-04T12:26:09.000000Z'
+                        avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                        user_roles:
+                          - admin
+                        roles:
+                          -
+                            id: 7
+                            name: admin
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 17
+                              role_id: 7
+                              model_type: App\Models\User
+                    comments: []
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 126
+                      user_id: 17
+                      thread_id: 40
+                      text: 'Updated first post'
+                      created_at: '2021-07-04T15:11:14.000000Z'
+                      updated_at: '2021-07-04T15:12:23.000000Z'
+                      deleted_at: null
+                      accepted: 0
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments: []
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+  /api/forum/get-posts:
+    get:
+      summary: 'Get posts'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 119
+                      user_id: 17
+                      thread_id: 37
+                      text: 'I like your thread'
+                      created_at: '2021-07-02T19:45:23.000000Z'
+                      updated_at: '2021-07-02T19:45:33.000000Z'
+                      deleted_at: null
+                      accepted: 1
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments: []
+                    -
+                      id: 123
+                      user_id: 23
+                      thread_id: 37
+                      text: test
+                      created_at: '2021-07-02T19:54:30.000000Z'
+                      updated_at: '2021-07-02T19:54:39.000000Z'
+                      deleted_at: null
+                      accepted: 1
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 23
+                          name: 'Kot Bonifacy'
+                          email: bonifacy@test.com
+                          email_verified_at: null
+                          created_at: '2021-07-02T18:24:20.000000Z'
+                          updated_at: '2021-07-02T18:24:20.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/44/php5TgEjW'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 23
+                                role_id: 9
+                                model_type: App\Models\User
+                      comments: []
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 119
+                        user_id: 17
+                        thread_id: 37
+                        text: 'I like your thread'
+                        created_at: '2021-07-02T19:45:23.000000Z'
+                        updated_at: '2021-07-02T19:45:33.000000Z'
+                        deleted_at: null
+                        accepted: 1
+                        number_of_comments: 0
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        comments: []
+                      -
+                        id: 123
+                        user_id: 23
+                        thread_id: 37
+                        text: test
+                        created_at: '2021-07-02T19:54:30.000000Z'
+                        updated_at: '2021-07-02T19:54:39.000000Z'
+                        deleted_at: null
+                        accepted: 1
+                        number_of_comments: 0
+                        author:
+                          -
+                            id: 23
+                            name: 'Kot Bonifacy'
+                            email: bonifacy@test.com
+                            email_verified_at: null
+                            created_at: '2021-07-02T18:24:20.000000Z'
+                            updated_at: '2021-07-02T18:24:20.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/44/php5TgEjW'
+                            user_roles:
+                              - user
+                            roles:
+                              -
+                                id: 9
+                                name: user
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 23
+                                  role_id: 9
+                                  model_type: App\Models\User
+                        comments: []
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+  /api/forum/accept-post:
+    post:
+      summary: 'Accept post'
+      description: 'For accepted = 1 accepts the post, for 0, deletes the post'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Post has been processed.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Post has been processed.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  description: ''
+                  example: 3
+                accepted:
+                  type: integer
+                  description: ''
+                  example: 1
+              required:
+                - post_id
+                - accepted
+  /api/forum/get-awaiting-posts:
+    get:
+      summary: 'Get awaiting posts'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 126
+                      user_id: 17
+                      thread_id: 40
+                      text: 'Updated first post'
+                      created_at: '2021-07-04T15:11:14.000000Z'
+                      updated_at: '2021-07-04T15:12:23.000000Z'
+                      deleted_at: null
+                      accepted: 0
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments: []
+                    -
+                      id: 127
+                      user_id: 17
+                      thread_id: 40
+                      text: 'I hate you'
+                      created_at: '2021-07-04T15:21:50.000000Z'
+                      updated_at: '2021-07-04T15:21:50.000000Z'
+                      deleted_at: null
+                      accepted: 0
+                      number_of_comments: 0
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      comments: []
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 126
+                        user_id: 17
+                        thread_id: 40
+                        text: 'Updated first post'
+                        created_at: '2021-07-04T15:11:14.000000Z'
+                        updated_at: '2021-07-04T15:12:23.000000Z'
+                        deleted_at: null
+                        accepted: 0
+                        number_of_comments: 0
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        comments: []
+                      -
+                        id: 127
+                        user_id: 17
+                        thread_id: 40
+                        text: 'I hate you'
+                        created_at: '2021-07-04T15:21:50.000000Z'
+                        updated_at: '2021-07-04T15:21:50.000000Z'
+                        deleted_at: null
+                        accepted: 0
+                        number_of_comments: 0
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        comments: []
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Post management'
+  /api/forum/add-tag:
+    post:
+      summary: 'Add tag'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    name: 'new tag'
+                    updated_at: '2021-07-04T12:51:51.000000Z'
+                    created_at: '2021-07-04T12:51:51.000000Z'
+                    id: 19
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      name: 'new tag'
+                      updated_at: '2021-07-04T12:51:51.000000Z'
+                      created_at: '2021-07-04T12:51:51.000000Z'
+                      id: 19
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Tag management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: '"new tag"'
+              required:
+                - name
+  /api/forum/delete-tag:
+    post:
+      summary: 'Delete tag'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Tag deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Tag deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Tag management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tag_id:
+                  type: integer
+                  description: ''
+                  example: 6
+              required:
+                - tag_id
+  /api/forum/get-tag:
+    get:
+      summary: 'Get tag'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 6
+                    name: tag2
+                    created_at: '2021-06-20T09:58:48.000000Z'
+                    updated_at: '2021-06-20T09:58:48.000000Z'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 6
+                      name: tag2
+                      created_at: '2021-06-20T09:58:48.000000Z'
+                      updated_at: '2021-06-20T09:58:48.000000Z'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Tag management'
+    parameters:
+      -
+        in: path
+        name: tag_id
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: integer
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: 6
+  /api/forum/get-tags:
+    get:
+      summary: 'Get tags'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 9
+                      name: tag
+                      created_at: '2021-06-20T12:01:15.000000Z'
+                      updated_at: '2021-06-20T12:01:15.000000Z'
+                    -
+                      id: 10
+                      name: tag1
+                      created_at: '2021-06-20T12:01:33.000000Z'
+                      updated_at: '2021-06-20T12:01:33.000000Z'
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 9
+                        name: tag
+                        created_at: '2021-06-20T12:01:15.000000Z'
+                        updated_at: '2021-06-20T12:01:15.000000Z'
+                      -
+                        id: 10
+                        name: tag1
+                        created_at: '2021-06-20T12:01:33.000000Z'
+                        updated_at: '2021-06-20T12:01:33.000000Z'
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Tag management'
+  /api/forum/add-thread:
+    post:
+      summary: 'Add thread'
+      description: 'Responds with created Thread and User that posted this thread'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    title: 'New post'
+                    text: 'New post :)'
+                    user_id: 25
+                    updated_at: '2021-07-04T14:32:53.000000Z'
+                    created_at: '2021-07-04T14:32:53.000000Z'
+                    id: 39
+                    number_of_followers: 0
+                    score: 0
+                    number_of_posts: 0
+                    tags:
+                      -
+                        name: tag1
+                      -
+                        name: tag2
+                    followers: []
+                    votes: []
+                    author:
+                      -
+                        id: 25
+                        name: Bob
+                        email: Bob@example.com
+                        email_verified_at: null
+                        created_at: '2021-07-04T11:52:21.000000Z'
+                        updated_at: '2021-07-04T11:52:21.000000Z'
+                        avatar_url: 'http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                        user_roles:
+                          - user
+                        roles:
+                          -
+                            id: 9
+                            name: user
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 25
+                              role_id: 9
+                              model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      title: 'New post'
+                      text: 'New post :)'
+                      user_id: 25
+                      updated_at: '2021-07-04T14:32:53.000000Z'
+                      created_at: '2021-07-04T14:32:53.000000Z'
+                      id: 39
+                      number_of_followers: 0
+                      score: 0
+                      number_of_posts: 0
+                      tags:
+                        -
+                          name: tag1
+                        -
+                          name: tag2
+                      followers: []
+                      votes: []
+                      author:
+                        -
+                          id: 25
+                          name: Bob
+                          email: Bob@example.com
+                          email_verified_at: null
+                          created_at: '2021-07-04T11:52:21.000000Z'
+                          updated_at: '2021-07-04T11:52:21.000000Z'
+                          avatar_url: 'http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 25
+                                role_id: 9
+                                model_type: App\Models\User
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'Title of the thread'
+                  example: sint
+                text:
+                  type: string
+                  description: 'The content of the thread'
+                  example: ut
+                tags:
+                  type: array
+                  description: 'Array of tags (strings)'
+                  example:
+                    - natus
+                    - inventore
+                  items:
+                    type: string
+              required:
+                - title
+                - text
+  /api/forum/delete-thread:
+    post:
+      summary: 'Delete thread'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Thread deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Thread deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  description: ''
+                  example: 5
+              required:
+                - thread_id
+  /api/forum/edit-thread:
+    post:
+      summary: 'Edit thread'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Thread edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Thread edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  description: ''
+                  example: 12
+                title:
+                  type: string
+                  description: ''
+                  example: necessitatibus
+                text:
+                  type: string
+                  description: ''
+                  example: at
+                tags:
+                  type: array
+                  description: ''
+                  example:
+                    - nihil
+                    - nemo
+                  items:
+                    type: string
+              required:
+                - thread_id
+  /api/forum/get-thread:
+    get:
+      summary: 'Get thread'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 40
+                    user_id: 25
+                    title: 'New post'
+                    text: 'New post :)'
+                    created_at: '2021-07-04T14:37:48.000000Z'
+                    updated_at: '2021-07-04T14:37:48.000000Z'
+                    deleted_at: null
+                    number_of_followers: 0
+                    score: 0
+                    number_of_posts: 0
+                    tags:
+                      -
+                        id: 10
+                        name: tag1
+                        created_at: '2021-06-20T12:01:33.000000Z'
+                        updated_at: '2021-06-20T12:01:33.000000Z'
+                      -
+                        id: 20
+                        name: tag2
+                        created_at: '2021-07-04T14:32:29.000000Z'
+                        updated_at: '2021-07-04T14:32:29.000000Z'
+                    followers: []
+                    votes: []
+                    author:
+                      -
+                        id: 25
+                        name: Bob
+                        email: Bob@example.com
+                        email_verified_at: null
+                        created_at: '2021-07-04T11:52:21.000000Z'
+                        updated_at: '2021-07-04T11:52:21.000000Z'
+                        avatar_url: 'http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                        user_roles:
+                          - user
+                        roles:
+                          -
+                            id: 9
+                            name: user
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 25
+                              role_id: 9
+                              model_type: App\Models\User
+                    posts: []
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 40
+                      user_id: 25
+                      title: 'New post'
+                      text: 'New post :)'
+                      created_at: '2021-07-04T14:37:48.000000Z'
+                      updated_at: '2021-07-04T14:37:48.000000Z'
+                      deleted_at: null
+                      number_of_followers: 0
+                      score: 0
+                      number_of_posts: 0
+                      tags:
+                        -
+                          id: 10
+                          name: tag1
+                          created_at: '2021-06-20T12:01:33.000000Z'
+                          updated_at: '2021-06-20T12:01:33.000000Z'
+                        -
+                          id: 20
+                          name: tag2
+                          created_at: '2021-07-04T14:32:29.000000Z'
+                          updated_at: '2021-07-04T14:32:29.000000Z'
+                      followers: []
+                      votes: []
+                      author:
+                        -
+                          id: 25
+                          name: Bob
+                          email: Bob@example.com
+                          email_verified_at: null
+                          created_at: '2021-07-04T11:52:21.000000Z'
+                          updated_at: '2021-07-04T11:52:21.000000Z'
+                          avatar_url: 'http://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 25
+                                role_id: 9
+                                model_type: App\Models\User
+                      posts: []
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+    parameters:
+      -
+        in: path
+        name: thread_id
+        description: ''
+        example: 40
+        required: true
+        schema:
+          type: integer
+  /api/forum/get-threads:
+    get:
+      summary: 'Get threads'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 38
+                      user_id: 17
+                      title: 'New post'
+                      text: 'New post :)'
+                      created_at: '2021-07-04T14:32:29.000000Z'
+                      updated_at: '2021-07-04T14:32:29.000000Z'
+                      deleted_at: null
+                      number_of_followers: 0
+                      score: 0
+                      number_of_posts: 0
+                      tags:
+                        -
+                          name: tag1
+                        -
+                          name: tag2
+                      followers: []
+                      votes: []
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                    -
+                      id: 40
+                      user_id: 25
+                      title: 'New post'
+                      text: 'New post :)'
+                      created_at: '2021-07-04T14:37:48.000000Z'
+                      updated_at: '2021-07-04T14:37:48.000000Z'
+                      deleted_at: null
+                      number_of_followers: 0
+                      score: 0
+                      number_of_posts: 0
+                      tags:
+                        -
+                          name: tag1
+                        -
+                          name: tag2
+                      followers: []
+                      votes: []
+                      author:
+                        -
+                          id: 25
+                          name: Bob
+                          email: Bob@example.com
+                          email_verified_at: null
+                          created_at: '2021-07-04T11:52:21.000000Z'
+                          updated_at: '2021-07-04T11:52:21.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 25
+                                role_id: 9
+                                model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 38
+                        user_id: 17
+                        title: 'New post'
+                        text: 'New post :)'
+                        created_at: '2021-07-04T14:32:29.000000Z'
+                        updated_at: '2021-07-04T14:32:29.000000Z'
+                        deleted_at: null
+                        number_of_followers: 0
+                        score: 0
+                        number_of_posts: 0
+                        tags:
+                          -
+                            name: tag1
+                          -
+                            name: tag2
+                        followers: []
+                        votes: []
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                      -
+                        id: 40
+                        user_id: 25
+                        title: 'New post'
+                        text: 'New post :)'
+                        created_at: '2021-07-04T14:37:48.000000Z'
+                        updated_at: '2021-07-04T14:37:48.000000Z'
+                        deleted_at: null
+                        number_of_followers: 0
+                        score: 0
+                        number_of_posts: 0
+                        tags:
+                          -
+                            name: tag1
+                          -
+                            name: tag2
+                        followers: []
+                        votes: []
+                        author:
+                          -
+                            id: 25
+                            name: Bob
+                            email: Bob@example.com
+                            email_verified_at: null
+                            created_at: '2021-07-04T11:52:21.000000Z'
+                            updated_at: '2021-07-04T11:52:21.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                            user_roles:
+                              - user
+                            roles:
+                              -
+                                id: 9
+                                name: user
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 25
+                                  role_id: 9
+                                  model_type: App\Models\User
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+  /api/forum/get-followed-threads:
+    get:
+      summary: 'Get followed threads'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 30
+                      user_id: 17
+                      title: 'New post'
+                      text: 'New post :)'
+                      created_at: '2021-06-20T12:04:36.000000Z'
+                      updated_at: '2021-06-20T12:04:36.000000Z'
+                      deleted_at: null
+                      number_of_followers: 1
+                      score: 1
+                      number_of_posts: 4
+                      tags: []
+                      followers:
+                        -
+                          name: 'Mr Sandman'
+                          user_id: 17
+                          avatar_url: ''
+                          user_roles: []
+                          roles: []
+                      votes:
+                        -
+                          name: 'Mr Sandman'
+                          user_roles: []
+                          pivot:
+                            thread_id: 30
+                            user_id: 17
+                            value: 1
+                            created_at: '2021-06-28T13:36:49.000000Z'
+                            updated_at: '2021-06-28T13:36:49.000000Z'
+                          roles: []
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      pivot:
+                        user_id: 17
+                        thread_id: 30
+                        created_at: '2021-06-29T13:27:07.000000Z'
+                        updated_at: '2021-06-29T13:27:07.000000Z'
+                    -
+                      id: 32
+                      user_id: 17
+                      title: 'thread bez tagow'
+                      text: 'no totalnie bez'
+                      created_at: '2021-06-20T12:24:00.000000Z'
+                      updated_at: '2021-06-20T12:24:00.000000Z'
+                      deleted_at: null
+                      number_of_followers: 1
+                      score: -3
+                      number_of_posts: 1
+                      tags: []
+                      followers:
+                        -
+                          name: 'Mr Sandman'
+                          user_id: 17
+                          avatar_url: ''
+                          user_roles: []
+                          roles: []
+                      votes:
+                        -
+                          name: jacek123
+                          user_roles: []
+                          pivot:
+                            thread_id: 32
+                            user_id: 22
+                            value: -1
+                            created_at: '2021-06-28T12:57:27.000000Z'
+                            updated_at: '2021-06-28T12:57:27.000000Z'
+                          roles: []
+                        -
+                          name: 'Mr Sandman'
+                          user_roles: []
+                          pivot:
+                            thread_id: 32
+                            user_id: 17
+                            value: -1
+                            created_at: '2021-06-30T12:17:25.000000Z'
+                            updated_at: '2021-06-30T12:17:25.000000Z'
+                          roles: []
+                        -
+                          name: 'Kot Bonifacy'
+                          user_roles: []
+                          pivot:
+                            thread_id: 32
+                            user_id: 23
+                            value: -1
+                            created_at: '2021-07-02T18:33:18.000000Z'
+                            updated_at: '2021-07-02T18:33:18.000000Z'
+                          roles: []
+                      author:
+                        -
+                          id: 17
+                          name: 'Mr Sandman'
+                          email: test@test.com
+                          email_verified_at: null
+                          created_at: '2021-05-17T19:59:06.000000Z'
+                          updated_at: '2021-07-04T12:26:09.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                          user_roles:
+                            - admin
+                          roles:
+                            -
+                              id: 7
+                              name: admin
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 17
+                                role_id: 7
+                                model_type: App\Models\User
+                      pivot:
+                        user_id: 17
+                        thread_id: 32
+                        created_at: '2021-07-02T18:23:42.000000Z'
+                        updated_at: '2021-07-02T18:23:42.000000Z'
+                    -
+                      id: 40
+                      user_id: 25
+                      title: 'New post'
+                      text: 'New post :)'
+                      created_at: '2021-07-04T14:37:48.000000Z'
+                      updated_at: '2021-07-04T14:37:48.000000Z'
+                      deleted_at: null
+                      number_of_followers: 1
+                      score: 0
+                      number_of_posts: 0
+                      tags:
+                        -
+                          name: tag1
+                        -
+                          name: tag2
+                      followers:
+                        -
+                          name: 'Mr Sandman'
+                          user_id: 17
+                          avatar_url: ''
+                          user_roles: []
+                          roles: []
+                      votes: []
+                      author:
+                        -
+                          id: 25
+                          name: Bob
+                          email: Bob@example.com
+                          email_verified_at: null
+                          created_at: '2021-07-04T11:52:21.000000Z'
+                          updated_at: '2021-07-04T11:52:21.000000Z'
+                          avatar_url: 'https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                          user_roles:
+                            - user
+                          roles:
+                            -
+                              id: 9
+                              name: user
+                              guard_name: web
+                              created_at: '2021-06-05T16:44:16.000000Z'
+                              updated_at: '2021-06-05T16:44:16.000000Z'
+                              pivot:
+                                model_id: 25
+                                role_id: 9
+                                model_type: App\Models\User
+                      pivot:
+                        user_id: 17
+                        thread_id: 40
+                        created_at: '2021-07-04T14:50:27.000000Z'
+                        updated_at: '2021-07-04T14:50:27.000000Z'
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 30
+                        user_id: 17
+                        title: 'New post'
+                        text: 'New post :)'
+                        created_at: '2021-06-20T12:04:36.000000Z'
+                        updated_at: '2021-06-20T12:04:36.000000Z'
+                        deleted_at: null
+                        number_of_followers: 1
+                        score: 1
+                        number_of_posts: 4
+                        tags: []
+                        followers:
+                          -
+                            name: 'Mr Sandman'
+                            user_id: 17
+                            avatar_url: ''
+                            user_roles: []
+                            roles: []
+                        votes:
+                          -
+                            name: 'Mr Sandman'
+                            user_roles: []
+                            pivot:
+                              thread_id: 30
+                              user_id: 17
+                              value: 1
+                              created_at: '2021-06-28T13:36:49.000000Z'
+                              updated_at: '2021-06-28T13:36:49.000000Z'
+                            roles: []
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        pivot:
+                          user_id: 17
+                          thread_id: 30
+                          created_at: '2021-06-29T13:27:07.000000Z'
+                          updated_at: '2021-06-29T13:27:07.000000Z'
+                      -
+                        id: 32
+                        user_id: 17
+                        title: 'thread bez tagow'
+                        text: 'no totalnie bez'
+                        created_at: '2021-06-20T12:24:00.000000Z'
+                        updated_at: '2021-06-20T12:24:00.000000Z'
+                        deleted_at: null
+                        number_of_followers: 1
+                        score: -3
+                        number_of_posts: 1
+                        tags: []
+                        followers:
+                          -
+                            name: 'Mr Sandman'
+                            user_id: 17
+                            avatar_url: ''
+                            user_roles: []
+                            roles: []
+                        votes:
+                          -
+                            name: jacek123
+                            user_roles: []
+                            pivot:
+                              thread_id: 32
+                              user_id: 22
+                              value: -1
+                              created_at: '2021-06-28T12:57:27.000000Z'
+                              updated_at: '2021-06-28T12:57:27.000000Z'
+                            roles: []
+                          -
+                            name: 'Mr Sandman'
+                            user_roles: []
+                            pivot:
+                              thread_id: 32
+                              user_id: 17
+                              value: -1
+                              created_at: '2021-06-30T12:17:25.000000Z'
+                              updated_at: '2021-06-30T12:17:25.000000Z'
+                            roles: []
+                          -
+                            name: 'Kot Bonifacy'
+                            user_roles: []
+                            pivot:
+                              thread_id: 32
+                              user_id: 23
+                              value: -1
+                              created_at: '2021-07-02T18:33:18.000000Z'
+                              updated_at: '2021-07-02T18:33:18.000000Z'
+                            roles: []
+                        author:
+                          -
+                            id: 17
+                            name: 'Mr Sandman'
+                            email: test@test.com
+                            email_verified_at: null
+                            created_at: '2021-05-17T19:59:06.000000Z'
+                            updated_at: '2021-07-04T12:26:09.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/43/phpcjJdT2'
+                            user_roles:
+                              - admin
+                            roles:
+                              -
+                                id: 7
+                                name: admin
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 17
+                                  role_id: 7
+                                  model_type: App\Models\User
+                        pivot:
+                          user_id: 17
+                          thread_id: 32
+                          created_at: '2021-07-02T18:23:42.000000Z'
+                          updated_at: '2021-07-02T18:23:42.000000Z'
+                      -
+                        id: 40
+                        user_id: 25
+                        title: 'New post'
+                        text: 'New post :)'
+                        created_at: '2021-07-04T14:37:48.000000Z'
+                        updated_at: '2021-07-04T14:37:48.000000Z'
+                        deleted_at: null
+                        number_of_followers: 1
+                        score: 0
+                        number_of_posts: 0
+                        tags:
+                          -
+                            name: tag1
+                          -
+                            name: tag2
+                        followers:
+                          -
+                            name: 'Mr Sandman'
+                            user_id: 17
+                            avatar_url: ''
+                            user_roles: []
+                            roles: []
+                        votes: []
+                        author:
+                          -
+                            id: 25
+                            name: Bob
+                            email: Bob@example.com
+                            email_verified_at: null
+                            created_at: '2021-07-04T11:52:21.000000Z'
+                            updated_at: '2021-07-04T11:52:21.000000Z'
+                            avatar_url: 'https://www.4um.polarlooptheory.pl/storage/45/phpPPQ0gJ'
+                            user_roles:
+                              - user
+                            roles:
+                              -
+                                id: 9
+                                name: user
+                                guard_name: web
+                                created_at: '2021-06-05T16:44:16.000000Z'
+                                updated_at: '2021-06-05T16:44:16.000000Z'
+                                pivot:
+                                  model_id: 25
+                                  role_id: 9
+                                  model_type: App\Models\User
+                        pivot:
+                          user_id: 17
+                          thread_id: 40
+                          created_at: '2021-07-04T14:50:27.000000Z'
+                          updated_at: '2021-07-04T14:50:27.000000Z'
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+  /api/forum/follow-thread:
+    post:
+      summary: 'Follow thread'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Thread (un)followed successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Thread (un)followed successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  description: ''
+                  example: 12
+                follow:
+                  type: integer
+                  description: 'This can be either 0 or 1. 1 means that user will follow thread, 0 is for unfollow.'
+                  example: 19
+              required:
+                - thread_id
+                - follow
+  /api/forum/vote-for-thread:
+    post:
+      summary: 'Vote for thread'
+      description: "Votes for a thread - score is:\n- 0 is for removing vote\n- 1 is for upvoting\n- -1 is for downvoting"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Voted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Voted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Thread management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                thread_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                score:
+                  type: integer
+                  description: ''
+                  example: 1
+              required:
+                - thread_id
+                - score
+  /api/user/get-user:
+    get:
+      summary: 'Get user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 25
+                    name: Bob
+                    email: Bob@example.com
+                    email_verified_at: null
+                    created_at: '2021-07-04T11:52:21.000000Z'
+                    updated_at: '2021-07-04T11:52:21.000000Z'
+                    number_of_threads_followed: 0
+                    number_of_votes: 0
+                    number_of_comments: 0
+                    avatar_url: ''
+                    user_roles:
+                      - user
+                    roles:
+                      -
+                        id: 9
+                        name: user
+                        guard_name: web
+                        created_at: '2021-06-05T16:44:16.000000Z'
+                        updated_at: '2021-06-05T16:44:16.000000Z'
+                        pivot:
+                          model_id: 25
+                          role_id: 9
+                          model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 25
+                      name: Bob
+                      email: Bob@example.com
+                      email_verified_at: null
+                      created_at: '2021-07-04T11:52:21.000000Z'
+                      updated_at: '2021-07-04T11:52:21.000000Z'
+                      number_of_threads_followed: 0
+                      number_of_votes: 0
+                      number_of_comments: 0
+                      avatar_url: ''
+                      user_roles:
+                        - user
+                      roles:
+                        -
+                          id: 9
+                          name: user
+                          guard_name: web
+                          created_at: '2021-06-05T16:44:16.000000Z'
+                          updated_at: '2021-06-05T16:44:16.000000Z'
+                          pivot:
+                            model_id: 25
+                            role_id: 9
+                            model_type: App\Models\User
+                  status:
+                    type: integer
+                    example: 200
+        400:
+          description: '400, user not found'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  errors:
+                    user_id: 'User could not be printed properly. Check user ID.'
+                  status: 400
+                properties:
+                  errors:
+                    type: object
+                    example:
+                      user_id: 'User could not be printed properly. Check user ID.'
+                  status:
+                    type: integer
+                    example: 400
+      tags:
+        - 'User management'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: ''
+        example: 25
+        required: true
+        schema:
+          type: integer
+  /api/user/get-users:
+    get:
+      summary: 'Get users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 24
+                      name: 'New Test :)'
+                      email: newtest123@test.com
+                      email_verified_at: null
+                      created_at: '2021-07-04T11:41:55.000000Z'
+                      updated_at: '2021-07-04T11:41:55.000000Z'
+                      number_of_threads_followed: 0
+                      number_of_votes: 0
+                      number_of_comments: 0
+                      avatar_url: ''
+                      user_roles:
+                        - user
+                      roles:
+                        -
+                          id: 9
+                          name: user
+                          guard_name: web
+                          created_at: '2021-06-05T16:44:16.000000Z'
+                          updated_at: '2021-06-05T16:44:16.000000Z'
+                          pivot:
+                            model_id: 24
+                            role_id: 9
+                            model_type: App\Models\User
+                    -
+                      id: 25
+                      name: Bob
+                      email: Bob@example.com
+                      email_verified_at: null
+                      created_at: '2021-07-04T11:52:21.000000Z'
+                      updated_at: '2021-07-04T11:52:21.000000Z'
+                      number_of_threads_followed: 0
+                      number_of_votes: 0
+                      number_of_comments: 0
+                      avatar_url: ''
+                      user_roles:
+                        - user
+                      roles:
+                        -
+                          id: 9
+                          name: user
+                          guard_name: web
+                          created_at: '2021-06-05T16:44:16.000000Z'
+                          updated_at: '2021-06-05T16:44:16.000000Z'
+                          pivot:
+                            model_id: 25
+                            role_id: 9
+                            model_type: App\Models\User
+                  status: 200
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 24
+                        name: 'New Test :)'
+                        email: newtest123@test.com
+                        email_verified_at: null
+                        created_at: '2021-07-04T11:41:55.000000Z'
+                        updated_at: '2021-07-04T11:41:55.000000Z'
+                        number_of_threads_followed: 0
+                        number_of_votes: 0
+                        number_of_comments: 0
+                        avatar_url: ''
+                        user_roles:
+                          - user
+                        roles:
+                          -
+                            id: 9
+                            name: user
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 24
+                              role_id: 9
+                              model_type: App\Models\User
+                      -
+                        id: 25
+                        name: Bob
+                        email: Bob@example.com
+                        email_verified_at: null
+                        created_at: '2021-07-04T11:52:21.000000Z'
+                        updated_at: '2021-07-04T11:52:21.000000Z'
+                        number_of_threads_followed: 0
+                        number_of_votes: 0
+                        number_of_comments: 0
+                        avatar_url: ''
+                        user_roles:
+                          - user
+                        roles:
+                          -
+                            id: 9
+                            name: user
+                            guard_name: web
+                            created_at: '2021-06-05T16:44:16.000000Z'
+                            updated_at: '2021-06-05T16:44:16.000000Z'
+                            pivot:
+                              model_id: 25
+                              role_id: 9
+                              model_type: App\Models\User
+                    items:
+                      type: object
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'User management'
+  /api/user/edit-user:
+    post:
+      summary: 'Edit user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'User edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'User edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: ''
+                  example: 25
+                password:
+                  type: string
+                  description: ''
+                  example: bobross25
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: bobross25
+              required:
+                - user_id
+                - password
+                - password_confirmation
+  /api/user/edit-avatar:
+    post:
+      summary: 'Edit avatar'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: multipart/form-data
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Avatar edited successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Avatar edited successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: ''
+                  example: 25
+                avatar:
+                  type: string
+                  format: binary
+                  description: ''
+              required:
+                - user_id
+                - avatar
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []
