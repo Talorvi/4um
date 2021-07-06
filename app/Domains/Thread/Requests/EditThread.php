@@ -4,6 +4,7 @@ namespace App\Domains\Thread\Requests;
 
 use App\Domains\Thread\Jobs\GetThreadJob;
 use App\Foundation\Http\ApiFormRequest;
+use App\Models\Thread;
 use Illuminate\Support\Facades\Auth;
 use Lucid\Bus\UnitDispatcher;
 
@@ -26,7 +27,7 @@ class EditThread extends ApiFormRequest
             'thread_id' => $this->request->all()['thread_id']
         ]);
 
-        if ($thread != null && $thread->user_id === Auth::user()->id && Auth::user()->hasPermissionTo('edit own thread')) {
+        if ($thread != null && $thread['user_id'] === Auth::user()->id && Auth::user()->hasPermissionTo('edit own thread')) {
             return true;
         }
 

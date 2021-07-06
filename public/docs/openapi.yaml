@@ -464,11 +464,11 @@ paths:
                 post_id:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 16
                 text:
                   type: string
                   description: ''
-                  example: perferendis
+                  example: autem
               required:
                 - post_id
                 - text
@@ -529,7 +529,7 @@ paths:
                 comment_id:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 1
               required:
                 - comment_id
   /api/forum/edit-comment:
@@ -589,11 +589,11 @@ paths:
                 comment_id:
                   type: integer
                   description: ''
-                  example: 11
+                  example: 7
                 text:
                   type: string
                   description: ''
-                  example: dolor
+                  example: aut
               required:
                 - comment_id
                 - text
@@ -649,7 +649,7 @@ paths:
         in: path
         name: comment_id
         description: ''
-        example: 19
+        example: 3
         required: true
         schema:
           type: integer
@@ -861,28 +861,14 @@ paths:
                       user_id: 17
                       thread_id: 7
                       created_at: '2021-07-02T18:14:27.000000Z'
-                      updated_at: '2021-07-02T18:14:27.000000Z'
+                      thread_title: 'Updated thread'
                     -
                       id: 4
                       message: 'Someone added a post to your thread'
                       user_id: 17
                       thread_id: 33
                       created_at: '2021-07-02T18:26:25.000000Z'
-                      updated_at: '2021-07-02T18:26:25.000000Z'
-                    -
-                      id: 7
-                      message: 'Successfully processed the post'
-                      user_id: 17
-                      thread_id: 37
-                      created_at: '2021-07-02T19:42:01.000000Z'
-                      updated_at: '2021-07-02T19:42:01.000000Z'
-                    -
-                      id: 10
-                      message: 'Successfully processed the post'
-                      user_id: 17
-                      thread_id: 37
-                      created_at: '2021-07-02T19:45:33.000000Z'
-                      updated_at: '2021-07-02T19:45:33.000000Z'
+                      thread_title: 'Dużo tagów'
                   status: 200
                 properties:
                   data:
@@ -894,28 +880,14 @@ paths:
                         user_id: 17
                         thread_id: 7
                         created_at: '2021-07-02T18:14:27.000000Z'
-                        updated_at: '2021-07-02T18:14:27.000000Z'
+                        thread_title: 'Updated thread'
                       -
                         id: 4
                         message: 'Someone added a post to your thread'
                         user_id: 17
                         thread_id: 33
                         created_at: '2021-07-02T18:26:25.000000Z'
-                        updated_at: '2021-07-02T18:26:25.000000Z'
-                      -
-                        id: 7
-                        message: 'Successfully processed the post'
-                        user_id: 17
-                        thread_id: 37
-                        created_at: '2021-07-02T19:42:01.000000Z'
-                        updated_at: '2021-07-02T19:42:01.000000Z'
-                      -
-                        id: 10
-                        message: 'Successfully processed the post'
-                        user_id: 17
-                        thread_id: 37
-                        created_at: '2021-07-02T19:45:33.000000Z'
-                        updated_at: '2021-07-02T19:45:33.000000Z'
+                        thread_title: 'Dużo tagów'
                     items:
                       type: object
                   status:
@@ -983,6 +955,53 @@ paths:
                   example: 10
               required:
                 - notification_id
+  /api/forum/delete-all-notifications:
+    post:
+      summary: 'Delete all notifications'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    success: 'Notifications deleted successfully.'
+                  status: 200
+                properties:
+                  data:
+                    type: object
+                    example:
+                      success: 'Notifications deleted successfully.'
+                  status:
+                    type: integer
+                    example: 200
+      tags:
+        - 'Notification management'
   /api/forum/add-post:
     post:
       summary: 'Add post'
@@ -1100,11 +1119,11 @@ paths:
                 thread_id:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 8
                 text:
                   type: string
                   description: ''
-                  example: odio
+                  example: non
               required:
                 - thread_id
                 - text
@@ -1165,7 +1184,7 @@ paths:
                 post_id:
                   type: integer
                   description: ''
-                  example: 18
+                  example: 6
               required:
                 - post_id
   /api/forum/edit-post:
@@ -1225,7 +1244,7 @@ paths:
                 post_id:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 10
               required:
                 - post_id
   /api/forum/get-post:
@@ -2152,17 +2171,17 @@ paths:
                 title:
                   type: string
                   description: 'Title of the thread'
-                  example: sint
+                  example: voluptas
                 text:
                   type: string
                   description: 'The content of the thread'
-                  example: ut
+                  example: quidem
                 tags:
                   type: array
                   description: 'Array of tags (strings)'
                   example:
-                    - natus
-                    - inventore
+                    - ad
+                    - sit
                   items:
                     type: string
               required:
@@ -2225,7 +2244,7 @@ paths:
                 thread_id:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 7
               required:
                 - thread_id
   /api/forum/edit-thread:
@@ -2285,21 +2304,21 @@ paths:
                 thread_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 5
                 title:
                   type: string
                   description: ''
-                  example: necessitatibus
+                  example: blanditiis
                 text:
                   type: string
                   description: ''
-                  example: at
+                  example: quos
                 tags:
                   type: array
                   description: ''
                   example:
-                    - nihil
-                    - nemo
+                    - dignissimos
+                    - id
                   items:
                     type: string
               required:
@@ -3131,11 +3150,11 @@ paths:
                 thread_id:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 6
                 follow:
                   type: integer
                   description: 'This can be either 0 or 1. 1 means that user will follow thread, 0 is for unfollow.'
-                  example: 19
+                  example: 9
               required:
                 - thread_id
                 - follow
@@ -3196,7 +3215,7 @@ paths:
                 thread_id:
                   type: integer
                   description: ''
-                  example: 8
+                  example: 1
                 score:
                   type: integer
                   description: ''

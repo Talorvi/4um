@@ -26,7 +26,7 @@ class DeleteThread extends ApiFormRequest
             'thread_id' => $this->request->all()['thread_id']
         ]);
 
-        if ($thread != null && $thread->user_id === Auth::user()->id && Auth::user()->hasPermissionTo('delete own thread')) {
+        if ($thread != null && $thread['user_id'] === Auth::user()->id && Auth::user()->hasPermissionTo('delete own thread')) {
             return true;
         }
 

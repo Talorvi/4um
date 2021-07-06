@@ -22,21 +22,21 @@ endpoints:
         name: title
         description: 'Title of the thread'
         required: true
-        example: sint
+        example: voluptas
         type: string
       text:
         name: text
         description: 'The content of the thread'
         required: true
-        example: ut
+        example: quidem
         type: string
       tags:
         name: tags
         description: 'Array of tags (strings)'
         required: false
         example:
-          - natus
-          - inventore
+          - ad
+          - sit
         type: 'string[]'
     responses:
       -
@@ -116,7 +116,7 @@ endpoints:
         name: thread_id
         description: ''
         required: true
-        example: 5
+        example: 7
         type: integer
     responses:
       -
@@ -150,27 +150,27 @@ endpoints:
         name: thread_id
         description: ''
         required: true
-        example: 12
+        example: 5
         type: integer
       title:
         name: title
         description: ''
         required: false
-        example: necessitatibus
+        example: blanditiis
         type: string
       text:
         name: text
         description: ''
         required: false
-        example: at
+        example: quos
         type: string
       tags:
         name: tags
         description: ''
         required: false
         example:
-          - nihil
-          - nemo
+          - dignissimos
+          - id
         type: 'string[]'
     responses:
       -
@@ -674,13 +674,13 @@ endpoints:
         name: thread_id
         description: ''
         required: true
-        example: 12
+        example: 6
         type: integer
       follow:
         name: follow
         description: 'This can be either 0 or 1. 1 means that user will follow thread, 0 is for unfollow.'
         required: true
-        example: 19
+        example: 9
         type: integer
     responses:
       -
@@ -718,7 +718,7 @@ endpoints:
         name: thread_id
         description: ''
         required: true
-        example: 8
+        example: 1
         type: integer
       score:
         name: score

@@ -2,6 +2,7 @@
 
 namespace App\Services\Forum\Http\Controllers;
 
+use App\Services\Forum\Features\Notification\DeleteAllNotificationsFeature;
 use App\Services\Forum\Features\Notification\DeleteNotificationFeature;
 use App\Services\Forum\Features\Notification\GetNotificationsFeature;
 use Lucid\Units\Controller;
@@ -62,5 +63,22 @@ class NotificationController extends Controller
     public function deleteNotification()
     {
         return $this->serve(DeleteNotificationFeature::class);
+    }
+
+    /**
+     * Delete all notifications
+     *
+     * @response {
+    "data": {
+    "success": "Notifications deleted successfully."
+    },
+    "status": 200
+     * }
+     *
+     * @return mixed
+     */
+    public function deleteAllNotifications()
+    {
+        return $this->serve(DeleteAllNotificationsFeature::class);
     }
 }

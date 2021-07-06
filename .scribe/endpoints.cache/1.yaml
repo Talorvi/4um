@@ -24,13 +24,13 @@ endpoints:
         name: post_id
         description: ''
         required: true
-        example: 9
+        example: 16
         type: integer
       text:
         name: text
         description: ''
         required: true
-        example: perferendis
+        example: autem
         type: string
     responses:
       -
@@ -175,7 +175,7 @@ endpoints:
         name: comment_id
         description: ''
         required: true
-        example: 4
+        example: 1
         type: integer
     responses:
       -
@@ -209,13 +209,13 @@ endpoints:
         name: comment_id
         description: ''
         required: true
-        example: 11
+        example: 7
         type: integer
       text:
         name: text
         description: ''
         required: true
-        example: dolor
+        example: aut
         type: string
     responses:
       -
@@ -247,7 +247,7 @@ endpoints:
         name: comment_id
         description: ''
         required: true
-        example: 19
+        example: 3
         type: integer
     queryParameters: []
     bodyParameters: []

@@ -65,4 +65,5 @@ Route::group(['prefix' => 'forum'], function() {
      */
     Route::middleware('auth:api')->get('/get-notifications', [NotificationController::class, 'getNotifications']);
     Route::middleware('auth:api')->post('/delete-notification', [NotificationController::class, 'deleteNotification']);
+    Route::middleware('auth:api')->post('/delete-all-notifications', [NotificationController::class, 'deleteAllNotifications']);
 });

@@ -26,13 +26,13 @@ endpoints:
         name: thread_id
         description: ''
         required: true
-        example: 7
+        example: 8
         type: integer
       text:
         name: text
         description: ''
         required: true
-        example: odio
+        example: non
         type: string
     responses:
       -
@@ -102,7 +102,7 @@ endpoints:
         name: post_id
         description: ''
         required: true
-        example: 18
+        example: 6
         type: integer
     responses:
       -
@@ -136,7 +136,7 @@ endpoints:
         name: post_id
         description: ''
         required: true
-        example: 1
+        example: 10
         type: integer
     responses:
       -

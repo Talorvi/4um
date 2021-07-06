@@ -52,7 +52,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: July 4 2021</li>
+            <li>Last updated: July 6 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -69,7 +69,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">https://www.4um.polarlooptheory.pl</code></pre>
 
         <h1>Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by checking Authentication section below.</p>
 
@@ -411,8 +411,8 @@ const headers = {
 };
 
 let body = {
-    "post_id": 9,
-    "text": "perferendis"
+    "post_id": 16,
+    "text": "autem"
 }
 
 fetch(url, {
@@ -427,8 +427,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"post_id\": 9,
-    \"text\": \"perferendis\"
+    \"post_id\": 16,
+    \"text\": \"autem\"
 }"
 </code></pre>
 </span>
@@ -648,7 +648,7 @@ const headers = {
 };
 
 let body = {
-    "comment_id": 4
+    "comment_id": 1
 }
 
 fetch(url, {
@@ -663,7 +663,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"comment_id\": 4
+    \"comment_id\": 1
 }"
 </code></pre>
 </span>
@@ -764,8 +764,8 @@ const headers = {
 };
 
 let body = {
-    "comment_id": 11,
-    "text": "dolor"
+    "comment_id": 7,
+    "text": "aut"
 }
 
 fetch(url, {
@@ -780,8 +780,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"comment_id\": 11,
-    \"text\": \"dolor\"
+    \"comment_id\": 7,
+    \"text\": \"aut\"
 }"
 </code></pre>
 </span>
@@ -1197,7 +1197,7 @@ fetch(url, {
             &quot;user_id&quot;: 17,
             &quot;thread_id&quot;: 7,
             &quot;created_at&quot;: &quot;2021-07-02T18:14:27.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-07-02T18:14:27.000000Z&quot;
+            &quot;thread_title&quot;: &quot;Updated thread&quot;
         },
         {
             &quot;id&quot;: 4,
@@ -1205,23 +1205,7 @@ fetch(url, {
             &quot;user_id&quot;: 17,
             &quot;thread_id&quot;: 33,
             &quot;created_at&quot;: &quot;2021-07-02T18:26:25.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-07-02T18:26:25.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 7,
-            &quot;message&quot;: &quot;Successfully processed the post&quot;,
-            &quot;user_id&quot;: 17,
-            &quot;thread_id&quot;: 37,
-            &quot;created_at&quot;: &quot;2021-07-02T19:42:01.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-07-02T19:42:01.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 10,
-            &quot;message&quot;: &quot;Successfully processed the post&quot;,
-            &quot;user_id&quot;: 17,
-            &quot;thread_id&quot;: 37,
-            &quot;created_at&quot;: &quot;2021-07-02T19:45:33.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2021-07-02T19:45:33.000000Z&quot;
+            &quot;thread_title&quot;: &quot;Dużo tag&oacute;w&quot;
         }
     ],
     &quot;status&quot;: 200
@@ -1392,6 +1376,103 @@ fetch(url, {
     
     </form>
 
+            <h2 id="notification-management-POSTapi-forum-delete-all-notifications">Delete all notifications</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-forum-delete-all-notifications">
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-javascript">const url = new URL(
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-all-notifications"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+<pre><code class="language-bash">curl --request POST \
+    "https://www.4um.polarlooptheory.pl/api/forum/delete-all-notifications" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+</span>
+
+<span id="example-responses-POSTapi-forum-delete-all-notifications">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    &quot;data&quot;: {
+        &quot;success&quot;: &quot;Notifications deleted successfully.&quot;
+    },
+    &quot;status&quot;: 200
+}
+ </code>
+        </pre>
+    </span>
+<span id="execution-results-POSTapi-forum-delete-all-notifications" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-forum-delete-all-notifications"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-forum-delete-all-notifications"></code></pre>
+</span>
+<span id="execution-error-POSTapi-forum-delete-all-notifications" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-forum-delete-all-notifications"></code></pre>
+</span>
+<form id="form-POSTapi-forum-delete-all-notifications" data-method="POST"
+      data-path="api/forum/delete-all-notifications"
+      data-authed="1"
+      data-hasfiles="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-forum-delete-all-notifications', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-forum-delete-all-notifications"
+                    onclick="tryItOut('POSTapi-forum-delete-all-notifications');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-forum-delete-all-notifications"
+                    onclick="cancelTryOut('POSTapi-forum-delete-all-notifications');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-forum-delete-all-notifications" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/forum/delete-all-notifications</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-forum-delete-all-notifications" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-forum-delete-all-notifications"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
         <h1 id="post-management">Post management</h1>
     <p>
         <p>APIs for managing posts</p>
@@ -1421,8 +1502,8 @@ const headers = {
 };
 
 let body = {
-    "thread_id": 7,
-    "text": "odio"
+    "thread_id": 8,
+    "text": "non"
 }
 
 fetch(url, {
@@ -1437,8 +1518,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"thread_id\": 7,
-    \"text\": \"odio\"
+    \"thread_id\": 8,
+    \"text\": \"non\"
 }"
 </code></pre>
 </span>
@@ -1583,7 +1664,7 @@ const headers = {
 };
 
 let body = {
-    "post_id": 18
+    "post_id": 6
 }
 
 fetch(url, {
@@ -1598,7 +1679,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"post_id\": 18
+    \"post_id\": 6
 }"
 </code></pre>
 </span>
@@ -1699,7 +1780,7 @@ const headers = {
 };
 
 let body = {
-    "post_id": 1
+    "post_id": 10
 }
 
 fetch(url, {
@@ -1714,7 +1795,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"post_id\": 1
+    \"post_id\": 10
 }"
 </code></pre>
 </span>
@@ -2889,11 +2970,11 @@ const headers = {
 };
 
 let body = {
-    "title": "sint",
-    "text": "ut",
+    "title": "voluptas",
+    "text": "quidem",
     "tags": [
-        "natus",
-        "inventore"
+        "ad",
+        "sit"
     ]
 }
 
@@ -2909,11 +2990,11 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"sint\",
-    \"text\": \"ut\",
+    \"title\": \"voluptas\",
+    \"text\": \"quidem\",
     \"tags\": [
-        \"natus\",
-        \"inventore\"
+        \"ad\",
+        \"sit\"
     ]
 }"
 </code></pre>
@@ -3081,7 +3162,7 @@ const headers = {
 };
 
 let body = {
-    "thread_id": 5
+    "thread_id": 7
 }
 
 fetch(url, {
@@ -3096,7 +3177,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"thread_id\": 5
+    \"thread_id\": 7
 }"
 </code></pre>
 </span>
@@ -3197,12 +3278,12 @@ const headers = {
 };
 
 let body = {
-    "thread_id": 12,
-    "title": "necessitatibus",
-    "text": "at",
+    "thread_id": 5,
+    "title": "blanditiis",
+    "text": "quos",
     "tags": [
-        "nihil",
-        "nemo"
+        "dignissimos",
+        "id"
     ]
 }
 
@@ -3218,12 +3299,12 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"thread_id\": 12,
-    \"title\": \"necessitatibus\",
-    \"text\": \"at\",
+    \"thread_id\": 5,
+    \"title\": \"blanditiis\",
+    \"text\": \"quos\",
     \"tags\": [
-        \"nihil\",
-        \"nemo\"
+        \"dignissimos\",
+        \"id\"
     ]
 }"
 </code></pre>
@@ -4033,8 +4114,8 @@ const headers = {
 };
 
 let body = {
-    "thread_id": 12,
-    "follow": 19
+    "thread_id": 6,
+    "follow": 9
 }
 
 fetch(url, {
@@ -4049,8 +4130,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"thread_id\": 12,
-    \"follow\": 19
+    \"thread_id\": 6,
+    \"follow\": 9
 }"
 </code></pre>
 </span>
@@ -4164,7 +4245,7 @@ const headers = {
 };
 
 let body = {
-    "thread_id": 8,
+    "thread_id": 1,
     "score": 1
 }
 
@@ -4180,7 +4261,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"thread_id\": 8,
+    \"thread_id\": 1,
     \"score\": 1
 }"
 </code></pre>
@@ -4746,7 +4827,7 @@ fetch(url, {
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "user_id=25" \
-    --form "avatar=@C:\Users\Mateusz\AppData\Local\Temp\php83B4.tmp" </code></pre>
+    --form "avatar=@C:\Users\Mateusz\AppData\Local\Temp\php149B.tmp" </code></pre>
 </span>
 
 <span id="example-responses-POSTapi-user-edit-avatar">

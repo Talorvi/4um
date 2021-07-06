@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "4um",
-        "_postman_id": "7d2ca055-f441-4bd8-ad5a-0d321495bca6",
+        "_postman_id": "361d31e8-da5f-4ff7-870a-1717d52f8fd5",
         "description": "4um documentation",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -126,7 +126,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post_id\":9,\"text\":\"perferendis\"}"
+                            "raw": "{\"post_id\":16,\"text\":\"autem\"}"
                         },
                         "description": ""
                     },
@@ -162,7 +162,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"comment_id\":4}"
+                            "raw": "{\"comment_id\":1}"
                         },
                         "description": ""
                     },
@@ -198,7 +198,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"comment_id\":11,\"text\":\"dolor\"}"
+                            "raw": "{\"comment_id\":7,\"text\":\"aut\"}"
                         },
                         "description": ""
                     },
@@ -224,7 +224,7 @@
                                 {
                                     "id": "comment_id",
                                     "key": "comment_id",
-                                    "value": "19",
+                                    "value": "3",
                                     "description": ""
                                 }
                             ]
@@ -319,7 +319,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n\"data\": [\n{\n\"id\": 2,\n\"message\": \"Someone commented your post\",\n\"user_id\": 17,\n\"thread_id\": 7,\n\"created_at\": \"2021-07-02T18:14:27.000000Z\",\n\"updated_at\": \"2021-07-02T18:14:27.000000Z\"\n},\n{\n\"id\": 4,\n\"message\": \"Someone added a post to your thread\",\n\"user_id\": 17,\n\"thread_id\": 33,\n\"created_at\": \"2021-07-02T18:26:25.000000Z\",\n\"updated_at\": \"2021-07-02T18:26:25.000000Z\"\n},\n{\n\"id\": 7,\n\"message\": \"Successfully processed the post\",\n\"user_id\": 17,\n\"thread_id\": 37,\n\"created_at\": \"2021-07-02T19:42:01.000000Z\",\n\"updated_at\": \"2021-07-02T19:42:01.000000Z\"\n},\n{\n\"id\": 10,\n\"message\": \"Successfully processed the post\",\n\"user_id\": 17,\n\"thread_id\": 37,\n\"created_at\": \"2021-07-02T19:45:33.000000Z\",\n\"updated_at\": \"2021-07-02T19:45:33.000000Z\"\n}\n],\n\"status\": 200\n}",
+                            "body": "{\n\"data\": [\n{\n\"id\": 2,\n\"message\": \"Someone commented your post\",\n\"user_id\": 17,\n\"thread_id\": 7,\n\"created_at\": \"2021-07-02T18:14:27.000000Z\",\n\"thread_title\": \"Updated thread\"\n},\n{\n\"id\": 4,\n\"message\": \"Someone added a post to your thread\",\n\"user_id\": 17,\n\"thread_id\": 33,\n\"created_at\": \"2021-07-02T18:26:25.000000Z\",\n\"thread_title\": \"Du\u017co tag\u00f3w\"\n}\n],\n\"status\": 200\n}",
                             "name": "200"
                         }
                     ]
@@ -359,6 +359,39 @@
                             "name": "200"
                         }
                     ]
+                },
+                {
+                    "name": "Delete all notifications",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/forum\/delete-all-notifications",
+                            "query": [],
+                            "raw": "https:\/\/{{baseUrl}}\/api\/forum\/delete-all-notifications"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": {\n\"success\": \"Notifications deleted successfully.\"\n},\n\"status\": 200\n}",
+                            "name": "200"
+                        }
+                    ]
                 }
             ]
         },
@@ -389,7 +422,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"thread_id\":7,\"text\":\"odio\"}"
+                            "raw": "{\"thread_id\":8,\"text\":\"non\"}"
                         },
                         "description": "This endpoint works asynchronous. It goes into queue.\nWhen the job is done, user receives a notification."
                     },
@@ -425,7 +458,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post_id\":18}"
+                            "raw": "{\"post_id\":6}"
                         },
                         "description": ""
                     },
@@ -461,7 +494,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post_id\":1}"
+                            "raw": "{\"post_id\":10}"
                         },
                         "description": ""
                     },
@@ -790,7 +823,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"sint\",\"text\":\"ut\",\"tags\":[\"natus\",\"inventore\"]}"
+                            "raw": "{\"title\":\"voluptas\",\"text\":\"quidem\",\"tags\":[\"ad\",\"sit\"]}"
                         },
                         "description": "Responds with created Thread and User that posted this thread"
                     },
@@ -826,7 +859,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"thread_id\":5}"
+                            "raw": "{\"thread_id\":7}"
                         },
                         "description": ""
                     },
@@ -862,7 +895,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"thread_id\":12,\"title\":\"necessitatibus\",\"text\":\"at\",\"tags\":[\"nihil\",\"nemo\"]}"
+                            "raw": "{\"thread_id\":5,\"title\":\"blanditiis\",\"text\":\"quos\",\"tags\":[\"dignissimos\",\"id\"]}"
                         },
                         "description": ""
                     },
@@ -1005,7 +1038,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"thread_id\":12,\"follow\":19}"
+                            "raw": "{\"thread_id\":6,\"follow\":9}"
                         },
                         "description": ""
                     },
@@ -1041,7 +1074,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"thread_id\":8,\"score\":1}"
+                            "raw": "{\"thread_id\":1,\"score\":1}"
                         },
                         "description": "Votes for a thread - score is:\n- 0 is for removing vote\n- 1 is for upvoting\n- -1 is for downvoting"
                     },
