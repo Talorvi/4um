@@ -6,6 +6,7 @@ use App\Domains\Comment\Jobs\AddCommentJob;
 use App\Domains\Comment\Requests\AddComment;
 use App\Domains\Post\Jobs\GetPostJob;
 use App\Events\CommentAdded;
+use App\Events\ThreadUpdated;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
 use Lucid\Units\Feature;
 
@@ -20,6 +21,7 @@ class AddCommentFeature extends Feature
         ]);
 
         event(new CommentAdded("Someone commented your post", $comment));
+        event(new ThreadUpdated($comment->post->thread));
 
         return $this->run(new RespondWithJsonJob($comment));
     }

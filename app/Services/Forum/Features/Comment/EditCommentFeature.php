@@ -4,7 +4,9 @@ namespace App\Services\Forum\Features\Comment;
 
 use App\Domains\Authentication\Jobs\RespondWithJsonResponseErrorJob;
 use App\Domains\Comment\Jobs\EditCommentJob;
+use App\Domains\Comment\Jobs\GetCommentJob;
 use App\Domains\Comment\Requests\EditComment;
+use App\Events\ThreadUpdated;
 use Lucid\Domains\Http\Jobs\RespondWithJsonJob;
 use Lucid\Units\Feature;
 
@@ -18,6 +20,11 @@ class EditCommentFeature extends Feature
         ]);
 
         if ($result) {
+            $comment = $this->run(GetCommentJob::class, [
+                'comment_id' => $request->input('comment_id')
+            ]);
+            event(new ThreadUpdated($comment->post->thread));
+
             return $this->run(new RespondWithJsonJob([
                 'success' => 'Comment edited successfully.'
             ]));
