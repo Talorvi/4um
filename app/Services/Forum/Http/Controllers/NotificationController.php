@@ -24,7 +24,7 @@ class NotificationController extends Controller
     "user_id": 17,
     "thread_id": 7,
     "created_at": "2021-07-02T18:14:27.000000Z",
-    "updated_at": "2021-07-02T18:14:27.000000Z"
+    "thread_title": "Updated thread"
     },
     {
     "id": 4,
@@ -32,23 +32,7 @@ class NotificationController extends Controller
     "user_id": 17,
     "thread_id": 33,
     "created_at": "2021-07-02T18:26:25.000000Z",
-    "updated_at": "2021-07-02T18:26:25.000000Z"
-    },
-    {
-    "id": 7,
-    "message": "Successfully processed the post",
-    "user_id": 17,
-    "thread_id": 37,
-    "created_at": "2021-07-02T19:42:01.000000Z",
-    "updated_at": "2021-07-02T19:42:01.000000Z"
-    },
-    {
-    "id": 10,
-    "message": "Successfully processed the post",
-    "user_id": 17,
-    "thread_id": 37,
-    "created_at": "2021-07-02T19:45:33.000000Z",
-    "updated_at": "2021-07-02T19:45:33.000000Z"
+    "thread_title": "Dużo tagów"
     }
     ],
     "status": 200
