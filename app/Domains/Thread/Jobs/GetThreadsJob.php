@@ -25,6 +25,6 @@ class GetThreadsJob extends Job
      */
     public function handle()
     {
-        return Thread::all();
+        return Thread::orderByDesc('created_at')->get();
     }
 }
