@@ -25,6 +25,20 @@ class Notification extends Model
         'user_id'
     ];
 
+    protected $appends = [
+        'thread_title'
+    ];
+
+    protected $hidden = [
+        'thread',
+        'updated_at'
+    ];
+
+    public function getThreadTitleAttribute()
+    {
+        return $this->thread->title;
+    }
+
     /**
      * Notification belongs to a User
      *
@@ -33,5 +47,15 @@ class Notification extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Notification belongs to a Thread
+     *
+     * @return BelongsTo
+     */
+    public function thread(): BelongsTo
+    {
+        return $this->belongsTo(Thread::class, 'thread_id');
     }
 }

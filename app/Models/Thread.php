@@ -164,6 +164,16 @@ class Thread extends Model
     }
 
     /**
+     * Thread has many Posts
+     *
+     * @return HasMany
+     */
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    /**
      * Thread has many Comments through Posts
      *
      * @return HasManyThrough
