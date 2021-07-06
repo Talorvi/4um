@@ -20,11 +20,6 @@ class EditPostFeature extends Feature
         ]);
 
         if ($result) {
-            $thread = $this->run(GetPostJob::class, [
-                'post_id' => $request->input('post_id')
-            ])->thread;
-            event(new ThreadUpdated($thread));
-
             return $this->run(new RespondWithJsonJob([
                 'success' => 'Post edited successfully.'
             ]));

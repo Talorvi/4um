@@ -42,6 +42,11 @@ class ProcessPostJob extends QueueableJob
              */
             event(new PostProcessed('Successfully processed the post', $this->post));
 
+            /**
+             * Used for refreshing thread
+             */
+            event(new ThreadUpdated($this->post->thread));
+
             if ($this->post->created_at === $this->post->updated_at) {
                 /**
                  * Notifies all followers
@@ -55,11 +60,6 @@ class ProcessPostJob extends QueueableJob
                  */
                 event(new PostAdded('Someone added a post to your thread', $this->post));
             }
-
-            /**
-             * Used for refreshing thread
-             */
-            event(new ThreadUpdated, $this->post->thread);
         }
         else {
             $this->post->accepted = 0;
