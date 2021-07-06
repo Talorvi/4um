@@ -4,6 +4,7 @@ namespace App\Domains\Post\Jobs;
 
 use App\Events\PostAdded;
 use App\Events\PostProcessed;
+use App\Events\ThreadUpdated;
 use App\Models\Post;
 use Lucid\Units\QueueableJob;
 
@@ -41,17 +42,24 @@ class ProcessPostJob extends QueueableJob
              */
             event(new PostProcessed('Successfully processed the post', $this->post));
 
-            /**
-             * Notifies the thread author that someone added a post to his/hers thread
-             */
-            event(new PostAdded('Someone added a post to your thread', $this->post));
+            if ($this->post->created_at === $this->post->updated_at) {
+                /**
+                 * Notifies all followers
+                 */
+                foreach ($this->post->thread->followers as $follower) {
+                    event(new PostAdded('Someone added a post you follow', $this->post));
+                }
+
+                /**
+                 * Notifies the thread author that someone added a post to his/hers thread
+                 */
+                event(new PostAdded('Someone added a post to your thread', $this->post));
+            }
 
             /**
-             * Notifies all followers
+             * Used for refreshing thread
              */
-            foreach ($this->post->thread->followers as $follower) {
-                event(new PostAdded('Someone added a post you follow', $this->post));
-            }
+            event(new ThreadUpdated, $this->post->thread);
         }
         else {
             $this->post->accepted = 0;

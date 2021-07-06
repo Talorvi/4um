@@ -30,12 +30,12 @@ class EditPostJobTest extends TestCase
         ]);
         $job = new EditPostJob($post->id,'test');
         $result = $job->handle();
-        $this->assertTrue($result);
+        $this->assertNotNull($result);
     }
     public function test_edit_ne_post_job()
     {
         $job = new EditPostJob(0,'test');
         $result = $job->handle();
-        $this->assertFalse($result);
+        $this->assertNull($result);
     }
 }

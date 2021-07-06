@@ -26,20 +26,21 @@ class EditPostJob extends Job
     /**
      * Execute the job.
      *
-     * @return bool
+     * @return Post|null
      */
-    public function handle(): bool
+    public function handle(): ?Post
     {
         try {
             $post = Post::findOrFail($this->post_id);
             if ($this->text) {
                 $post->text = $this->text;
+                $post->accepted = 0;
             }
             $post->save();
-            return true;
+            return $post;
         }
         catch (Exception $e) {
-            return false;
+            return null;
         }
     }
 }
